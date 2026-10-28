@@ -1,0 +1,32 @@
+# TPL — malha automática: 3 máquinas independentes medem com uma sintaxe só (tpl.py).
+name: TPL
+on: [push, workflow_dispatch]
+jobs:
+  medir:
+    strategy:
+      fail-fast: false
+      matrix: {os: [ubuntu-latest, windows-latest, macos-latest]}
+    runs-on: ${{ matrix.os }}
+    env: {PYTHONUTF8: "1", PYTHONIOENCODING: "utf-8"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install python-pptx==1.0.2
+      - run: python tpl.py autoteste Golden_Gate_Bridge.pptx
+      - run: python tpl.py medir Golden_Gate_Bridge.pptx ${{ matrix.os }} > ponte_${{ matrix.os }}.txt
+      - run: python tpl.py curto > curto_${{ matrix.os }}.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: "r-${{ matrix.os }}", path: "*_${{ matrix.os }}.txt"}
+  comparar:
+    needs: medir
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {merge-multiple: true}
+      - run: |
+          python tpl.py admitir ponte_*.txt curto_*.txt | tee malha.txt
+          test "$(grep -c '^MESMA_MEDICAO' malha.txt)" -eq 6
