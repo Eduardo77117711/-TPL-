@@ -1,4 +1,9 @@
-# TPL
+## Autoria e licença
+
+Criado por Carlos Eduardo Acevedo Rodrigues.
+Copyright 2026 Carlos Eduardo Acevedo Rodrigues.
+
+Licenciado sob a [Apache License 2.0](LICENSE). O uso, a modificação e a redistribuição devem manter esta atribuição e o arquivo [NOTICE](NOTICE).# TPL
 
 Método de verificação da verdade por código: só entra o que pode ser provado, mostrado ou mencionado com evidência. Fundado na coerência, para benefício da humanidade.
 
