@@ -29,3 +29,7 @@ jobs:
           pip install numpy scipy
           wc -c NucleoTPLPMVA_CORRIGIDO_v4.py
           python -I NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
+      - name: tpl_sintaxe.py (autoteste 10/10)
+        run: python -I tpl_sintaxe.py autoteste
+      - name: estado canonico (todo hash do tpl_estado.json confere com os arquivos)
+        run: python -I tpl_sintaxe.py estado
