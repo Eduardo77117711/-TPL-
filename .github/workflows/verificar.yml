@@ -5,7 +5,7 @@ jobs:
     name: no (${{ matrix.python }})
     strategy:
       fail-fast: false
-      matrix: {python: ["3.12", "3.13"]}
+      matrix: {python: ["3.11", "3.12", "3.13", "3.14"]}
     runs-on: ubuntu-latest
     env: {PYTHONUTF8: "1"}
     steps:
@@ -91,9 +91,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with: {merge-multiple: true}
-      - name: os 2 nos mediram a mesma coisa
+      - name: os 4 nos mediram a mesma coisa
         run: |
           ls malha_*.txt
-          test "$(ls malha_*.txt | wc -l)" -eq 2
-          diff malha_3.12.txt malha_3.13.txt
-          echo "MALHA DOBRADA: MESMA_MEDICAO em 2 nos (Python 3.12 e 3.13)"
+          test "$(ls malha_*.txt | wc -l)" -eq 4
+          for v in 3.11 3.13 3.14; do diff malha_3.12.txt malha_$v.txt; done
+          echo "MALHA DOBRADA: MESMA_MEDICAO em 4 nos (Python 3.11, 3.12, 3.13 e 3.14)"
