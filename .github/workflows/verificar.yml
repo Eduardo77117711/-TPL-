@@ -29,6 +29,29 @@ jobs:
           pip install numpy scipy
           wc -c NucleoTPLPMVA_CORRIGIDO_v4.py
           python -I NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
+      - name: pins dos pendentes (tpl_fala, harness_redis_nx_v3, tpl_lacunas)
+        run: |
+          cat > pend.sha256 <<'PINS'
+          cbf14125050b04893c83abba3e94ed1501df8df7d023071b91df0fec34791c21  tpl_fala.py
+          cef9b2ff11bcb9bd487b2c3bd92419a5ae26bdd1f1a6ebad2cba252c0e4f4012  harness_redis_nx_v3.py
+          8aacd51914c6261c8b84064a703d7874f5f58558cc40f1a0ce876f4dda3a2343  tpl_lacunas.py
+          PINS
+          sha256sum -c pend.sha256
+      - name: tpl_fala.py (autoteste 10/10)
+        run: |
+          python -I tpl_fala.py autoteste | tee fala.txt
+          grep -x "ESTADO: PROVADO (10/10)" fala.txt
+      - name: tpl_lacunas.py (autoteste 6/6)
+        run: |
+          python -I tpl_lacunas.py autoteste | tee lac.txt
+          grep -x "ESTADO: PROVADO (6/6)" lac.txt
+      - name: harness_redis_nx_v3.py (Redis real 8/8)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq redis-server
+          sudo systemctl stop redis-server || true
+          python -m venv vr && vr/bin/pip install -q --require-hashes -r requirements-redis.txt
+          vr/bin/python -I harness_redis_nx_v3.py | tee redis.txt
+          grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
       - name: tpl_sintaxe.py (autoteste 10/10)
         run: python -I tpl_sintaxe.py autoteste
       - name: estado canonico (todo hash do tpl_estado.json confere com os arquivos)
