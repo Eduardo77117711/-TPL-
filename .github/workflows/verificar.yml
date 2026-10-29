@@ -60,11 +60,25 @@ jobs:
         run: python -I tpl_sintaxe.py autoteste
       - name: estado canonico (todo hash do tpl_estado.json confere com os arquivos)
         run: python -I tpl_sintaxe.py estado
+      - name: acervo (pins + autoteste 10/10)
+        run: |
+          cat > acv.sha256 <<'PINS'
+          78e77a342470a1626d7fef3edda8c411819a026c7eda31416c3d93d32f101632  acervo/acervo_tpl.py
+          b0472bfbe7b257d2cecb5346efb61a80df72a129ac87e8600458279cb950f277  acervo/checar_base.py
+          945f55acc2e9e3ddcfa41849bafa0aaf5db67d69b8113333c51790d447f2a854  acervo/indice_publico.txt
+          PINS
+          sha256sum -c acv.sha256
+          python -I acervo/acervo_tpl.py autoteste | tee acv.txt
+          grep -x "ESTADO: PROVADO (10/10)" acv.txt
+      - name: base ligada ao acervo (8/8)
+        run: |
+          python -I acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tee base.txt
+          grep -x "ESTADO: BASE LIGADA AO ACERVO (8/8)" base.txt
       - name: resumo da medicao deste no
         run: |
           {
             sha256sum NucleoTPLPMVA_CORRIGIDO_v4.py tpl_arbitro_v3.py tpl_cadeia.py tpl_malha_v0_3.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py
-            cat fala.txt lac.txt
+            cat fala.txt lac.txt acv.txt base.txt
             grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
           } > malha_${{ matrix.python }}.txt
           cat malha_${{ matrix.python }}.txt
