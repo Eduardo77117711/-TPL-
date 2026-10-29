@@ -1,14 +1,18 @@
 name: verificar
 on: [push, pull_request]
 jobs:
-  juiz:
+  nos:
+    name: no (${{ matrix.python }})
+    strategy:
+      fail-fast: false
+      matrix: {python: ["3.12", "3.13"]}
     runs-on: ubuntu-latest
     env: {PYTHONUTF8: "1"}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python }}
       - name: pins sha256 (falha se qualquer byte mudar)
         run: |
           cat > pins.sha256 <<'PINS'
@@ -56,3 +60,26 @@ jobs:
         run: python -I tpl_sintaxe.py autoteste
       - name: estado canonico (todo hash do tpl_estado.json confere com os arquivos)
         run: python -I tpl_sintaxe.py estado
+      - name: resumo da medicao deste no
+        run: |
+          {
+            sha256sum NucleoTPLPMVA_CORRIGIDO_v4.py tpl_arbitro_v3.py tpl_cadeia.py tpl_malha_v0_3.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py
+            cat fala.txt lac.txt
+            grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
+          } > malha_${{ matrix.python }}.txt
+          cat malha_${{ matrix.python }}.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: "malha-${{ matrix.python }}", path: "malha_${{ matrix.python }}.txt"}
+  malha:
+    name: juiz
+    needs: nos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {merge-multiple: true}
+      - name: os 2 nos mediram a mesma coisa
+        run: |
+          ls malha_*.txt
+          test "$(ls malha_*.txt | wc -l)" -eq 2
+          diff malha_3.12.txt malha_3.13.txt
+          echo "MALHA DOBRADA: MESMA_MEDICAO em 2 nos (Python 3.12 e 3.13)"
