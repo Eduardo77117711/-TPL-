@@ -1,0 +1,123 @@
+{
+ "versao": "1",
+ "data": "2026-10-29",
+ "regra": "Todo hash citado em resposta TPL precisa constar aqui (R3). Estado VERIFICADO exige executor diferente do autor (R2).",
+ "artefatos": [
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "NucleoTPLPMVA_CORRIGIDO_v4.py",
+   "sha256": "f4624b6aa070a07413fe9552493390ea3a97c47bf45ae2926687706f8d626218",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz, run 40870796714)",
+   "evidencia": "15/15 OK; PR #1; merge 56106ad"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_arbitro_v3.py",
+   "sha256": "b9f837cade6b7377c099873f041db325ebda77c8b3122b1ea9bb880a10eabf89",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz)",
+   "evidencia": "autoteste 42/42 no PR #1"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_cadeia.py",
+   "sha256": "d4a28760b347321df1d877133782ad2d3dc8982bea9677558021827a4afe205c",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz)",
+   "evidencia": "autoteste 10/10 no PR #1"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_malha_v0_3.py",
+   "sha256": "bba1fefc316ed7f14db428b854ffc7b5f1a87220c317e68b866a94d2048ab9ec",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz)",
+   "evidencia": "autoteste 14/14 no PR #1 (via import)"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_curto.py",
+   "sha256": "2595c19bc3fa6d905c6549ebbde88d35aa8ad0d82afc93ab896f442d8da63db9",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (medir/comparar, 3 sistemas)",
+   "evidencia": "resultado_sha256 f68601e2 igual em Ubuntu/Windows/macOS e reproduzido por Claude"
+  },
+  {
+   "repositorio": "verdade-juridica",
+   "arquivo": "index.html",
+   "sha256": "738dd2b7ff88b78e38aaef1fcf65fa1c8e77b0a30dc93b7efbebc133ddb615e9",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz)",
+   "evidencia": "verificar #1-#6 verdes"
+  },
+  {
+   "repositorio": "verdade-juridica",
+   "arquivo": "verificador.test.js",
+   "sha256": "0cb513dde91e22dcc47a55d2c5f35e50ffd5eacf0b85e65be9d10e7577737ecd",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (juiz)",
+   "evidencia": "verificar #1-#6 verdes"
+  },
+  {
+   "repositorio": "tpl-arbitro",
+   "arquivo": "tpl_arbitro.py",
+   "sha256": "a8c62a0b4c4429a37a5d902d66cb11c9c6d5e4d78437dca582cdaa4d298c9c10",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (autoteste)",
+   "evidencia": "verificar #1 verde; 12/12"
+  },
+  {
+   "repositorio": "coerencia-em-escala",
+   "arquivo": "decoerencia.py",
+   "sha256": "ef378ac634e434f0088d31554cfbd06a923e28dcebf9fca592ea7795fc66e9d4",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (provas)",
+   "evidencia": "verificar #1 verde"
+  },
+  {
+   "repositorio": "coerencia-em-escala",
+   "arquivo": "tpl_sincronia.py",
+   "sha256": "373c9d1038310dd9bd5c49b6995280e56844242f4d13813dcd7da0a1752f96f0",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (provas)",
+   "evidencia": "verificar #1 verde"
+  },
+  {
+   "repositorio": "coerencia-em-escala",
+   "arquivo": "tpl_correcao.py",
+   "sha256": "f46209a805473942a12b976075c814fb1bdc80562c6c1687d8b7334555bcc30f",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (provas)",
+   "evidencia": "verificar #1 verde"
+  },
+  {
+   "repositorio": "coerencia-em-escala",
+   "arquivo": "tpl_superficie.py",
+   "sha256": "0cbfb0e9d7ca9df1799870776fc04bace600a04a7e7b394829d6b2226e8f6aeb",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (provas)",
+   "evidencia": "verificar #1 verde"
+  }
+ ],
+ "pendentes": [
+  {
+   "arquivo": "harness_redis_nx_v3.py",
+   "sha256": "cef9b2ff11bcb9bd487b2c3bd92419a5ae26bdd1f1a6ebad2cba252c0e4f4012",
+   "estado": "NAO EXECUTADO",
+   "motivo": "só o autor (Claude) executou; falta executor independente"
+  },
+  {
+   "arquivo": "tpl_fala.py",
+   "sha256": "cbf14125050b04893c83abba3e94ed1501df8df7d023071b91df0fec34791c21",
+   "estado": "NAO EXECUTADO",
+   "motivo": "só o autor (Claude) executou"
+  },
+  {
+   "arquivo": "tpl_lacunas.py",
+   "sha256": "8aacd51914c6261c8b84064a703d7874f5f58558cc40f1a0ce876f4dda3a2343",
+   "estado": "NAO EXECUTADO",
+   "motivo": "só o autor (Claude) executou"
+  }
+ ]
+}
