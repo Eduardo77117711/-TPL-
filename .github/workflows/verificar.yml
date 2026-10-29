@@ -1,0 +1,19 @@
+name: verificar
+on: [push, pull_request]
+jobs:
+  juiz:
+    runs-on: ubuntu-latest
+    env: {PYTHONUTF8: "1"}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: tpl_cadeia.py (autoteste 10/10)
+        run: python -I tpl_cadeia.py
+      - name: tpl_malha_v0_3.py (autoteste 14/14)
+        run: python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14"
+      - name: tpl_arbitro_v3.py (autoteste 42/42)
+        run: python -I tpl_arbitro_v3.py autoteste
+      - name: pins sha256
+        run: sha256sum tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py
