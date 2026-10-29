@@ -22,4 +22,4 @@ jobs:
         with: {merge-multiple: true}
       - run: |
           cat curto_*.txt
-          test "$(grep -h '^resultado_sha256' curto_*.txt | sort -u | wc -l)" -eq 1 && echo "MESMA_MEDICAO nas 3 máquinas"
+          test "$(grep -h '^resultado_sha256' curto_*.txt | tr -d '\r' | sort -u | wc -l)" -eq 1 && echo "MESMA_MEDICAO nas 3 máquinas"
