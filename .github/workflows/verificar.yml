@@ -9,11 +9,23 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - name: pins sha256 (falha se qualquer byte mudar)
+        run: |
+          cat > pins.sha256 <<'PINS'
+          d4a28760b347321df1d877133782ad2d3dc8982bea9677558021827a4afe205c  tpl_cadeia.py
+          bba1fefc316ed7f14db428b854ffc7b5f1a87220c317e68b866a94d2048ab9ec  tpl_malha_v0_3.py
+          b9f837cade6b7377c099873f041db325ebda77c8b3122b1ea9bb880a10eabf89  tpl_arbitro_v3.py
+          f4624b6aa070a07413fe9552493390ea3a97c47bf45ae2926687706f8d626218  NucleoTPLPMVA_CORRIGIDO_v4.py
+          PINS
+          sha256sum -c pins.sha256
       - name: tpl_cadeia.py (autoteste 10/10)
         run: python -I tpl_cadeia.py
       - name: tpl_malha_v0_3.py (autoteste 14/14)
         run: python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14"
       - name: tpl_arbitro_v3.py (autoteste 42/42)
         run: python -I tpl_arbitro_v3.py autoteste
-      - name: pins sha256
-        run: sha256sum tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py
+      - name: NucleoTPLPMVA_CORRIGIDO_v4.py (self-test 15/15)
+        run: |
+          pip install numpy scipy
+          wc -c NucleoTPLPMVA_CORRIGIDO_v4.py
+          python -I NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
