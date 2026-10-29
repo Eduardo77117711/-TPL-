@@ -1,7 +1,8 @@
 name: verificar
 on: [push, pull_request]
 jobs:
-  juiz:
+  nos:
+    name: no (${{ matrix.python }})
     strategy:
       fail-fast: false
       matrix: {python: ["3.12", "3.13"]}
@@ -70,7 +71,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: {name: "malha-${{ matrix.python }}", path: "malha_${{ matrix.python }}.txt"}
   malha:
-    needs: juiz
+    name: juiz
+    needs: nos
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
