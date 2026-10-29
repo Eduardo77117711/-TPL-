@@ -1,3 +1,5 @@
+Copyright (C) 2026 Carlos Eduardo Acevedo Rodrigues
+
 # TPL
 
 Método de verificação da verdade por código: só entra o que pode ser provado, mostrado ou mencionado com evidência. Fundado na coerência, para benefício da humanidade.
@@ -41,6 +43,6 @@ Carlos Eduardo Acevedo Rodrigues (Eduardo), Curitiba, Paraná.
 ## Autoria e licença
 
 Criado por Carlos Eduardo Acevedo Rodrigues.
-Copyright 2026 Carlos Eduardo Acevedo Rodrigues.
+Copyright (C) 2026 Carlos Eduardo Acevedo Rodrigues.
 
-Licenciado sob a [Apache License 2.0](LICENSE). O uso, a modificação e a redistribuição devem manter esta atribuição e o arquivo [NOTICE](NOTICE).
+Licenciado sob a [GNU AGPL-3.0](LICENSE): livre para usar, estudar, modificar e redistribuir. Toda versão derivada, inclusive a oferecida como serviço pela internet, continua livre sob a mesma licença e deve manter esta atribuição e o arquivo [NOTICE](NOTICE).
