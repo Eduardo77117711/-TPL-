@@ -58,7 +58,7 @@ def pages(path: str, key: str | None = None):
         else:
             WARNINGS.append(f"Formato inesperado ao paginar {url}")
             break
-        match = re.search(r'<([^>]+)>;\\s*rel="next"', link_header)
+        match = re.search(r'<([^>]+)>;\s*rel="next"', link_header)
         url = match.group(1) if match else ""
     return items
 
