@@ -2,11 +2,11 @@ name: verificar
 on: [push, pull_request]
 jobs:
   nos:
-    name: no (${{ matrix.python }})
+    name: no (${{ matrix.python }}, ${{ matrix.arch }})
     strategy:
       fail-fast: false
-      matrix: {python: ["3.11", "3.12", "3.13", "3.14"]}
-    runs-on: ubuntu-latest
+      matrix: {python: ["3.11", "3.12", "3.13", "3.14"], arch: [x64, arm64]}
+    runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-latest' }}
     env: {PYTHONUTF8: "1"}
     steps:
       - uses: actions/checkout@v5
@@ -74,16 +74,32 @@ jobs:
         run: |
           python -I acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tee base.txt
           grep -x "ESTADO: BASE LIGADA AO ACERVO (8/8)" base.txt
+      - name: bateria3.py (pin + 3 linhas seladas em 29/10 19:39)
+        run: |
+          echo "205b0cae54fe408d3d99083be47da79a78d39ff0d13e41917a87ef011a557bff  bateria3.py" | sha256sum -c
+          python -I bateria3.py | tee b3.txt
+          cat > b3_esperado.txt <<'B3'
+          P=40 digitos=74 sha256=f6ccc39acf9c399f45702a6a59a98c2490b243b46bb85894c18026fe596e9686
+          P=120 digitos=227 sha256=e8ba6528b517d804ee3df5c7e8ea396d55ff1be157a7185522d7383176c49d66
+          E40_cubo digitos=222 sha256=e9cd12e60b57efbbbb74c52e198c40986e1e359185b60106fdf3953233f96f54
+          B3
+          diff b3_esperado.txt b3.txt
+      - name: tpl_curto.py (pin + resultado selado)
+        run: |
+          echo "2595c19bc3fa6d905c6549ebbde88d35aa8ad0d82afc93ab896f442d8da63db9  tpl_curto.py" | sha256sum -c
+          python -I tpl_curto.py | tee curto.txt
+          grep -x "resultado_sha256: f68601e2c3d8920f49fffff21d871939aad6094c335aabe217a873d78b272260" curto.txt
       - name: resumo da medicao deste no
         run: |
           {
             sha256sum NucleoTPLPMVA_CORRIGIDO_v4.py tpl_arbitro_v3.py tpl_cadeia.py tpl_malha_v0_3.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py
             cat fala.txt lac.txt acv.txt base.txt
             grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
-          } > malha_${{ matrix.python }}.txt
-          cat malha_${{ matrix.python }}.txt
+            cat b3.txt curto.txt
+          } > malha_${{ matrix.python }}_${{ matrix.arch }}.txt
+          cat malha_${{ matrix.python }}_${{ matrix.arch }}.txt
       - uses: actions/upload-artifact@v4
-        with: {name: "malha-${{ matrix.python }}", path: "malha_${{ matrix.python }}.txt"}
+        with: {name: "malha-${{ matrix.python }}-${{ matrix.arch }}", path: "malha_${{ matrix.python }}_${{ matrix.arch }}.txt"}
   malha:
     name: juiz
     needs: nos
@@ -91,9 +107,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with: {merge-multiple: true}
-      - name: os 4 nos mediram a mesma coisa
+      - name: os 8 nos mediram a mesma coisa
         run: |
           ls malha_*.txt
-          test "$(ls malha_*.txt | wc -l)" -eq 4
-          for v in 3.11 3.13 3.14; do diff malha_3.12.txt malha_$v.txt; done
-          echo "MALHA DOBRADA: MESMA_MEDICAO em 4 nos (Python 3.11, 3.12, 3.13 e 3.14)"
+          test "$(ls malha_*.txt | wc -l)" -eq 8
+          for f in malha_*.txt; do diff malha_3.12_x64.txt "$f"; done
+          echo "MALHA DOBRADA: MESMA_MEDICAO em 8 nos (Python 3.11-3.14 x CPU x64 e ARM64)"
