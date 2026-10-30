@@ -2,11 +2,11 @@ name: verificar
 on: [push, pull_request]
 jobs:
   nos:
-    name: no (${{ matrix.python }}, ${{ matrix.arch }})
+    name: no (${{ matrix.python }}, ${{ matrix.arch }}, ${{ matrix.os }})
     strategy:
       fail-fast: false
-      matrix: {python: ["3.11", "3.12", "3.13", "3.14"], arch: [x64, arm64]}
-    runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-latest' }}
+      matrix: {python: ["3.11", "3.12", "3.13", "3.14"], arch: [x64, arm64], os: [ubuntu-24.04, ubuntu-22.04]}
+    runs-on: ${{ matrix.arch == 'arm64' && format('{0}-arm', matrix.os) || matrix.os }}
     env: {PYTHONUTF8: "1"}
     steps:
       - uses: actions/checkout@v5
@@ -107,10 +107,10 @@ jobs:
             cat fala.txt lac.txt acv.txt base.txt
             grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
             cat b3.txt curto.txt portal.txt mapa2.txt
-          } > malha_${{ matrix.python }}_${{ matrix.arch }}.txt
-          cat malha_${{ matrix.python }}_${{ matrix.arch }}.txt
+          } > malha_${{ matrix.python }}_${{ matrix.arch }}_${{ matrix.os }}.txt
+          cat malha_${{ matrix.python }}_${{ matrix.arch }}_${{ matrix.os }}.txt
       - uses: actions/upload-artifact@v4
-        with: {name: "malha-${{ matrix.python }}-${{ matrix.arch }}", path: "malha_${{ matrix.python }}_${{ matrix.arch }}.txt"}
+        with: {name: "malha-${{ matrix.python }}-${{ matrix.arch }}-${{ matrix.os }}", path: "malha_${{ matrix.python }}_${{ matrix.arch }}_${{ matrix.os }}.txt"}
   malha:
     name: juiz
     needs: nos
@@ -118,9 +118,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with: {merge-multiple: true}
-      - name: os 8 nos mediram a mesma coisa
+      - name: os 16 nos mediram a mesma coisa
         run: |
           ls malha_*.txt
-          test "$(ls malha_*.txt | wc -l)" -eq 8
-          for f in malha_*.txt; do diff malha_3.12_x64.txt "$f"; done
-          echo "MALHA DOBRADA: MESMA_MEDICAO em 8 nos (Python 3.11-3.14 x CPU x64 e ARM64)"
+          test "$(ls malha_*.txt | wc -l)" -eq 16
+          for f in malha_*.txt; do diff malha_3.12_x64_ubuntu-24.04.txt "$f"; done
+          echo "MALHA DOBRADA: MESMA_MEDICAO em 16 nos (Python 3.11-3.14 x CPU x64/ARM64 x Ubuntu 24.04/22.04)"
