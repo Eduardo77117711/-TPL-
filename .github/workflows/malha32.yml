@@ -50,11 +50,12 @@ jobs:
           sys.exit(0 if ok else 1)
           " | tr -d '\r' | tee pins_medidos.txt
           ! grep -q DIVERGE pins_medidos.txt
-      - name: autotestes (cadeia 10/10, malha 14/14, arbitro 42/42)
+      - name: autotestes (cadeia 10/10, malha 14/14, arbitro v3.2 47/47)
         run: |
           python -I tpl_cadeia.py
           python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14"
-          python -I tpl_arbitro_v3.py autoteste
+          python -I -c "import hashlib,sys; h=hashlib.sha256(open('tpl_arbitro_v3_2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='fe98022a4c1e75dcea27ae5cbb7a3347cd771993dc97d716784e0643be1a717c')"
+          python -I tpl_arbitro_v3_2.py autoteste
       - name: tpl_malha_v0_4.py (pin + autoteste 22/22, com o caso adversarial do PR #13)
         run: |
           python -I -c "import hashlib,sys; h=hashlib.sha256(open('tpl_malha_v0_4.py','rb').read()).hexdigest(); print(h); sys.exit(h!='29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8')"
