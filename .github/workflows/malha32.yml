@@ -114,5 +114,6 @@ jobs:
           echo "resumos recebidos: $n / 32"
           falhou=0
           for f in malha32_*.txt; do diff -q malha32_3.12_ubuntu-24.04.txt "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
-          test "$n" -eq 32 && test "$falhou" -eq 0
+          sha256sum malha32_3.12_ubuntu-24.04.txt || true
+          if [ "$n" -ne 32 ] || [ "$falhou" -ne 0 ]; then echo "MALHA INCOMPLETA OU DIVERGENTE: $n / 32 resumos"; exit 1; fi
           echo "MALHA DOBRADA: MESMA_MEDICAO em 32 nos (Python 3.11-3.14 x Ubuntu 24.04/22.04, Windows, macOS x x64/ARM64)"
