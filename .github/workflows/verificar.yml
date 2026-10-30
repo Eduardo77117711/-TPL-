@@ -89,13 +89,19 @@ jobs:
           echo "2595c19bc3fa6d905c6549ebbde88d35aa8ad0d82afc93ab896f442d8da63db9  tpl_curto.py" | sha256sum -c
           python -I tpl_curto.py | tee curto.txt
           grep -x "resultado_sha256: f68601e2c3d8920f49fffff21d871939aad6094c335aabe217a873d78b272260" curto.txt
+      - name: tpl_phi_omega_portal.py (pin + tabela selada em 30/10 07:20)
+        run: |
+          echo "4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68  tpl_phi_omega_portal.py" | sha256sum -c
+          python -m pip install -q sympy==1.14.0
+          python -I tpl_phi_omega_portal.py | tee portal.txt
+          grep -x "sha256_tabela=a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9" portal.txt
       - name: resumo da medicao deste no
         run: |
           {
             sha256sum NucleoTPLPMVA_CORRIGIDO_v4.py tpl_arbitro_v3.py tpl_cadeia.py tpl_malha_v0_3.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py
             cat fala.txt lac.txt acv.txt base.txt
             grep -x "ESTADO: PROVADO com Redis real (8/8)" redis.txt
-            cat b3.txt curto.txt
+            cat b3.txt curto.txt portal.txt
           } > malha_${{ matrix.python }}_${{ matrix.arch }}.txt
           cat malha_${{ matrix.python }}_${{ matrix.arch }}.txt
       - uses: actions/upload-artifact@v4
