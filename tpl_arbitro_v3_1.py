@@ -38,11 +38,11 @@ Uso:
   python3 -I tpl_arbitro_v3_1.py arbitrar ARQUIVO.py --autor A --executor E \
       [--esperar-exit 0] [--esperar "texto"]... [--hash-informado SHA] \
       [--timeout 300] [--saida DIR] [--python INTERPRETADOR] -- [args]
-  python3 -I tpl_arbitro_v3.py matriz ARQUIVO.py --autor A --executor E \
+  python3 -I tpl_arbitro_v3_1.py matriz ARQUIVO.py --autor A --executor E \
       --python P1 --python P2 [...mesmas opções...] -- [args]
-  python3 -I tpl_arbitro_v3.py comparar VEREDITO_a.txt VEREDITO_b.txt
-  python3 -I tpl_arbitro_v3.py conferir VEREDITO_x.txt
-  python3 -I tpl_arbitro_v3.py autoteste
+  python3 -I tpl_arbitro_v3_1.py comparar VEREDITO_a.txt VEREDITO_b.txt
+  python3 -I tpl_arbitro_v3_1.py conferir VEREDITO_x.txt
+  python3 -I tpl_arbitro_v3_1.py autoteste
 
 Limite: registra o autor e o executor declarados; não prova identidade.
 """
@@ -393,7 +393,7 @@ def montar_corpo(nome_arquivo: str, hash_arquivo: str, tamanho: int, autor: str,
                  decisao: Decisao, arquivos_saida: dict, nucleo: dict | None = None) -> str:
     l: list[str] = []
     l.append(f"VEREDITO_{nome_arquivo}.txt")
-    l.append(f"Gerado por tpl_arbitro_v3.py versão {VERSAO}")
+    l.append(f"Gerado por tpl_arbitro_v3_1.py versão {VERSAO}")
     l.append(f"DATA_UTC: {agora_utc()}")
     l.append(f"AUTOR: {autor}")
     l.append(f"EXECUTOR: {executor} (declarado; a ferramenta não prova identidade)")
@@ -580,7 +580,7 @@ def matriz(arquivo: Path, autor: str, executor: str, argumentos: list[str],
     destino = saida / f"MATRIZ_{arquivo.name}.txt"
     if destino.exists():
         raise FileExistsError(f"{destino} já existe; o TPL não sobrescreve registros")
-    linhas = [f"MATRIZ_{arquivo.name}.txt", f"Gerado por tpl_arbitro_v3.py versão {VERSAO}",
+    linhas = [f"MATRIZ_{arquivo.name}.txt", f"Gerado por tpl_arbitro_v3_1.py versão {VERSAO}",
               f"DATA_UTC: {agora_utc()}", f"AUTOR: {autor}", f"EXECUTOR: {executor}",
               f"ARQUIVO: {arquivo.name}", f"SHA256: {sha256_bytes(arquivo.read_bytes())}", ""]
     hashes = []
@@ -894,17 +894,17 @@ class TplArbitroV3_1Tests(TplArbitroV2Tests):
 
     # 3.1) portabilidade Windows / normalização ---------------------------------
     def test_v31_saida_unicode_no_executor_isolado(self):
-        d, _ = self._arbitrar("print('OK-FIM')\\nprint('\\u200b')\\n")
+        d, _ = self._arbitrar("print('OK-FIM')\nprint('\u200b')\n")
         self.assertEqual(d.estado, VERIFICADO)
 
     def test_v31_selo_canoniza_lf_e_crlf(self):
-        selo = selar("linha 1\\r\\nlinha 2\\r\\n")
-        self.assertNotIn("\\r", selo)
+        selo = selar("linha 1\r\nlinha 2\r\n")
+        self.assertNotIn("\r", selo)
         self.assertTrue(conferir_selo(selo)[0])
-        self.assertTrue(conferir_selo(selo.replace("\\n", "\\r\\n"))[0])
+        self.assertTrue(conferir_selo(selo.replace("\n", "\r\n"))[0])
 
     def test_v31_localizar_posicao_logica_independe_de_crlf(self):
-        fluxo = "x" * 30000 + "\\r\\nMARCA-FINAL\\r\\n"
+        fluxo = "x" * 30000 + "\r\nMARCA-FINAL\r\n"
         e = Execucao(["py"], 0, fluxo, "")
         self.assertIn("caractere 30001", localizar("MARCA-FINAL", e))
 
