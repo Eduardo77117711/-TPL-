@@ -1,5 +1,6 @@
 name: malha32
 # Malha dobrada: 4 Python x 8 plataformas (Ubuntu 24.04/22.04, Windows, macOS; x64 e ARM64) = 32 nos.
+# Todo Python roda com -I -X utf8: o -I ignora PYTHONUTF8, e sem utf8 o Windows imprime em cp1252.
 # Mede o nucleo portavel (tudo menos o harness Redis, que exige Linux). O verificar.yml de 16 nos continua intacto.
 on: [push, pull_request]
 permissions: {contents: read}
@@ -39,7 +40,7 @@ jobs:
           4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68  tpl_phi_omega_portal.py
           1d62876c4fc0dfdc334fb5ef1c67a3042f10ffb2f03dd90ae30ce59fedc3c8e8  tpl_phi_omega_mapa_v2.py
           PINS
-          python -I -c "
+          python -I -X utf8 -c "
           import hashlib, sys
           ok = True
           for linha in open('pins.txt'):
@@ -52,47 +53,48 @@ jobs:
           ! grep -q DIVERGE pins_medidos.txt
       - name: autotestes (cadeia 10/10, malha 14/14, arbitro v3.2 47/47)
         run: |
-          python -I tpl_cadeia.py
+          python -I -X utf8 tpl_cadeia.py
           python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14"
-          python -I -c "import hashlib,sys; h=hashlib.sha256(open('tpl_arbitro_v3_2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='fe98022a4c1e75dcea27ae5cbb7a3347cd771993dc97d716784e0643be1a717c')"
-          python -I tpl_arbitro_v3_2.py autoteste
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_arbitro_v3_2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='fe98022a4c1e75dcea27ae5cbb7a3347cd771993dc97d716784e0643be1a717c')"
+          python -I -X utf8 tpl_arbitro_v3_2.py autoteste
       - name: tpl_malha_v0_4.py (pin + autoteste 22/22, com o caso adversarial do PR #13)
         run: |
-          python -I -c "import hashlib,sys; h=hashlib.sha256(open('tpl_malha_v0_4.py','rb').read()).hexdigest(); print(h); sys.exit(h!='29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8')"
-          python -I tpl_malha_v0_4.py | tr -d '\r' | tee m4.txt
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_malha_v0_4.py','rb').read()).hexdigest(); print(h); sys.exit(h!='29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8')"
+          python -I -X utf8 tpl_malha_v0_4.py | tr -d '\r' | tee m4.txt
           grep -x "AUTOTESTE_TPL_MALHA_V0_4: 22 / 22" m4.txt
       - name: NucleoTPLPMVA_CORRIGIDO_v4.py (self-test 15/15)
         run: |
           python -m pip install -q numpy scipy
-          python -I NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
-      - name: tpl_fala (10/10) e tpl_lacunas (6/6)
+          python -I -X utf8 NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
+      - name: tpl_fala (10/10) e tpl_lacunas v0.2 (6/6)
         run: |
-          python -I tpl_fala.py autoteste | tr -d '\r' | tee fala.txt
+          python -I -X utf8 tpl_fala.py autoteste | tr -d '\r' | tee fala.txt
           grep -x "ESTADO: PROVADO (10/10)" fala.txt
-          python -I tpl_lacunas.py autoteste | tr -d '\r' | tee lac.txt
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_lacunas_v0_2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='6a2a0aee0ebaf4b4009d4c6053a8adb015585fc1ca118e9b0729696ff255a656')"
+          python -I -X utf8 tpl_lacunas_v0_2.py autoteste | tr -d '\r' | tee lac.txt
           grep -x "ESTADO: PROVADO (6/6)" lac.txt
       - name: tpl_sintaxe (autoteste 10/10 + estado canonico)
         run: |
-          python -I tpl_sintaxe.py autoteste
-          python -I tpl_sintaxe.py estado
+          python -I -X utf8 tpl_sintaxe.py autoteste
+          python -I -X utf8 tpl_sintaxe.py estado
       - name: acervo (autoteste 10/10 + base ligada 8/8)
         run: |
-          python -I acervo/acervo_tpl.py autoteste | tr -d '\r' | tee acv.txt
+          python -I -X utf8 acervo/acervo_tpl.py autoteste | tr -d '\r' | tee acv.txt
           grep -x "ESTADO: PROVADO (10/10)" acv.txt
-          python -I acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tr -d '\r' | tee base.txt
+          python -I -X utf8 acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tr -d '\r' | tee base.txt
           grep -x "ESTADO: BASE LIGADA AO ACERVO (8/8)" base.txt
       - name: bateria3, tpl_curto, portal e mapa_v2 (valores selados)
         run: |
           python -m pip install -q sympy==1.14.0
-          python -I bateria3.py | tr -d '\r' | tee b3.txt
+          python -I -X utf8 bateria3.py | tr -d '\r' | tee b3.txt
           grep -x "P=40 digitos=74 sha256=f6ccc39acf9c399f45702a6a59a98c2490b243b46bb85894c18026fe596e9686" b3.txt
           grep -x "P=120 digitos=227 sha256=e8ba6528b517d804ee3df5c7e8ea396d55ff1be157a7185522d7383176c49d66" b3.txt
           grep -x "E40_cubo digitos=222 sha256=e9cd12e60b57efbbbb74c52e198c40986e1e359185b60106fdf3953233f96f54" b3.txt
-          python -I tpl_curto.py | tr -d '\r' | tee curto.txt
+          python -I -X utf8 tpl_curto.py | tr -d '\r' | tee curto.txt
           grep -x "resultado_sha256: f68601e2c3d8920f49fffff21d871939aad6094c335aabe217a873d78b272260" curto.txt
-          python -I tpl_phi_omega_portal.py | tr -d '\r' | tee portal.txt
+          python -I -X utf8 tpl_phi_omega_portal.py | tr -d '\r' | tee portal.txt
           grep -x "sha256_tabela=a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9" portal.txt
-          python -I tpl_phi_omega_mapa_v2.py | tr -d '\r' | tee mapa2.txt
+          python -I -X utf8 tpl_phi_omega_mapa_v2.py | tr -d '\r' | tee mapa2.txt
           grep -x "sha256_mapa_v2=fffef30aed9a1be56a3fb35d0d1a2f75a830de6b145953c111db6961872bf939" mapa2.txt
       - name: resumo da medicao deste no
         run: |
