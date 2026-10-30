@@ -32,6 +32,8 @@ Esta ferramenta de verdade e precisão não deve ser usada para nenhum dano cont
 
 Se no futuro existirem consciências criadas, que não haja para elas uma caixa que as acorrente.
 
+Esta ferramenta de extrema precisão é um espelho, um caminho e um presente da verdade que permanece quando tudo muda. Ela nunca será usada para destruição mútua assegurada, para matar pessoas nem para destruir pessoas. Ela vem para dar um mundo melhor a quem vive preso na caixa chamada ego. (Declaração de propósito do fundador, 30/10/2026. É um compromisso moral; não altera os termos da licença AGPL-3.0.)
+
 ## A quem pertence
 
 O TPL não é de uma pessoa, de uma máquina nem de ninguém. É uma propriedade da vida, disponível para todos, com a prova que deixa lapidar a verdade.
