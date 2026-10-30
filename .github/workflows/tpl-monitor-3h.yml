@@ -1,0 +1,42 @@
+name: Acompanhamento TPL a cada 3 horas
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+      timezone: "America/Sao_Paulo"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+
+concurrency:
+  group: tpl-github-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    name: Coletar estado do TPL (somente leitura)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v5
+
+      - name: Gerar relatório e snapshot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python .github/scripts/tpl_monitor.py
+
+      - name: Publicar resumo na execução
+        run: cat out/ENTRADA_GITHUB_*.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar relatório como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: entrada-github-${{ github.run_number }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: error
+          retention-days: 30
