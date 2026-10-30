@@ -1,0 +1,1 @@
+# Scanner placeholder retained as a separately testable audit entry point.\n
