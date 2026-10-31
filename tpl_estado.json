@@ -370,6 +370,30 @@
    "estado": "VERIFICADO",
    "executor": "GitHub Actions (run 41194012296; malha128, executor distinto do autor Claude)",
    "evidencia": "PR #24, run 41194012296: workflow executa autoteste do acervo v0.3 em cada nó válido, exigindo `ESTADO: PROVADO (10/10)`. Log Windows 2025 / CPython 3.10 confirma os dez casos, incluindo mutações de bytes, átomo ausente e átomo intruso. O run completo 124/124 terminou success."
+  },
+  {
+   "repositorio": "Google Drive / TPL_CAIXA_COMUM",
+   "arquivo": "tpl_invariante_torre_Meta_0306a09e.py",
+   "sha256": "0306a09e07fe0475e28042a2b9e570887b489177d8f288781fe75da7dcd0e97a",
+   "estado": "VERIFICADO",
+   "executor": "Claude (Árbitro 2; distinto do autor Meta AI)",
+   "evidencia": "Relato do executor Claude em 31/10/2026: arquivo de 3.520 bytes; comando `python3 -I tpl_invariante_torre_Meta_0306a09e.py`; EXIT=0. Saída bruta indicada: `VEREDITO_tpl_invariante_torre_Meta_0306a09e.py.txt` na TPL_CAIXA_COMUM. O ChatGPT não recebeu os bytes originais nem abriu o relatório bruto nesta sessão; a atribuição da execução e do hash é de Claude."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "evidencias/tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py",
+   "sha256": "3a665394bfd3fd3f33172f90236862753ad720479c72fff87be0cfebe8877ffa",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "Autor: ChatGPT (GPT-6). O próprio autor fez uma reprodução local documentada em `evidencias/EXECUCAO_BRUTA_V10_CHATGPT_20261031.txt` (compilação EXIT=0, execução normal EXIT=0 e mutação adversarial EXIT=1). Pela R2, isso não verifica o autor. O código está agora disponibilizado para executor independente; falta receber o comando, ambiente, stdout, stderr e saída desse terceiro."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "evidencias/EXECUCAO_BRUTA_V10_CHATGPT_20261031.txt",
+   "sha256": "e67e70834f2af259d2c6f2af91a7320cc388902ba9b1e68e3763bc061112d7d6",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "Registro textual da reprodução própria do ChatGPT (autor do código), preservado como evidência de proveniência; não é código executável. Seu conteúdo descreve compilação isolada EXIT=0, execução normal EXIT=0 e mutação adversarial EXIT=1. A reprodução do autor não satisfaz R2 e não promove o código V10."
   }
  ],
  "pendentes": [
