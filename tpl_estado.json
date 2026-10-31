@@ -111,9 +111,9 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/juiz-auto.yml",
    "sha256": "8bb5d7904799adab4fbad5b47edbe1351ca40dbdaa8f9a7d07a27c8b919b836c",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41187535181; executor distinto do autor Claude)",
+   "evidencia": "PR #23: workflow atualizado para executar o autoteste do juiz NOVO e usar o juiz do BASE (main) para o veredito. Run 41187535181 concluiu com sucesso; o autoteste v3 foi 13/13 e a comparação produziu `VEREDITO: CONFORME`. A versão corrente do workflow mantém essa regra em que o PR não julga a si próprio."
   },
   {
    "repositorio": "-TPL-",
@@ -239,9 +239,9 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_juiz_auto.py",
    "sha256": "cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41187535181; workflow juiz-auto; executor distinto do autor Claude)",
+   "evidencia": "PR #23, run 41187535181: o autoteste da versão v3 executou 13/13; a comparação foi executada pelo juiz v2 do commit BASE e terminou `VEREDITO: CONFORME`. O conteúdo desta entrada é a versão v3 SHA256 cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34. A verificação da regra nova de declaração por linha e da inclusão de arbitro_v3_3 no conjunto de comandos é reforçada pelo juiz v3 usado no PR #24."
   },
   {
    "repositorio": "-TPL-",
