@@ -1,5 +1,5 @@
 name: diag310
-# Diagnostico temporario: por que os autotestes falham em Python 3.10 no Windows (malha128, run 41184318106).
+# Diagnostico temporario: PyPy 3.11 falha no passo tpl_fala / tpl_lacunas v0.2 (malha128 v2, PR #24).
 # Saida devolvida como anotacoes, porque os logs nao sao legiveis da sessao do Arbitro 2. Nao mede o TPL.
 on:
   push:
@@ -7,22 +7,15 @@ on:
 permissions: {contents: read}
 jobs:
   diag:
-    runs-on: windows-2022
+    runs-on: ubuntu-24.04
     env: {PYTHONUTF8: "1"}
-    defaults:
-      run: {shell: bash}
     steps:
-      - run: git config --global core.autocrlf false
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
-        with: {python-version: "3.10"}
-      - name: hipotese SYSTEMROOT (filho com ambiente minimo, com e sem SYSTEMROOT)
+        with: {python-version: "pypy3.11"}
+      - name: rodar e devolver saida
         run: |
-          python -I -X utf8 -c "
-          import os, subprocess, sys
-          base = {'PATH': os.environ['PATH'], 'HOME': '.', 'TMPDIR': '.', 'TEMP': '.', 'TMP': '.'}
-          for nome, env in (('SEM_SYSTEMROOT', base), ('COM_SYSTEMROOT', dict(base, SYSTEMROOT=os.environ.get('SYSTEMROOT', '')))):
-              p = subprocess.run([sys.executable, '-I', '-X', 'utf8', '-c', 'print(42)'], env=env, capture_output=True)
-              print(nome, 'RC=%d' % p.returncode, 'OUT=%r' % p.stdout[:40], 'ERR=%r' % p.stderr[-160:])
-          " > h.txt 2>&1
-          m=$(cat h.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=hipotese::$m"
+          set +e
+          python -I -X utf8 tpl_fala.py autoteste > f.txt 2>&1; echo "EXIT=$?" >> f.txt
+          python -I -X utf8 tpl_lacunas_v0_2.py autoteste > l.txt 2>&1; echo "EXIT=$?" >> l.txt
+          for f in f l; do m=$(tail -n 40 $f.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=$f::$m"; done
