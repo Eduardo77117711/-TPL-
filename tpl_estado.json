@@ -370,6 +370,70 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_phi_omega_portal.py",
+   "sha256": "4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68",
+   "estado": "EXECUTADO_NO_ESCOPO",
+   "executor": "ChatGPT (GPT-6), reprodução local em Python 3.13.5",
+   "evidencia": "31/10/2026: execução local do conteúdo recuperado do main reproduziu sha256_tabela=a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9. Medição malha128 com 124 nós e reprodução Claude do mesmo hash foram declaradas pelo usuário; logs brutos não foram recuperados nesta sessão. Entrada histórica NAO EXECUTADO preservada acima."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "sha256_tabela — saída de tpl_phi_omega_portal.py",
+   "sha256": "a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9",
+   "estado": "REPRODUZIDO_LOCALMENTE_NO_ESCOPO",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "Digest das linhas calculadas reproduzido nesta sessão; coincidência com 124 nós da malha128 e reprodução Claude permanecem declarações recebidas do usuário."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_5f_p3.py",
+   "sha256": "d74ef5ba60da20933211c6104bdec4e21b47739b6528c9caba13681ba90ebaec",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "TPL-5F-01 P3: módulo isolado para acoplamento fermionico, potencial Yukawa SI, força radial, alcance de Compton e alpha_5; 18/18 testes passaram. P1/P2 consumidos, não refeitos."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "test_tpl_5f_p3.py",
+   "sha256": "2b1df9d3556d00f22637f1865af0d7743b6b9e8210c375a1ded622bcb91906ad",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "18/18 testes unitários aprovados; inclui casos nulos, ligação com fração Higgs de P2, conversões de massa/alcance, consistência F=-dV/dr e entradas inválidas."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_EXECUCAO.json",
+   "sha256": "46366c307b6e40edeeb5c77a428ed1bb435c7ff57f1da83a70df0360345dfb13",
+   "estado": "REGISTRADO_EM_BRANCH_PR31",
+   "executor": "ChatGPT (GPT-6), organização técnica; medições externas com proveniência separada",
+   "evidencia": "Registro P3 com P1/P2 preservados, resultado da reprodução local, declarações de malha128/Claude separadas, limites do modelo e P4 pendente."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_SHA256SUMS.txt",
+   "sha256": "6b6ff3eb19ac6496051091ec9f5fd2a9cb9f5d9336520384d374b8f1e2c88feb",
+   "estado": "REGISTRADO_EM_BRANCH_PR31",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Manifesto de integridade de P3: fonte portal, módulo, testes, registro de execução e digest sha256_tabela."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_H0_512.json",
+   "sha256": "87ac4cf67abd2e635e9df2d75c87a236d84aae2360e5044b46b820db99ed81f1",
+   "estado": "REGISTRADO_EM_BRANCH_PR31",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Registro E1 do caso-base T_0=512^0=1 e H0: alpha_5=0; estes casos-base permanecem logicamente separados."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_H0_512.json.sha256",
+   "sha256": "d6d1bcfbed417c3eaf543f2e991584bb55f9f0861ce99a5ad04554bb8a16afa2",
+   "estado": "REGISTRADO_EM_BRANCH_PR31",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Checksum lateral do registro TPL_5F_H0_512.json."
   }
  ],
  "pendentes": [
