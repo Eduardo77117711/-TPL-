@@ -110,7 +110,7 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/juiz-auto.yml",
-   "sha256": "17263cab7f7b1775d80f6b5c8ddff0b2c824ec8dbf084affd96de867f971fd23",
+   "sha256": "8bb5d7904799adab4fbad5b47edbe1351ca40dbdaa8f9a7d07a27c8b919b836c",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
@@ -238,7 +238,7 @@
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_juiz_auto.py",
-   "sha256": "bece2347bf973428868bc4e7837cdc0cbb67904835e37aef9fa155d252875e30",
+   "sha256": "cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
@@ -302,10 +302,18 @@
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_mudancas.json",
-   "sha256": "47131498c4f482dbafff798d0e827a9df4861b592c47d34f91ae19559fbc5540",
+   "sha256": "cd701ecb12700058e0785e1110940655763b62d78e8899ed8dfb22fc7777e48f",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_arbitro_v3_3.py",
+   "sha256": "949d347f914863b7531840ef00604d4906b53e5ab318c4c3b578b154a668efa4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
   }
  ],
  "pendentes": [

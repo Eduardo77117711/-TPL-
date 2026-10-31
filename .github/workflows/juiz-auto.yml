@@ -1,6 +1,8 @@
 name: juiz-auto
 # O arbitro dentro do TPL: o gabarito e a saida do commit base (ja no main, selado pelo git);
 # o commit novo e medido contra ele por este executor (GitHub Actions), nao pelo autor (R2).
+# v3: o veredito e dado pelo juiz do BASE (main), para que um PR nao afrouxe o proprio juiz;
+# o juiz do NOVO so roda o proprio autoteste.
 # Tambem roda o portao P0 (tpl_p0_v2.py): todo arquivo da arvore precisa constar no tpl_estado.json.
 on:
   pull_request:
@@ -22,9 +24,10 @@ jobs:
       - uses: actions/setup-python@v6
         with: {python-version: "3.12"}
       - run: python -m pip install -q numpy scipy sympy==1.14.0
-      - name: autoteste do juiz
+      - name: autoteste do juiz do NOVO
         run: python -I -X utf8 novo/tpl_juiz_auto.py autoteste
       - name: veredito
         run: |
           set -o pipefail
-          python -I -X utf8 novo/tpl_juiz_auto.py base "$BASE_SHA" novo "$NOVO_SHA" | tee -a "$GITHUB_STEP_SUMMARY"
+          J=base/tpl_juiz_auto.py; [ -f "$J" ] || J=novo/tpl_juiz_auto.py; echo "juiz usado: $J"
+          python -I -X utf8 "$J" base "$BASE_SHA" novo "$NOVO_SHA" | tee -a "$GITHUB_STEP_SUMMARY"

@@ -1,4 +1,4 @@
-"""tpl_juiz_auto.py v2 - TPL: o arbitro dentro do proprio TPL.
+"""tpl_juiz_auto.py v3 - TPL: o arbitro dentro do proprio TPL.
 
 O gabarito nao e escrito na hora: e a saida do commit BASE (ja no main, selado pelo git).
 O commit NOVO e medido contra ele pelo GitHub Actions (executor que nao e o autor, R2).
@@ -8,8 +8,10 @@ O commit NOVO e medido contra ele pelo GitHub Actions (executor que nao e o auto
 
 Regras (fail-closed; v2 corrige J01-J08 da revisao do ChatGPT de 31/10/2026):
   IGUAL   stdout, stderr e codigo de saida identicos no BASE e no NOVO         -> passa
-  MUDOU   saida diferente: passa SO se tpl_mudancas.json do NOVO declarar antes,
-          para esse comando, o sha256 exato da nova saida (gabarito previo)    -> senao DIVERGENTE
+  MUDOU   saida diferente: passa SO se tpl_mudancas.json do NOVO declarar antes, para esse comando,
+          o sha256 exato da nova saida OU {"linha": "<linha exata do stdout>"} (gabarito previo;
+          a forma "linha" serve quando a saida traz a versao do interpretador)  -> senao DIVERGENTE
+  v3: no CI, quem julga e o juiz do BASE (main); um PR nao pode afrouxar o proprio juiz.
   NOVO    script inexistente no BASE: passa se codigo 0 e a saida estiver declarada em tpl_mudancas.json
   FALHOU  codigo diferente de 0 no NOVO, timeout, ou BASE quebrado            -> DIVERGENTE
   P0      tpl_p0_v2.py no NOVO: exige codigo 0 E a linha exata "P0: CUMPRE" E "fora_do_estado: 0"
@@ -36,6 +38,7 @@ COMANDOS = [
     ("portal", "tpl_phi_omega_portal.py", []),
     ("mapa_v2", "tpl_phi_omega_mapa_v2.py", []),
     ("p0_autoteste", "tpl_p0_v2.py", ["autoteste"]),
+    ("arbitro_v3_3", "tpl_arbitro_v3_3.py", ["autoteste"]),
 ]
 TIMEOUT = 600
 # Unico trecho variavel conhecido: o tempo que o unittest imprime. Normalizado so nesta forma exata.
@@ -57,9 +60,9 @@ def rodar(raiz, script, args):
         r = subprocess.run(cmd, cwd=raiz, capture_output=True, timeout=TIMEOUT)
         norm = lambda b: TEMPO.sub(rb"\1<t>s", b.replace(b"\r\n", b"\n"))
         corpo = b"RC=%d\n--STDOUT--\n" % r.returncode + norm(r.stdout) + b"\n--STDERR--\n" + norm(r.stderr)
-        return r.returncode, hashlib.sha256(corpo).hexdigest()
+        return r.returncode, hashlib.sha256(corpo).hexdigest(), norm(r.stdout).decode("utf-8", "replace").split("\n")
     except subprocess.TimeoutExpired:
-        return 124, "TIMEOUT"
+        return 124, "TIMEOUT", []
 
 
 def julgar(base, base_sha, novo, novo_sha):
@@ -89,8 +92,8 @@ def julgar(base, base_sha, novo, novo_sha):
             est, nota = "FALHOU", "BASE quebrado (codigo %s): gabarito invalido" % b[0]
         elif b is not None and b[1] == n[1]:
             est, nota = "IGUAL", n[1][:16]
-        elif decl.get(nome) == n[1]:
-            est, nota = ("NOVO" if b is None else "MUDOU"), "declarado antes em tpl_mudancas.json: %s" % n[1][:16]
+        elif decl.get(nome) == n[1] or (isinstance(decl.get(nome), dict) and decl[nome].get("linha") in n[2]):
+            est, nota = ("NOVO" if b is None else "MUDOU"), "declarado antes em tpl_mudancas.json: %s" % (n[1][:16] if decl.get(nome) == n[1] else repr(decl[nome]["linha"]))
         else:
             est, nota = "FALHOU", "saida %s nao declarada (%s)" % (n[1][:16], "sem BASE" if b is None else "BASE " + b[1][:16])
         ok = ok and est in ("IGUAL", "MUDOU", "NOVO")
@@ -148,13 +151,15 @@ def autoteste():
             tempo = dict(base_arqs, **{"a.py": "import sys; print(1); sys.stderr.write('Ran 3 tests in 0.%d01s\\n' % (len(sys.argv) + 4))\n"})
             d_t1, _ = repo("t1", dict(base_arqs, **{"a.py": "import sys; print(1); sys.stderr.write('Ran 3 tests in 0.001s\\n')\n"}))
             casos.append(rodar(d_t1, "a.py", [])[1] == rodar(repo("t2", tempo)[0], "a.py", [])[1])          # so o tempo do unittest e normalizado
+            res, ok = r(base_arqs, "c11", {"n": {"linha": "5"}}); casos.append(res["n"] == "NOVO" and ok)            # v3: linha exata declarada
+            res, ok = r(base_arqs, "c12", {"n": {"linha": "6"}}); casos.append(res["n"] == "FALHOU" and not ok)      # v3: linha errada
             os.makedirs(os.path.join(t, "naogit"))
             lin, ok = julgar(B[0], B[1], os.path.join(t, "naogit"), "x"); casos.append(not ok and lin[0][1] == "DIVERGENTE")  # J05
         finally:
             COMANDOS = salvo
     n = sum(casos)
-    print("AUTOTESTE_TPL_JUIZ_AUTO_V2:", n, "/", len(casos))
-    return n == len(casos) == 11
+    print("AUTOTESTE_TPL_JUIZ_AUTO_V3:", n, "/", len(casos))
+    return n == len(casos) == 13
 
 
 if __name__ == "__main__":

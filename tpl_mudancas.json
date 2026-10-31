@@ -1,4 +1,7 @@
 {
  "_nota": "Saidas novas ou mudadas declaradas ANTES da execucao no CI (gabarito previo). Chave = nome do comando no tpl_juiz_auto.py; valor = sha256 do corpo RC/STDOUT/STDERR.",
- "p0_autoteste": "9606bcea60c22e39b91f2a4cef46f9398d92bc71718c961619de3ab4130aaa4d"
+ "p0_autoteste": "9606bcea60c22e39b91f2a4cef46f9398d92bc71718c961619de3ab4130aaa4d",
+ "arbitro_v3_3": {
+  "linha": "AUTOTESTE_TPL_ARBITRO_V3_3: PASSOU"
+ }
 }
