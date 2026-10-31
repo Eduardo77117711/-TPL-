@@ -1,5 +1,5 @@
 name: diag310
-# Diagnostico temporario: PyPy 3.11 falha no passo tpl_fala / tpl_lacunas v0.2 (malha128 v2, PR #24).
+# Diagnostico temporario: PyPy 3.11 ainda falha no passo tpl_fala / tpl_lacunas v0.3 (malha128 v2, PR #24).
 # Saida devolvida como anotacoes, porque os logs nao sao legiveis da sessao do Arbitro 2. Nao mede o TPL.
 on:
   push:
@@ -7,7 +7,9 @@ on:
 permissions: {contents: read}
 jobs:
   diag:
-    runs-on: ubuntu-24.04
+    strategy: {matrix: {os: [ubuntu-24.04, windows-2022]}}
+    runs-on: ${{ matrix.os }}
+    defaults: {run: {shell: bash}}
     env: {PYTHONUTF8: "1"}
     steps:
       - uses: actions/checkout@v5
@@ -17,5 +19,5 @@ jobs:
         run: |
           set +e
           python -I -X utf8 tpl_fala.py autoteste > f.txt 2>&1; echo "EXIT=$?" >> f.txt
-          python -I -X utf8 tpl_lacunas_v0_2.py autoteste > l.txt 2>&1; echo "EXIT=$?" >> l.txt
-          for f in f l; do m=$(tail -n 40 $f.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=$f::$m"; done
+          python -I -X utf8 tpl_lacunas_v0_3.py autoteste > l.txt 2>&1; echo "EXIT=$?" >> l.txt
+          for f in f l; do m=$(tail -n 40 $f.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=${{ matrix.os }}-$f::$m"; done
