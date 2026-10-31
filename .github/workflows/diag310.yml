@@ -16,10 +16,13 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with: {python-version: "3.10"}
-      - name: rodar e devolver saida
+      - name: hipotese SYSTEMROOT (filho com ambiente minimo, com e sem SYSTEMROOT)
         run: |
-          set +e
-          python -I -X utf8 tpl_cadeia.py > a.txt 2>&1; echo "EXIT=$?" >> a.txt
-          python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14" > b.txt 2>&1; echo "EXIT=$?" >> b.txt
-          python -I -X utf8 tpl_arbitro_v3_2.py autoteste > c.txt 2>&1; echo "EXIT=$?" >> c.txt
-          for f in a b c; do m=$(tail -n 30 $f.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=$f::$m"; done
+          python -I -X utf8 -c "
+          import os, subprocess, sys
+          base = {'PATH': os.environ['PATH'], 'HOME': '.', 'TMPDIR': '.', 'TEMP': '.', 'TMP': '.'}
+          for nome, env in (('SEM_SYSTEMROOT', base), ('COM_SYSTEMROOT', dict(base, SYSTEMROOT=os.environ.get('SYSTEMROOT', '')))):
+              p = subprocess.run([sys.executable, '-I', '-X', 'utf8', '-c', 'print(42)'], env=env, capture_output=True)
+              print(nome, 'RC=%d' % p.returncode, 'OUT=%r' % p.stdout[:40], 'ERR=%r' % p.stderr[-160:])
+          " > h.txt 2>&1
+          m=$(cat h.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=hipotese::$m"
