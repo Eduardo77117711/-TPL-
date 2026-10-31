@@ -370,6 +370,102 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha256.yml",
+   "sha256": "641234a1e212d6bd915f1532896f404933ae86d559d4b10dc6efd641629eabe4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "malha256 v1 (31/10/2026): 124 nos x 2 modos (padrao e -X dev) = 248 nos; PR #25"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/linguagens.yml",
+   "sha256": "ad2aacd77e21c4a4d35c1f6162ffe3244a79293b49dbc80f0b718c15af99867a",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/sha256.h",
+   "sha256": "ef90f5a3004c613b4b9d02e1f8166b4ae221d905d2bff2dbf0790828a6ede4a5",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.c",
+   "sha256": "9efcab9d71d87abc2489e1a1d03ea83028383d52fd087d6a0f56607af3350d06",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.cpp",
+   "sha256": "b28c9698463d545dc3de56c6b7944b64ca248c92bf0218e2c8c19c1adf0c980b",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.rs",
+   "sha256": "c5a16388bd4c56fa62e07c61886e391efae64ab9c7584a0e6f52c0d276aa9d52",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.go",
+   "sha256": "846be8e9ca845473af9124f89a8e93cce03e60da8f211db817097a821cb8508c",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.js",
+   "sha256": "b17fae9032141c8ab0a3b840ef2b85495c7e4ad604c13cae3e71294b3ff5c089",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/TplCurto.java",
+   "sha256": "68a2cff5c75410aa00b08eedc8f5d1cd930a82f2f55bdac019cbc6c0b01896b4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.php",
+   "sha256": "23807e0c49bb10edc898d0b3829acc71c2452e939fb47cdc89edcb7d3ad76eb0",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/tpl_curto.rb",
+   "sha256": "b1387b43d6ee816fbce82a54c24cb9ec2181fbe4cb665b651a4f8c4c049ea8cd",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "linguagens/rodar.sh",
+   "sha256": "c0c5b011be5545aee38d1e50d95ba3cb62c84748ffaf8030decdc145180e0860",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: tpl_curto em 9 linguagens; autor (Claude) reproduziu 9/9; executor independente = workflow linguagens"
   }
  ],
  "pendentes": [

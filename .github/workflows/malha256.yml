@@ -1,0 +1,132 @@
+name: malha256
+# v1 (31/10/2026): malha128 v4 (124 nos) x 2 modos de execucao = 248 nos.
+# Eixo novo: modo padrao e modo dev (-X dev: liga ResourceWarning para arquivo nao fechado, checagens extras
+# de memoria e de codificacao). Mesmo motor, mesma plataforma, condicao de execucao mais rigorosa.
+# Conta: 8 interpretadores x 16 plataformas x 2 modos = 256; os 4 pares sem build saem nos 2 modos (8) -> 248.
+# Teto do GitHub Actions: 256 jobs por matriz. 248 cabe; a proxima dobra exige dividir em mais de um workflow.
+# A malha128 continua intacta.
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  nos:
+    name: no (${{ matrix.modo }}, ${{ matrix.python }}, ${{ matrix.plat }})
+    strategy:
+      fail-fast: false
+      matrix:
+        modo: [padrao, dev]
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14", "3.15", "3.14t", "pypy3.11"]
+        plat: [ubuntu-24.04, ubuntu-24.04-arm, ubuntu-22.04, ubuntu-22.04-arm, ubuntu-26.04, ubuntu-26.04-arm, ubuntu-slim, windows-2025, windows-2022, windows-11-arm, windows-11-vs2026-arm, macos-15, macos-15-intel, macos-26, macos-26-intel, windows-2025-vs2026]
+        exclude:
+          - {python: "3.10", plat: windows-11-arm}
+          - {python: "3.10", plat: windows-11-vs2026-arm}
+          - {python: "pypy3.11", plat: windows-11-arm}
+          - {python: "pypy3.11", plat: windows-11-vs2026-arm}
+    runs-on: ${{ matrix.plat }}
+    env: {PYTHONUTF8: "1", FLAGS: "${{ matrix.modo == 'dev' && '-X dev' || '' }}"}
+    defaults:
+      run: {shell: bash}
+    steps:
+      - name: sem conversao de fim de linha (Windows converteria LF para CRLF e mudaria os bytes)
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: pins sha256 (calculados pelo proprio Python, igual em todo sistema)
+        run: |
+          cat > pins.txt <<'PINS'
+          d4a28760b347321df1d877133782ad2d3dc8982bea9677558021827a4afe205c  tpl_cadeia.py
+          bba1fefc316ed7f14db428b854ffc7b5f1a87220c317e68b866a94d2048ab9ec  tpl_malha_v0_3.py
+          b9f837cade6b7377c099873f041db325ebda77c8b3122b1ea9bb880a10eabf89  tpl_arbitro_v3.py
+          f4624b6aa070a07413fe9552493390ea3a97c47bf45ae2926687706f8d626218  NucleoTPLPMVA_CORRIGIDO_v4.py
+          cbf14125050b04893c83abba3e94ed1501df8df7d023071b91df0fec34791c21  tpl_fala.py
+          8aacd51914c6261c8b84064a703d7874f5f58558cc40f1a0ce876f4dda3a2343  tpl_lacunas.py
+          78e77a342470a1626d7fef3edda8c411819a026c7eda31416c3d93d32f101632  acervo/acervo_tpl.py
+          b0472bfbe7b257d2cecb5346efb61a80df72a129ac87e8600458279cb950f277  acervo/checar_base.py
+          945f55acc2e9e3ddcfa41849bafa0aaf5db67d69b8113333c51790d447f2a854  acervo/indice_publico.txt
+          205b0cae54fe408d3d99083be47da79a78d39ff0d13e41917a87ef011a557bff  bateria3.py
+          2595c19bc3fa6d905c6549ebbde88d35aa8ad0d82afc93ab896f442d8da63db9  tpl_curto.py
+          4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68  tpl_phi_omega_portal.py
+          1d62876c4fc0dfdc334fb5ef1c67a3042f10ffb2f03dd90ae30ce59fedc3c8e8  tpl_phi_omega_mapa_v2.py
+          PINS
+          python -I -X utf8 $FLAGS -c "
+          import hashlib, sys
+          ok = True
+          for linha in open('pins.txt'):
+              h, f = linha.split()
+              real = hashlib.sha256(open(f, 'rb').read()).hexdigest()
+              print(real + '  ' + f + ('' if real == h else '  DIVERGE'))
+              ok = ok and real == h
+          sys.exit(0 if ok else 1)
+          " | tr -d '\r' | tee pins_medidos.txt
+          ! grep -q DIVERGE pins_medidos.txt
+      - name: autotestes (cadeia 10/10, malha 14/14, arbitro v3.3)
+        run: |
+          python -I -X utf8 $FLAGS tpl_cadeia.py
+          python $FLAGS -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14"
+          python -I -X utf8 $FLAGS -c "import hashlib,sys; h=hashlib.sha256(open('tpl_arbitro_v3_3.py','rb').read()).hexdigest(); print(h); sys.exit(h!='949d347f914863b7531840ef00604d4906b53e5ab318c4c3b578b154a668efa4')"
+          python -I -X utf8 $FLAGS tpl_arbitro_v3_3.py autoteste
+      - name: tpl_malha_v0_4.py (pin + autoteste 22/22, com o caso adversarial do PR #13)
+        run: |
+          python -I -X utf8 $FLAGS -c "import hashlib,sys; h=hashlib.sha256(open('tpl_malha_v0_4.py','rb').read()).hexdigest(); print(h); sys.exit(h!='29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8')"
+          python -I -X utf8 $FLAGS tpl_malha_v0_4.py | tr -d '\r' | tee m4.txt
+          grep -x "AUTOTESTE_TPL_MALHA_V0_4: 22 / 22" m4.txt
+      - name: NucleoTPLPMVA_CORRIGIDO_v4.py (self-test 15/15)
+        if: ${{ !startsWith(matrix.python, 'pypy') }}
+        run: |
+          python -m pip install -q numpy scipy
+          python -I -X utf8 $FLAGS NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
+      - name: tpl_fala (10/10) e tpl_lacunas v0.4 (6/6)
+        run: |
+          python -I -X utf8 $FLAGS tpl_fala.py autoteste | tr -d '\r' | tee fala.txt
+          grep -x "ESTADO: PROVADO (10/10)" fala.txt
+          python -I -X utf8 $FLAGS -c "import hashlib,sys; h=hashlib.sha256(open('tpl_lacunas_v0_4.py','rb').read()).hexdigest(); print(h); sys.exit(h!='11df0142bf9ae5fc53e044aa1a18e1e23f5b957e06a6cc45af9cadb8e0f6d2b9')"
+          python -I -X utf8 $FLAGS tpl_lacunas_v0_4.py autoteste | tr -d '\r' | tee lac.txt
+          grep -x "ESTADO: PROVADO (6/6)" lac.txt
+      - name: tpl_sintaxe (autoteste 10/10 + estado canonico)
+        run: |
+          python -I -X utf8 $FLAGS tpl_sintaxe_v3.py autoteste
+          python -I -X utf8 $FLAGS tpl_sintaxe_v3.py estado
+      - name: acervo (autoteste 10/10 + base ligada 8/8)
+        run: |
+          python -I -X utf8 $FLAGS acervo/acervo_tpl_v0_3.py autoteste | tr -d '\r' | tee acv.txt
+          grep -x "ESTADO: PROVADO (10/10)" acv.txt
+          python -I -X utf8 $FLAGS acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tr -d '\r' | tee base.txt
+          grep -x "ESTADO: BASE LIGADA AO ACERVO (8/8)" base.txt
+      - name: bateria3, tpl_curto, portal e mapa_v2 (valores selados)
+        run: |
+          python -m pip install -q sympy==1.14.0
+          python -I -X utf8 $FLAGS bateria3.py | tr -d '\r' | tee b3.txt
+          grep -x "P=40 digitos=74 sha256=f6ccc39acf9c399f45702a6a59a98c2490b243b46bb85894c18026fe596e9686" b3.txt
+          grep -x "P=120 digitos=227 sha256=e8ba6528b517d804ee3df5c7e8ea396d55ff1be157a7185522d7383176c49d66" b3.txt
+          grep -x "E40_cubo digitos=222 sha256=e9cd12e60b57efbbbb74c52e198c40986e1e359185b60106fdf3953233f96f54" b3.txt
+          python -I -X utf8 $FLAGS tpl_curto.py | tr -d '\r' | tee curto.txt
+          grep -x "resultado_sha256: f68601e2c3d8920f49fffff21d871939aad6094c335aabe217a873d78b272260" curto.txt
+          python -I -X utf8 $FLAGS tpl_phi_omega_portal.py | tr -d '\r' | tee portal.txt
+          grep -x "sha256_tabela=a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9" portal.txt
+          python -I -X utf8 $FLAGS tpl_phi_omega_mapa_v2.py | tr -d '\r' | tee mapa2.txt
+          grep -x "sha256_mapa_v2=fffef30aed9a1be56a3fb35d0d1a2f75a830de6b145953c111db6961872bf939" mapa2.txt
+      - name: resumo da medicao deste no
+        run: |
+          cat pins_medidos.txt fala.txt lac.txt acv.txt base.txt b3.txt curto.txt portal.txt mapa2.txt > malha256_${{ matrix.modo }}_${{ matrix.python }}_${{ matrix.plat }}.txt
+          cat malha256_${{ matrix.modo }}_${{ matrix.python }}_${{ matrix.plat }}.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: "malha256-${{ matrix.modo }}-${{ matrix.python }}-${{ matrix.plat }}", path: "malha256_${{ matrix.modo }}_${{ matrix.python }}_${{ matrix.plat }}.txt"}
+  juiz:
+    name: juiz256
+    needs: nos
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {merge-multiple: true}
+      - name: os 248 nos mediram a mesma coisa
+        run: |
+          ls malha256_*.txt || true
+          n=$(ls malha256_*.txt 2>/dev/null | wc -l)
+          echo "resumos recebidos: $n / 248"
+          falhou=0
+          for f in malha256_*.txt; do diff -q malha256_padrao_3.12_ubuntu-24.04.txt "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
+          sha256sum malha256_padrao_3.12_ubuntu-24.04.txt || true
+          if [ "$n" -ne 248 ] || [ "$falhou" -ne 0 ]; then echo "MALHA INCOMPLETA OU DIVERGENTE: $n / 248 resumos"; exit 1; fi
+          echo "MALHA DOBRADA: MESMA_MEDICAO em 248 nos (modos padrao e -X dev; CPython 3.10-3.15, 3.14t e PyPy 3.11 x 16 plataformas: Ubuntu 22.04/24.04/26.04/slim, Windows 2022/2025/11-ARM (VS2022 e VS2026), macOS 15/26 x x64/ARM64)"
