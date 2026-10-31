@@ -314,6 +314,14 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha128.yml",
+   "sha256": "3ddb42cf27c035c8b5131ae76d6d2d8a520e25e420ad4a09e440ac753c4609d5",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "malha128 v2 (31/10/2026): 124 nos; gabarito selado no Drive antes da execucao"
   }
  ],
  "pendentes": [
