@@ -1,0 +1,65 @@
+REGISTRO DE EXECUCAO — TPL TORRE V10
+Autoria do código: ChatGPT (reprodução independente; não é o original da Meta).
+Execução e registro: ChatGPT, sessão atual.
+
+=== IDENTIFICACAO ===
+Arquivo: tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py
+Tamanho: 6919
+Python: Python 3.13.5
+SHA-256:
+3a665394bfd3fd3f33172f90236862753ad720479c72fff87be0cfebe8877ffa  tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py
+
+=== COMPILACAO ISOLADA ===
+EXIT=0
+
+=== EXECUCAO NORMAL ===
+MOD=1000000000000
+V=10
+3^10 mod MOD = 000000059049
+phi(MOD) = 400000000000
+lambda(MOD) = 50000000000
+MOD / lambda(MOD) = 20
+T_13 mod lambda(MOD) = 12464195387
+Teste de sensibilidade V->V+1: 000000177147 != 000000059049
+Teste de mutação do esperado: REJEITADO (262464195387 -> 262464195388)
+
+Cadeia de totientes:
+1000000000000 -> 400000000000 -> 160000000000 -> 64000000000 -> 25600000000 -> 10240000000 -> 4096000000 -> 1638400000 -> 655360000 -> 262144000 -> 104857600 -> 41943040 -> 16777216 -> 8388608 -> 4194304 -> 2097152 -> 1048576 -> 524288 -> 262144 -> 131072 -> 65536 -> 32768 -> 16384 -> 8192 -> 4096 -> 2048 -> 1024 -> 512 -> 256 -> 128 -> 64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+
+Altura | T_h mod 10^12
+-------|---------------
+     3 | 625597484987
+     4 | 776100739387
+     5 | 489660355387
+     6 | 425126595387
+     7 | 163200195387
+     8 | 285504195387
+     9 | 288064195387
+    10 | 846464195387
+    11 | 022464195387
+    12 | 662464195387
+    13 | 262464195387
+    14 | 262464195387
+
+Verificações finais:
+3^262464195387 mod MOD = 262464195387
+T_13 mod MOD = 262464195387
+T_14 mod MOD = 262464195387
+Indução: lambda(MOD) divide MOD; logo T_h mod MOD = R implica T_h mod lambda(MOD) = R mod lambda(MOD), e então T_(h+1) mod MOD = 3^R mod MOD = R.
+STATUS=PASS
+EXIT=0
+
+=== EXECUCAO ADVERSARIAL ===
+Traceback (most recent call last):
+  File "/mnt/data/tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py", line 196, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/data/tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py", line 150, in main
+    validate_fixed_rows(rows, expected_under_test)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py", line 103, in validate_fixed_rows
+    raise AssertionError(
+        f"altura {height}: calculado={actual:012d}, esperado={expected:012d}"
+    )
+AssertionError: altura 13: calculado=262464195387, esperado=262464195388
+EXIT=1
