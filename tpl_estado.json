@@ -314,6 +314,62 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha128.yml",
+   "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_lacunas_v0_3.py",
+   "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_sintaxe_v2.py",
+   "sha256": "f7445f82bc0be9519af41a74511bf59a54c036d68a06735b29703826d47aa554",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/acervo_tpl_v0_2.py",
+   "sha256": "9a28a24bca50542fc466cbfaa68e20988d6563f3113081dfae9855a8a897f5dc",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_lacunas_v0_4.py",
+   "sha256": "11df0142bf9ae5fc53e044aa1a18e1e23f5b957e06a6cc45af9cadb8e0f6d2b9",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_sintaxe_v3.py",
+   "sha256": "30682350b0e525e7272b993ae39a974e9e7493f9c4380a9a94ce54cb45692527",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/acervo_tpl_v0_3.py",
+   "sha256": "4b83eed8a4e4aa9dd981f88536d820651ff1bba657a378d93803114e14ea2b6e",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
   }
  ],
  "pendentes": [
