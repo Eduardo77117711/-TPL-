@@ -22,4 +22,4 @@ jobs:
           python -I -X utf8 tpl_cadeia.py > a.txt 2>&1; echo "EXIT=$?" >> a.txt
           python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14" > b.txt 2>&1; echo "EXIT=$?" >> b.txt
           python -I -X utf8 tpl_arbitro_v3_2.py autoteste > c.txt 2>&1; echo "EXIT=$?" >> c.txt
-          for f in a b c; do tail -n 25 $f.txt | tr -d '\r' | while IFS= read -r l; do echo "::warning title=$f::$l"; done; done
+          for f in a b c; do m=$(tail -n 30 $f.txt | tr -d '\r' | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}'); echo "::warning title=$f::$m"; done
