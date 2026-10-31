@@ -434,6 +434,14 @@
    "estado": "REGISTRADO_EM_BRANCH_PR31",
    "executor": "ChatGPT (GPT-6)",
    "evidencia": "Checksum lateral do registro TPL_5F_H0_512.json."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_SHA256SUMS.txt",
+   "sha256": "e7072f15bd154b0a22fced759c0526d9254516bddc2541d0b103d37eaee53912",
+   "estado": "SHA256SUMS_VERIFICADO_LOCALMENTE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "Versão corrigida do manifesto: sha256sum -c confirmou OK para tpl_5f_p3.py, test_tpl_5f_p3.py e TPL_5F_P3_EXECUCAO.json. SHA da fonte portal e digest sha256_tabela ficam identificados como referências externas em comentários. Manifesto anterior preservado como histórico."
   }
  ],
  "pendentes": [
