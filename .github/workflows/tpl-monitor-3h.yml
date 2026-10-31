@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python .github/scripts/tpl_monitor.py
+        run: python .github/scripts/tpl_monitor_atualizado.py
 
       - name: Publicar resumo na execução
         run: cat out/ENTRADA_GITHUB_*.txt >> "$GITHUB_STEP_SUMMARY"
