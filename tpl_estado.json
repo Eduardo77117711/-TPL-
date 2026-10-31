@@ -370,6 +370,14 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha256.yml",
+   "sha256": "641234a1e212d6bd915f1532896f404933ae86d559d4b10dc6efd641629eabe4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "malha256 v1 (31/10/2026): 124 nos x 2 modos (padrao e -X dev) = 248 nos; PR #25"
   }
  ],
  "pendentes": [
