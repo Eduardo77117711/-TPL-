@@ -263,17 +263,17 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_malha_v0_4.py",
    "sha256": "29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41146078404; workflow malha64; executor distinto do autor)",
+   "evidencia": "Run 41146078404 concluído com sucesso. O workflow conferiu o SHA-256 pinado e executou `python -I -X utf8 tpl_malha_v0_4.py`, exigindo a linha `AUTOTESTE_TPL_MALHA_V0_4: 22 / 22`; a execução integra a malha64 final após a substituição de macos-14 por windows-2025-vs2026."
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_p0_v2.py",
    "sha256": "230fcc35e595f5f670c15fad232558579b4a3b02ce8fef9e63bd50715c71e673",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41186286910; juiz-auto; executor distinto do autor)",
+   "evidencia": "Run 41186286910 no PR #22: autoteste do juiz 11/11; comparação BASE/NOVO com 13 comandos IGUAL, `p0_autoteste` NOVO declarado previamente, portão P0 com saída `P0: CUMPRE`, e veredito `CONFORME`. O P0 executou com código zero e sem arquivos fora do estado no commit testado."
   },
   {
    "repositorio": "-TPL-",
