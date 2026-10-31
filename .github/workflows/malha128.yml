@@ -1,4 +1,6 @@
 name: malha128
+# v3 (31/10/2026): PyPy corrigido: autotestes de lacunas, sintaxe e acervo em versoes que fecham os arquivos
+# (tpl_lacunas_v0_3, tpl_sintaxe_v2, acervo_tpl_v0_2). Execucao v2: run 41189112311, 110/124, 14 PyPy.
 # v2 (31/10/2026): 8 interpretadores x 16 plataformas = 128 combinacoes; 4 nao existem e saem por exclude,
 # com motivo: CPython 3.10 e PyPy 3.11 nao tem build para Windows ARM64 (windows-11-arm, windows-11-vs2026-arm).
 # N real = 124 nos. No PyPy o passo do Nucleo nao roda: o PyPI nao tem scipy pronto para PyPy 3.11 (o resumo
@@ -83,20 +85,20 @@ jobs:
         run: |
           python -m pip install -q numpy scipy
           python -I -X utf8 NucleoTPLPMVA_CORRIGIDO_v4.py --self-test
-      - name: tpl_fala (10/10) e tpl_lacunas v0.2 (6/6)
+      - name: tpl_fala (10/10) e tpl_lacunas v0.3 (6/6)
         run: |
           python -I -X utf8 tpl_fala.py autoteste | tr -d '\r' | tee fala.txt
           grep -x "ESTADO: PROVADO (10/10)" fala.txt
-          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_lacunas_v0_2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='6a2a0aee0ebaf4b4009d4c6053a8adb015585fc1ca118e9b0729696ff255a656')"
-          python -I -X utf8 tpl_lacunas_v0_2.py autoteste | tr -d '\r' | tee lac.txt
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_lacunas_v0_3.py','rb').read()).hexdigest(); print(h); sys.exit(h!='dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf')"
+          python -I -X utf8 tpl_lacunas_v0_3.py autoteste | tr -d '\r' | tee lac.txt
           grep -x "ESTADO: PROVADO (6/6)" lac.txt
       - name: tpl_sintaxe (autoteste 10/10 + estado canonico)
         run: |
-          python -I -X utf8 tpl_sintaxe.py autoteste
-          python -I -X utf8 tpl_sintaxe.py estado
+          python -I -X utf8 tpl_sintaxe_v2.py autoteste
+          python -I -X utf8 tpl_sintaxe_v2.py estado
       - name: acervo (autoteste 10/10 + base ligada 8/8)
         run: |
-          python -I -X utf8 acervo/acervo_tpl.py autoteste | tr -d '\r' | tee acv.txt
+          python -I -X utf8 acervo/acervo_tpl_v0_2.py autoteste | tr -d '\r' | tee acv.txt
           grep -x "ESTADO: PROVADO (10/10)" acv.txt
           python -I -X utf8 acervo/checar_base.py acervo/indice_publico.txt tpl_cadeia.py tpl_malha_v0_3.py tpl_arbitro_v3.py NucleoTPLPMVA_CORRIGIDO_v4.py tpl_fala.py tpl_lacunas.py harness_redis_nx_v3.py tpl_sintaxe.py | tr -d '\r' | tee base.txt
           grep -x "ESTADO: BASE LIGADA AO ACERVO (8/8)" base.txt

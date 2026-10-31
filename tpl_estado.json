@@ -318,10 +318,34 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha128.yml",
-   "sha256": "3ddb42cf27c035c8b5131ae76d6d2d8a520e25e420ad4a09e440ac753c4609d5",
+   "sha256": "6cce5ec62bfb2f60eb4dae9c13c2f7225e73ea7cca9212b5e352c99759b26bd3",
    "estado": "NAO EXECUTADO",
    "executor": "",
-   "evidencia": "malha128 v2 (31/10/2026): 124 nos; gabarito selado no Drive antes da execucao"
+   "evidencia": "malha128 v3 (31/10/2026): 124 nos; gabarito v3 selado no Drive antes da execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_lacunas_v0_3.py",
+   "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_sintaxe_v2.py",
+   "sha256": "f7445f82bc0be9519af41a74511bf59a54c036d68a06735b29703826d47aa554",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/acervo_tpl_v0_2.py",
+   "sha256": "9a28a24bca50542fc466cbfaa68e20988d6563f3113081dfae9855a8a897f5dc",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   }
  ],
  "pendentes": [
