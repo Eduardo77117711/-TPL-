@@ -113,7 +113,7 @@
    "sha256": "8bb5d7904799adab4fbad5b47edbe1351ca40dbdaa8f9a7d07a27c8b919b836c",
    "estado": "VERIFICADO",
    "executor": "GitHub Actions (run 41187535181; executor distinto do autor Claude)",
-   "evidencia": "PR #23: workflow atualizado para executar o autoteste do juiz NOVO e usar o juiz do BASE (main) para o veredito. Run 41187535181 concluiu com sucesso; o autoteste v3 foi 13/13 e a comparação produziu `VEREDITO: CONFORME`. A versão corrente do workflow mantém essa regra em que o PR não julga a si próprio."
+   "evidencia": "PR #23: workflow atualizado para executar o autoteste do juiz NOVO e usar o juiz do BASE (main) para o veredito. Run 41187535181 concluiu com sucesso; o autoteste v3 foi 13/13 e a comparação produziu `VEREDITO: CONFORME`. A versão corrente do workflow mantém essa regra em que o PR não julga a si próprio. Reexecutado no PR #24, run 41194012159: juiz v3 do BASE usado para julgar o NOVO; veredito CONFORME."
   },
   {
    "repositorio": "-TPL-",
@@ -241,7 +241,7 @@
    "sha256": "cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34",
    "estado": "VERIFICADO",
    "executor": "GitHub Actions (run 41187535181; workflow juiz-auto; executor distinto do autor Claude)",
-   "evidencia": "PR #23, run 41187535181: o autoteste da versão v3 executou 13/13; a comparação foi executada pelo juiz v2 do commit BASE e terminou `VEREDITO: CONFORME`. O conteúdo desta entrada é a versão v3 SHA256 cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34. A verificação da regra nova de declaração por linha e da inclusão de arbitro_v3_3 no conjunto de comandos é reforçada pelo juiz v3 usado no PR #24."
+   "evidencia": "PR #23, run 41187535181: o autoteste da versão v3 executou 13/13; a comparação foi executada pelo juiz v2 do commit BASE e terminou `VEREDITO: CONFORME`. O conteúdo desta entrada é a versão v3 SHA256 cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34. A verificação da regra nova de declaração por linha e da inclusão de arbitro_v3_3 no conjunto de comandos é reforçada pelo juiz v3 usado no PR #24. Em PR #24, run 41194012159, o juiz v3 no BASE processou também `arbitro_v3_3` (IGUAL) e terminou `VEREDITO: CONFORME`, com P0 CUMPRE."
   },
   {
    "repositorio": "-TPL-",
@@ -303,25 +303,25 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_mudancas.json",
    "sha256": "cd701ecb12700058e0785e1110940655763b62d78e8899ed8dfb22fc7777e48f",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012159; juiz-auto v3, executor distinto do autor Claude)",
+   "evidencia": "PR #24, run 41194012159: o juiz v3 do commit BASE comparou BASE/NOVO, leu a declaração prévia em tpl_mudancas.json e concluiu `VEREDITO: CONFORME`; o comando arbitro_v3_3 ficou IGUAL nos dois lados. A evidência atesta leitura e processamento do arquivo pelo juiz nesse escopo, não autoria independente do conteúdo."
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_arbitro_v3_3.py",
    "sha256": "949d347f914863b7531840ef00604d4906b53e5ab318c4c3b578b154a668efa4",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012296; malha128, executor distinto do autor Claude)",
+   "evidencia": "PR #24, run 41194012296: cada nó válido confere o SHA-256 pinado 949d347f914863b7531840ef00604d4906b53e5ab318c4c3b578b154a668efa4 e executa `python -I -X utf8 tpl_arbitro_v3_3.py autoteste`. Log do nó Windows Server 2025 / CPython 3.10: hash exato confirmado e `AUTOTESTE_TPL_ARBITRO_V3_3: PASSOU`. O workflow completo 124/124 terminou success. Isso verifica a v3.3 no escopo da malha; a correção SYSTEMROOT está medida também nas combinações Windows 3.10."
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha128.yml",
    "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012296; workflow malha128; executor distinto do autor Claude)",
+   "evidencia": "PR #24: run 41194012296 concluiu com sucesso. O workflow v4 estabelece N real=124, pois quatro combinações sem build Windows ARM64 foram excluídas com motivo; no PyPy não executa o passo do Núcleo por indisponibilidade de SciPy. O juiz exige 124 resumos idênticos e falha se N != 124. O commit integrado registra 124/124 e MESMA_MEDICAO. Não classificar como 128 nós executados."
   },
   {
    "repositorio": "-TPL-",
@@ -351,25 +351,25 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_4.py",
    "sha256": "11df0142bf9ae5fc53e044aa1a18e1e23f5b957e06a6cc45af9cadb8e0f6d2b9",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012296; malha128, executor distinto do autor Claude)",
+   "evidencia": "PR #24, run 41194012296: SHA-256 pinado 11df0142bf9ae5fc53e044aa1a18e1e23f5b957e06a6cc45af9cadb8e0f6d2b9 conferido; autoteste executado em cada nó válido com saída `ESTADO: PROVADO (6/6)`. Log Windows 2025 / CPython 3.10 confirma o pin e o resultado 6/6. Estado limita-se ao autoteste e à matriz v4."
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_sintaxe_v3.py",
    "sha256": "30682350b0e525e7272b993ae39a974e9e7493f9c4380a9a94ce54cb45692527",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012296; malha128, executor distinto do autor Claude)",
+   "evidencia": "PR #24, run 41194012296: workflow executa `python -I -X utf8 tpl_sintaxe_v3.py autoteste` e depois `tpl_sintaxe_v3.py estado` em cada nó válido. O run global e o juiz da malha terminaram success no desenho de 124 nós; escopo limitado às verificações efetivamente incluídas no workflow v4."
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/acervo_tpl_v0_3.py",
    "sha256": "4b83eed8a4e4aa9dd981f88536d820651ff1bba657a378d93803114e14ea2b6e",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41194012296; malha128, executor distinto do autor Claude)",
+   "evidencia": "PR #24, run 41194012296: workflow executa autoteste do acervo v0.3 em cada nó válido, exigindo `ESTADO: PROVADO (10/10)`. Log Windows 2025 / CPython 3.10 confirma os dez casos, incluindo mutações de bytes, átomo ausente e átomo intruso. O run completo 124/124 terminou success."
   }
  ],
  "pendentes": [
