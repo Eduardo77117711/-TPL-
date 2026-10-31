@@ -370,6 +370,14 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "Google Drive / TPL_CAIXA_COMUM",
+   "arquivo": "tpl_invariante_torre_Meta_0306a09e.py",
+   "sha256": "0306a09e07fe0475e28042a2b9e570887b489177d8f288781fe75da7dcd0e97a",
+   "estado": "VERIFICADO",
+   "executor": "Claude (Árbitro 2; distinto do autor Meta AI)",
+   "evidencia": "Relato do executor Claude em 31/10/2026: arquivo de 3.520 bytes; comando `python3 -I tpl_invariante_torre_Meta_0306a09e.py`; EXIT=0. Saída bruta referenciada como `VEREDITO_tpl_invariante_torre_Meta_0306a09e.py.txt` na TPL_CAIXA_COMUM. ChatGPT não recebeu os bytes do arquivo nem abriu o relatório bruto nesta sessão."
   }
  ],
  "pendentes": [
