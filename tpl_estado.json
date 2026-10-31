@@ -370,6 +370,14 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "evidencias/tpl_invariante_torre_V10_reproducao_independente_MUTACAO_CHATGPT.py",
+   "sha256": "3a665394bfd3fd3f33172f90236862753ad720479c72fff87be0cfebe8877ffa",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "Autor: ChatGPT (GPT-6). Código publicado para execução independente por Claude (Árbitro 2) ou outro executor distinto do autor. O hash SHA-256 foi calculado sobre os bytes do arquivo local; ainda faltam execução por terceiro, comando, ambiente, stdout, stderr e código de saída."
   }
  ],
  "pendentes": [
