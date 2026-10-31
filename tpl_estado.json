@@ -1,6 +1,6 @@
 {
- "versao": "1",
- "data": "2026-10-29",
+ "versao": "2",
+ "data": "2026-10-31",
  "regra": "Todo hash citado em resposta TPL precisa constar aqui (R3). Estado VERIFICADO exige executor diferente do autor (R2).",
  "artefatos": [
   {
@@ -98,6 +98,214 @@
    "estado": "VERIFICADO",
    "executor": "GitHub Actions (provas)",
    "evidencia": "verificar #1 verde"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/scripts/tpl_monitor.py",
+   "sha256": "838babe914200d023d8171cc2c3cec3049216ebb0f6f5ebe9282c8c5d321e63b",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/juiz-auto.yml",
+   "sha256": "17263cab7f7b1775d80f6b5c8ddff0b2c824ec8dbf084affd96de867f971fd23",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha32.yml",
+   "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha64.yml",
+   "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/tpl-monitor-3h.yml",
+   "sha256": "4fa832f773a20aadd721839f777e9c822f5134ab8787951f1cbc9e133f82d66c",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/tpl.yml",
+   "sha256": "28760dc869b1bb12101b11f65d4c2c1c77637157476fe06587d3ca534c80cdd5",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/verificar.yml",
+   "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_CANONE.md",
+   "sha256": "bd9e3f021d4c640a1c946538150b5f29be5b2c95d1e81582cf994a5643c75ffd",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_ESPEC_SAIDA_v2.txt",
+   "sha256": "fd0fb645af879ec26e5be751f166c2cbd8b85fb1d99c65a5a03d6dd9403ec406",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/acervo_tpl.py",
+   "sha256": "78e77a342470a1626d7fef3edda8c411819a026c7eda31416c3d93d32f101632",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/checar_base.py",
+   "sha256": "b0472bfbe7b257d2cecb5346efb61a80df72a129ac87e8600458279cb950f277",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "acervo/indice_publico.txt",
+   "sha256": "945f55acc2e9e3ddcfa41849bafa0aaf5db67d69b8113333c51790d447f2a854",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "bateria3.py",
+   "sha256": "205b0cae54fe408d3d99083be47da79a78d39ff0d13e41917a87ef011a557bff",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "harness_redis_nx_v3.py",
+   "sha256": "cef9b2ff11bcb9bd487b2c3bd92419a5ae26bdd1f1a6ebad2cba252c0e4f4012",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "requirements-redis.txt",
+   "sha256": "2a97b9670a8d5bc96a9dea295ca5936e62911a4b101639ec5b1a7de388e09c2d",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_arbitro_v3_2.py",
+   "sha256": "fe98022a4c1e75dcea27ae5cbb7a3347cd771993dc97d716784e0643be1a717c",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_fala.py",
+   "sha256": "cbf14125050b04893c83abba3e94ed1501df8df7d023071b91df0fec34791c21",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_juiz_auto.py",
+   "sha256": "bece2347bf973428868bc4e7837cdc0cbb67904835e37aef9fa155d252875e30",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_lacunas.py",
+   "sha256": "8aacd51914c6261c8b84064a703d7874f5f58558cc40f1a0ce876f4dda3a2343",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_lacunas_v0_2.py",
+   "sha256": "6a2a0aee0ebaf4b4009d4c6053a8adb015585fc1ca118e9b0729696ff255a656",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_malha_v0_4.py",
+   "sha256": "29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_p0_v2.py",
+   "sha256": "230fcc35e595f5f670c15fad232558579b4a3b02ce8fef9e63bd50715c71e673",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_phi_omega_mapa_v2.py",
+   "sha256": "1d62876c4fc0dfdc334fb5ef1c67a3042f10ffb2f03dd90ae30ce59fedc3c8e8",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_phi_omega_portal.py",
+   "sha256": "4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_sintaxe.py",
+   "sha256": "8d5b8de4550e3b8e45aa8fb663d50a145de50efacbdcebbbc87c96337cccac41",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_mudancas.json",
+   "sha256": "47131498c4f482dbafff798d0e827a9df4861b592c47d34f91ae19559fbc5540",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   }
  ],
  "pendentes": [
