@@ -119,9 +119,9 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha32.yml",
    "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41146078299; workflow malha32)",
+   "evidencia": "Run no commit do PR #20 concluído com sucesso; workflow malha32 exige 32 resumos e juiz de igualdade. A execução geral terminou success; aplica-se somente à versão de workflow identificada pelo SHA registrado."
   },
   {
    "repositorio": "-TPL-",
@@ -151,9 +151,9 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/verificar.yml",
    "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41146078419; workflow verificar)",
+   "evidencia": "Run no commit do PR #20: 17/17 jobs concluídos com sucesso, incluindo 16 nós de matriz e o juiz. Estado aplicável ao SHA registrado nesta entrada e ao escopo do workflow verificar."
   },
   {
    "repositorio": "-TPL-",
