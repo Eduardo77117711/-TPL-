@@ -127,9 +127,9 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha64.yml",
    "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions (run 41146078404; workflow malha64; executor distinto do autor)",
+   "evidencia": "Run 41146078404 concluído com sucesso no commit do PR #20; o workflow exige 64/64 resumos idênticos e juiz64 verde. Registro do PR: 64 nós mediram a mesma saída. Histórico R5: tentativa preliminar 41144758453 chegou a 60/64 porque quatro nós macos-14 foram cancelados pelo runner; o workflow foi corrigido para windows-2025-vs2026 e a execução final passou. Estado aplicável somente ao SHA e à versão de workflow registrados nesta entrada."
   },
   {
    "repositorio": "-TPL-",
