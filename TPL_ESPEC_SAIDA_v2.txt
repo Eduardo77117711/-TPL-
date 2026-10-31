@@ -1,0 +1,35 @@
+TPL — ESPECIFICAÇÃO DE SAÍDA DA FASE INICIAL — v2
+[ORIGEM: Claude (Árbitro 2), 31/10/2026, ~05:15 Curitiba. Substitui a v1 (sha256 a81816abe2fa322b9b9002daa5fa70c1832597965842da1fad07fab7f0eec82a), que fica no histórico.]
+MUDANÇAS SOBRE A v1: (a) universo por inclusão total com exclusão explícita e motivada (a v1 filtrava por extensão e deixava fora workflows, o cânone e entradas lidas por código); (b) P0 medido por instrumento que lê a árvore do git; (c) fotografia corrigida (erro de contagem do Árbitro 2 na v1, R5).
+Estado: PROPOSTO. Selada ANTES de qualquer medição contra ela. Entra no cânone só por commit com hash próprio.
+
+0. FINALIDADE
+A fase inicial termina quando, numa mesma versão, os portões P0 a P5 estiverem todos cumpridos. Antes disso: uso ampliado por terceiros e afirmação pública de benefício ficam fora. Usos já existentes (Verdade Jurídica em família, pedido no INPI) permanecem registrados.
+
+1. DEFINIÇÕES
+- VERSÃO: um commit do ramo principal do -TPL-, identificado pelo hash completo. Todo portão vale só para a versão em que foi medido (R4).
+- UNIVERSO: todo arquivo da árvore do git na VERSÃO (git ls-tree -r), menos a lista EXCLUIR, mais os artefatos de outros repositórios listados no tpl_estado.json. Arquivo novo entra por padrão.
+- EXCLUIR (fechada; mudar exige nova versão desta especificação): .gitignore, LICENSE, NOTICE, README.md (não executados nem lidos por código); tpl_estado.json (auto-referência). Se um código passar a ler um excluído, ele volta ao universo.
+- AUTOR: quem escreveu ou alterou o arquivo. EXECUTOR INDEPENDENTE: quem não é autor (ex.: GitHub Actions, outro modelo, outra pessoa) (R2).
+- N: número de nós declarados na matriz do workflow de malha da VERSÃO (hoje malha32: 4 Pythons x 8 plataformas = 32). Nó pulado, cancelado ou com erro conta como falha.
+
+2. PORTÕES
+P0. Completude do estado: todo arquivo do UNIVERSO consta no tpl_estado.json com sha256 que confere com os bytes da VERSÃO; nenhum arquivo fora; nenhum declarado inexistente. Medido por tpl_p0_v2.py (sha256 230fcc35e595f5f670c15fad232558579b4a3b02ce8fef9e63bd50715c71e673), executado por EXECUTOR INDEPENDENTE.
+P1. Todo artefato do tpl_estado.json em VERIFICADO por EXECUTOR INDEPENDENTE, com referência à execução (id do run ou veredito com selo).
+P2. Malha N/N: os N nós imprimem o mesmo resumo (sha256) na VERSÃO, e o juiz da malha termina verde.
+P3. Mutantes: duas rodadas sobre o mesmo conjunto selado, executadas por EXECUTOR INDEPENDENTE. Declarar: denominador, mortos pela saída, taxa, tipos de mutação e causa nomeada de cada sobrevivente. Cumpre se cada rodada >= 90% e 100% dos sobreviventes têm causa nomeada.
+P4. Execução cega: o gabarito (saída esperada e seu sha256) é selado com data antes do envio; o executor recebe só código e comando, nunca o gabarito; devolve saída bruta. Cumpre se o sha256 devolvido for igual ao selado. Mínimo: 1 executor que não seja o autor nem o Árbitro 2.
+P5. Zero DIVERGENTE aberto no tpl_estado.json, nos vereditos da TPL_CAIXA_COMUM e nos registros do Árbitro 2 referentes à VERSÃO.
+
+3. TRATAMENTO DE FALHA
+- Um portão falho mantém a fase inicial. A falha é registrada com horário e não é apagada (R5).
+- A correção gera nova VERSÃO; todos os portões são medidos de novo nela (R4).
+- Mudar esta especificação depois de ver um resultado é proibido. Mudança só por nova versão da especificação, selada antes da medição seguinte; a anterior fica no histórico.
+
+4. FOTOGRAFIA NA HORA DA SELAGEM (versão b1e9bb9956d8e88b0e8b5891da4016b68d420105) — medido pelo Árbitro 2, não é verificação
+- P0: FALHA. Árvore: 30 arquivos; excluídos: 5; universo: 25; fora do estado: 20; pin errado: 0; declarado inexistente: 0. Fora: .github/scripts/tpl_monitor.py, os 4 workflows (.yml), TPL_CANONE.md, acervo/acervo_tpl.py, acervo/checar_base.py, acervo/indice_publico.txt, requirements-redis.txt, bateria3.py, harness_redis_nx_v3.py, tpl_arbitro_v3_2.py, tpl_fala.py, tpl_lacunas.py, tpl_lacunas_v0_2.py, tpl_malha_v0_4.py, tpl_phi_omega_mapa_v2.py, tpl_phi_omega_portal.py, tpl_sintaxe.py. Grau AUTOMEDICAO.
+- P1: NAO MEDIDO para esta versão.
+- P2: MENCIONADO 32/32 (registro do Drive "malha32_run4", 30/10); não relido nesta selagem.
+- P3: NAO CUMPRE. Rodada 1: 300/325 = 92,3%; rodada 2: 305/325 = 93,8%; combinado 605/650 = 93,1%; 45 sobreviventes, todos com causa nomeada (A–I). Grau AUTOMEDICAO.
+- P4: NAO EXECUTADO para esta versão.
+- P5: NAO MEDIDO.
