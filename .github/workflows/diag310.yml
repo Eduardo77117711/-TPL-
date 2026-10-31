@@ -1,0 +1,25 @@
+name: diag310
+# Diagnostico temporario: por que os autotestes falham em Python 3.10 no Windows (malha128, run 41184318106).
+# Saida devolvida como anotacoes, porque os logs nao sao legiveis da sessao do Arbitro 2. Nao mede o TPL.
+on:
+  push:
+    branches: [diag-310-windows]
+permissions: {contents: read}
+jobs:
+  diag:
+    runs-on: windows-2022
+    env: {PYTHONUTF8: "1"}
+    defaults:
+      run: {shell: bash}
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.10"}
+      - name: rodar e devolver saida
+        run: |
+          set +e
+          python -I -X utf8 tpl_cadeia.py > a.txt 2>&1; echo "EXIT=$?" >> a.txt
+          python -c "import tpl_malha_v0_3 as m; n = m.autoteste(); print('AUTOTESTE_TPL_MALHA_V0_3:', n, '/ 14'); assert n == 14" > b.txt 2>&1; echo "EXIT=$?" >> b.txt
+          python -I -X utf8 tpl_arbitro_v3_2.py autoteste > c.txt 2>&1; echo "EXIT=$?" >> c.txt
+          for f in a b c; do tail -n 25 $f.txt | tr -d '\r' | while IFS= read -r l; do echo "::warning title=$f::$l"; done; done
