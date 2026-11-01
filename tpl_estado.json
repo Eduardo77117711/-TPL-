@@ -117,22 +117,6 @@
   },
   {
    "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha32.yml",
-   "sha256": "ad4061c668bbcd8e2699695b63245299b3d8d16b47a4e8f7d6901d02533992d9",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha64.yml",
-   "sha256": "b33bc9e7131ec7b0e72ddbac2c2dd88e71e8206a492d8387e63fc5ea82d43f1a",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl-monitor-3h.yml",
    "sha256": "4fa832f773a20aadd721839f777e9c822f5134ab8787951f1cbc9e133f82d66c",
    "estado": "NAO EXECUTADO",
@@ -143,14 +127,6 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl.yml",
    "sha256": "28760dc869b1bb12101b11f65d4c2c1c77637157476fe06587d3ca534c80cdd5",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/verificar.yml",
-   "sha256": "e103d5eb045f325cb71df45db96f33a1a3b19177187f9c00e6f8febb867b5acb",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
@@ -317,14 +293,6 @@
   },
   {
    "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha128.yml",
-   "sha256": "ade3d90236f13cbe2ae6d61f9dce1a30bb801cf0c9d3ccc37913486f385e479c",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
-  },
-  {
-   "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_3.py",
    "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
    "estado": "NAO EXECUTADO",
@@ -370,6 +338,38 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha32.yml",
+   "sha256": "ad4061c668bbcd8e2699695b63245299b3d8d16b47a4e8f7d6901d02533992d9",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha64.yml",
+   "sha256": "b33bc9e7131ec7b0e72ddbac2c2dd88e71e8206a492d8387e63fc5ea82d43f1a",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/verificar.yml",
+   "sha256": "e103d5eb045f325cb71df45db96f33a1a3b19177187f9c00e6f8febb867b5acb",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha128.yml",
+   "sha256": "ade3d90236f13cbe2ae6d61f9dce1a30bb801cf0c9d3ccc37913486f385e479c",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
   }
  ],
  "pendentes": [
@@ -391,5 +391,42 @@
    "estado": "NAO EXECUTADO",
    "motivo": "só o autor (Claude) executou"
   }
- ]
+ ],
+ "registro_pr34": {
+  "nota": "Registros anteriores ao PR #34, preservados sem alteracao (os arquivos mudaram de gatilho).",
+  "entradas": [
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha32.yml",
+    "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha64.yml",
+    "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/verificar.yml",
+    "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha128.yml",
+    "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
+   }
+  ]
+ }
 }
