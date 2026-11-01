@@ -442,6 +442,70 @@
    "estado": "SHA256SUMS_VERIFICADO_LOCALMENTE",
    "executor": "ChatGPT (GPT-6), Python 3.13.5",
    "evidencia": "Versão corrigida do manifesto: sha256sum -c confirmou OK para tpl_5f_p3.py, test_tpl_5f_p3.py e TPL_5F_P3_EXECUCAO.json. SHA da fonte portal e digest sha256_tabela ficam identificados como referências externas em comentários. Manifesto anterior preservado como histórico."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_5f_p3.py",
+   "sha256": "eebd59b0ebf14fb59e8e3814aaf501118f604eec1a2771f4cadd65e7e0c15b42",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "P3 preserva potencial Yukawa, força radial, alcance, alpha_5 e funções anteriores; adiciona nucleon_scalar_charge com Q_N=sin(theta)*f_N*m_N/v. 23/23 testes P3 passam localmente."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "test_tpl_5f_p3.py",
+   "sha256": "37b33d5418e10c3fd1bfed88ed7320f0a9853f8d262e565ff81dcb9820d94d08",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "23/23 testes unitários P3 aprovados, incluindo a função de carga escalar nucleônica e seus casos de validação."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_EXECUCAO_R2.json",
+   "sha256": "103f8b30934e0e2e7378740454f5258d21153b48db915a832680fea256c4e1e6",
+   "estado": "REGISTRADO",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Registro aditivo R2 de P3; P1/P2 e o registro anterior foram preservados."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_5f_p4_neutron_constraint.py",
+   "sha256": "aca0a19ff7ee01fe7a5dbee261ac662b182bdf7ddf988589a0432fbe2775d57d",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "P4 inclui o limite de espalhamento de nêutrons de 2008 e o limite resumido de resfriamento de estrelas de nêutrons de 2025; 12/12 testes P4 passam localmente."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "test_tpl_5f_p4_neutron_constraint.py",
+   "sha256": "819742f11fb7a9d427b39c6adf728a51034c366fd26011f74f6083b748becc41",
+   "estado": "TESTED_IN_SCOPE",
+   "executor": "ChatGPT (GPT-6), Python 3.13.5",
+   "evidencia": "12/12 testes P4 aprovados; testa domínios de validade e limites de espalhamento de nêutrons e resfriamento de estrelas de nêutrons."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P4_NEUTRONS.json",
+   "sha256": "da06c5e42bb88fa86d6ad1f40ec13ce86f239405324015feb4588b5270efe38e",
+   "estado": "REGISTRADO",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Registro P4 do artigo de Nesvizhevsky, Pignol e Protasov, Phys. Rev. D 77 (2008), Eq. 13: g^2*lambda^2 <= 0.016 fm^2 a 95% CL, apenas no intervalo de alcance 1e-12 a 1e-10 m."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P4_NS_COOLING.json",
+   "sha256": "0ffe9ed6c081637b7e4ebe62dda72934a84471f7e793d240fe1ca60b3cf3c016",
+   "estado": "REGISTRADO",
+   "executor": "ChatGPT (GPT-6)",
+   "evidencia": "Registro do artigo Fiorillo et al., Phys. Rev. Lett. 135, 211003 (2025), com limite de resfriamento de estrelas de nêutrons e ressalva de normalização g_N."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_P4_SHA256SUMS.txt",
+   "sha256": "59b5b1d967c12c318e63a62b0cf88fe4d7f7629483706c85044871b68a613f82",
+   "estado": "SHA256SUMS_VERIFICADO_NO_BRANCH",
+   "executor": "ChatGPT (GPT-6), conferência dos bytes recuperados do branch",
+   "evidencia": "Manifesto lista os hashes SHA-256 dos sete artefatos P3/P4 identificados; registros antigos do estado permanecem sem exclusão."
   }
  ],
  "pendentes": [
