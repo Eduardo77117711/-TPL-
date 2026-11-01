@@ -506,6 +506,14 @@
    "estado": "SHA256SUMS_VERIFICADO_NO_BRANCH",
    "executor": "ChatGPT (GPT-6), conferência dos bytes recuperados do branch",
    "evidencia": "Manifesto lista os hashes SHA-256 dos sete artefatos P3/P4 identificados; registros antigos do estado permanecem sem exclusão."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_5F_P3_P4_SHA256SUMS.txt",
+   "sha256": "4f94e16b74ba3347f59f68b52e51249946efaabef8287c1189258ef13ef4e201",
+   "estado": "SHA256_CORRIGIDO",
+   "executor": "ChatGPT (GPT-6), verificação local Python hashlib sobre o conteúdo remoto recuperado",
+   "evidencia": "Correção aditiva: o hash anteriormente registrado (59b5...) foi calculado por uma implementação SHA-256 defeituosa e fica preservado como histórico, mas é substituído por 4f94... para os bytes exatos do manifesto remoto. O conteúdo do manifesto mantém sete hashes de artefatos P3/P4. Os arquivos locais correspondentes foram verificados separadamente por sha256sum -c."
   }
  ],
  "pendentes": [
