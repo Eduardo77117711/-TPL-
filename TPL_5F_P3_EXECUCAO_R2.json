@@ -1,0 +1,14 @@
+{
+  "record_id": "TPL-5F-P3-EXECUCAO-R2",
+  "date_local": "2026-10-31",
+  "change": "Add nucleon_scalar_charge; preserve all pre-existing P3 calculation functions.",
+  "function": "Q_N = sin(theta) * f_N * m_N / v",
+  "default_f_N": 0.3,
+  "P3_tests_passed": 23,
+  "P3_tests_run": 23,
+  "source_sha256": "5e04901fa58513edc560e31b635e44dfd3e8405c00aee7dc3a64feac4889b3b6",
+  "tests_sha256": "37b33d5418e10c3fd1bfed88ed7320f0a9853f8d262e565ff81dcb9820d94d08",
+  "executor": "ChatGPT (GPT-6), Python 3.13.5",
+  "status": "TESTED_IN_SCOPE",
+  "provenance": "The separate P3 correctness review was declared by the user as performed by Claude / Arbiter 2; this R2 record documents the added nucleon helper and local tests, not the external reviewer identity."
+}
