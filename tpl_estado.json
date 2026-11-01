@@ -370,6 +370,22 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "registros/gabarito_bateria_cega_1.json",
+   "sha256": "ed66b1666ca2d219cce54828044842ec459cef33b755449442a5ea1e41267e8e",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: gabarito selado (com sal) publicado depois de aberto; bytes canonicos da pre-imagem do compromisso ed66b1666ca2d219cce54828044842ec459cef33b755449442a5ea1e41267e8e"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "registros/gabarito_bateria_cega_2.json",
+   "sha256": "0f51c5dbbc2a80358549a133bd0dc86f0eae07028b3e4eac283385d4934ed3e9",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: gabarito selado (com sal) publicado depois de aberto; bytes canonicos da pre-imagem do compromisso 0f51c5dbbc2a80358549a133bd0dc86f0eae07028b3e4eac283385d4934ed3e9"
   }
  ],
  "pendentes": [
