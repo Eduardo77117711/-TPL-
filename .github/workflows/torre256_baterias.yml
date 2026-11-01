@@ -1,0 +1,75 @@
+name: torre256-baterias
+# 01/11/2026 (Claude, Arbitro 2): mesma malha da torre256 (16 interpretadores x 16 plataformas), agora com as
+# baterias cegas 1 a 4 ja abertas (63 conferencias, tpl_torre_malha_v2.py). torre256.yml e a v1 continuam intactos.
+# Nao ha exclude: combinacao sem interpretador disponivel aparece como "sem interpretador" no juiz, separada de
+# divergencia. Roda so quando o script ou este arquivo mudam, ou por disparo manual.
+on:
+  push:
+    paths: [tpl_torre_malha_v2.py, .github/workflows/torre256_baterias.yml]
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  nos:
+    name: no (${{ matrix.python }}, ${{ matrix.plat }})
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 256
+      matrix:
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14", "3.15", "3.13t", "3.14t", "3.15t", "pypy3.9", "pypy3.10", "pypy3.11", "graalpy-24.1", "graalpy-24.2", "graalpy-25.0"]
+        plat: [ubuntu-24.04, ubuntu-24.04-arm, ubuntu-22.04, ubuntu-22.04-arm, ubuntu-26.04, ubuntu-26.04-arm, ubuntu-slim, windows-2025, windows-2022, windows-11-arm, windows-11-vs2026-arm, macos-15, macos-15-intel, macos-26, macos-26-intel, windows-2025-vs2026]
+    runs-on: ${{ matrix.plat }}
+    env: {PYTHONUTF8: "1"}
+    defaults:
+      run: {shell: bash}
+    steps:
+      - name: sem conversao de fim de linha
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        id: py
+        continue-on-error: true
+        with:
+          python-version: ${{ matrix.python }}
+      - name: sem interpretador para esta combinacao
+        if: steps.py.outcome != 'success'
+        run: echo "SEM_INTERPRETADOR ${{ matrix.python }} ${{ matrix.plat }}" > sem_${{ matrix.python }}_${{ matrix.plat }}.txt
+      - name: pin sha256 do script
+        if: steps.py.outcome == 'success'
+        run: |
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_torre_malha_v2.py','rb').read()).hexdigest(); print(h); sys.exit(h!='362308004d59121b7c10bbd47573b180cef27030db3a8b3262681d54605d9ee4')"
+      - name: torre fora do dominio coprimo (63 conferencias, baterias 1 a 4)
+        if: steps.py.outcome == 'success'
+        run: |
+          python -I -X utf8 tpl_torre_malha_v2.py | tr -d '\r' | tee tb256_${{ matrix.python }}_${{ matrix.plat }}.txt
+          grep -x "ESTADO: PROVADO (63/63)" tb256_${{ matrix.python }}_${{ matrix.plat }}.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: "tb256-${{ matrix.python }}-${{ matrix.plat }}"
+          path: "*_${{ matrix.python }}_${{ matrix.plat }}.txt"
+          if-no-files-found: ignore
+  juiz:
+    name: juiz-tb256
+    needs: nos
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {merge-multiple: true}
+      - name: todos os nos com interpretador mediram a mesma coisa
+        run: |
+          ref=tb256_3.12_ubuntu-24.04.txt
+          n=$(ls tb256_*.txt 2>/dev/null | wc -l)
+          sem=$(ls sem_*.txt 2>/dev/null | wc -l)
+          echo "medicoes recebidas: $n / 256"
+          echo "sem interpretador:  $sem / 256"
+          cat sem_*.txt 2>/dev/null || true
+          falhou=0
+          [ -f "$ref" ] || { echo "SEM NO DE REFERENCIA"; exit 1; }
+          for f in tb256_*.txt; do diff -q "$ref" "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
+          tail -1 "$ref"
+          faltam=$((256 - n - sem))
+          echo "sem medicao e sem motivo registrado: $faltam"
+          if [ "$falhou" -ne 0 ] || [ "$faltam" -ne 0 ]; then echo "TB256 DIVERGENTE OU INCOMPLETA"; exit 1; fi
+          echo "TB256: MESMA_MEDICAO em $n nos; $sem combinacoes sem interpretador disponivel"

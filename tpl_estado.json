@@ -402,6 +402,22 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "01/11/2026: registro acrescentado no commit 7bf9146 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada sem alterar o arquivo"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_torre_malha_v2.py",
+   "sha256": "362308004d59121b7c10bbd47573b180cef27030db3a8b3262681d54605d9ee4",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: baterias cegas 1 a 4 (gabaritos abertos); 63/63 no autor (Python 3.13.18), sha256_resumo=69b0dfc7b551c9d7eb0c9dee5e0e3a354d27769796eb8106010ac71e7d2df132; verificacao independente = torre256-baterias"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/torre256_baterias.yml",
+   "sha256": "dffa47f506fd53c8f0c339ebd4dece66ba585508bdfb8a1939e4ae8c268d0564",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: malha 16x16 para as baterias 1 a 4; aguarda execucao"
   }
  ],
  "pendentes": [
