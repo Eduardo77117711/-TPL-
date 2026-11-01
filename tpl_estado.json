@@ -381,11 +381,11 @@
   },
   {
    "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha256.yml",
-   "sha256": "fbe462c12c34d47d90d2ca4c4ff423c2fc29ceba03bbf9eff7ab0ef6fef09f0e",
+   "arquivo": ".github/workflows/torre256.yml",
+   "sha256": "01d1bdb65ea57752e210e00ff1cbe117618839c9a0869f0a3d6df49c24185f32",
    "estado": "NAO EXECUTADO",
    "executor": "",
-   "evidencia": "01/11/2026: malha dobrada, 16 interpretadores x 16 plataformas; aguarda execucao"
+   "evidencia": "01/11/2026: renomeado de malha256.yml para nao colidir com o PR #25; mesmo conteudo, so nomes trocados; aguarda execucao"
   }
  ],
  "pendentes": [
@@ -407,5 +407,18 @@
    "estado": "NAO EXECUTADO",
    "motivo": "só o autor (Claude) executou"
   }
- ]
+ ],
+ "registro_malha256_torre": {
+  "nota": "Registro original do workflow antes da renomeacao, preservado sem alteracao.",
+  "entradas": [
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha256.yml",
+    "sha256": "fbe462c12c34d47d90d2ca4c4ff423c2fc29ceba03bbf9eff7ab0ef6fef09f0e",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "01/11/2026: malha dobrada, 16 interpretadores x 16 plataformas; aguarda execucao"
+   }
+  ]
+ }
 }

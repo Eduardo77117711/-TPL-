@@ -1,4 +1,5 @@
-name: malha256
+name: torre256
+# Renomeado de malha256.yml (01/11/2026): o nome malha256 ja pertence ao PR #25 (248 nos, padrao e -X dev). Conteudo identico; so mudaram nomes de arquivo, workflow e juiz.
 # 01/11/2026 (Claude, Arbitro 2): malha dobrada de novo, 16 interpretadores x 16 plataformas = 256 combinacoes.
 # Mede so a torre fora do dominio coprimo (tpl_torre_malha.py, biblioteca padrao): os 18 casos da bateria cega
 # (compromisso ed66b166...7e8e), os 14 pares (V,c) ate k=160 e a regra dos multiplos de 10, incluindo
@@ -7,7 +8,7 @@ name: malha256
 # divergencia. Roda so quando o script ou este arquivo mudam, ou por disparo manual.
 on:
   push:
-    paths: [tpl_torre_malha.py, .github/workflows/malha256.yml]
+    paths: [tpl_torre_malha.py, .github/workflows/torre256.yml]
   workflow_dispatch:
 permissions: {contents: read}
 jobs:
@@ -43,16 +44,16 @@ jobs:
       - name: torre fora do dominio coprimo (42 conferencias)
         if: steps.py.outcome == 'success'
         run: |
-          python -I -X utf8 tpl_torre_malha.py | tr -d '\r' | tee malha256_${{ matrix.python }}_${{ matrix.plat }}.txt
-          grep -x "ESTADO: PROVADO (42/42)" malha256_${{ matrix.python }}_${{ matrix.plat }}.txt
+          python -I -X utf8 tpl_torre_malha.py | tr -d '\r' | tee torre256_${{ matrix.python }}_${{ matrix.plat }}.txt
+          grep -x "ESTADO: PROVADO (42/42)" torre256_${{ matrix.python }}_${{ matrix.plat }}.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: "malha256-${{ matrix.python }}-${{ matrix.plat }}"
+          name: "torre256-${{ matrix.python }}-${{ matrix.plat }}"
           path: "*_${{ matrix.python }}_${{ matrix.plat }}.txt"
           if-no-files-found: ignore
   juiz:
-    name: juiz256
+    name: juiz-torre256
     needs: nos
     if: always()
     runs-on: ubuntu-latest
@@ -61,17 +62,17 @@ jobs:
         with: {merge-multiple: true}
       - name: todos os nos com interpretador mediram a mesma coisa
         run: |
-          ref=malha256_3.12_ubuntu-24.04.txt
-          n=$(ls malha256_*.txt 2>/dev/null | wc -l)
+          ref=torre256_3.12_ubuntu-24.04.txt
+          n=$(ls torre256_*.txt 2>/dev/null | wc -l)
           sem=$(ls sem_*.txt 2>/dev/null | wc -l)
           echo "medicoes recebidas: $n / 256"
           echo "sem interpretador:  $sem / 256"
           cat sem_*.txt 2>/dev/null || true
           falhou=0
           [ -f "$ref" ] || { echo "SEM NO DE REFERENCIA"; exit 1; }
-          for f in malha256_*.txt; do diff -q "$ref" "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
+          for f in torre256_*.txt; do diff -q "$ref" "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
           tail -1 "$ref"
           faltam=$((256 - n - sem))
           echo "sem medicao e sem motivo registrado: $faltam"
-          if [ "$falhou" -ne 0 ] || [ "$faltam" -ne 0 ]; then echo "MALHA256 DIVERGENTE OU INCOMPLETA"; exit 1; fi
-          echo "MALHA256: MESMA_MEDICAO em $n nos; $sem combinacoes sem interpretador disponivel"
+          if [ "$falhou" -ne 0 ] || [ "$faltam" -ne 0 ]; then echo "TORRE256 DIVERGENTE OU INCOMPLETA"; exit 1; fi
+          echo "TORRE256: MESMA_MEDICAO em $n nos; $sem combinacoes sem interpretador disponivel"
