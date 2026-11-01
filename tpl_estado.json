@@ -482,6 +482,38 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_torre_malha.py",
+   "sha256": "a0dd706b0a9479e5b70b346833d83a8fb9599368de63cee1d7a1e17bfe68823d",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: torre fora do dominio coprimo; 42/42 conferencias no autor (Python 3.13.18), sha256_resumo=a9d70359ab59bdb130dcc5c7b4c004327b1c100ae1ba1e49d36109c128d8fe86; verificacao independente = malha256"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/torre256.yml",
+   "sha256": "01d1bdb65ea57752e210e00ff1cbe117618839c9a0869f0a3d6df49c24185f32",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: renomeado de malha256.yml para nao colidir com o PR #25; mesmo conteudo, so nomes trocados; aguarda execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "registros/REGISTRO_CORRIGIDO_TORRE_FORA.txt",
+   "sha256": "f70c1aff23a9c4e73a4aa1f8a27f051f29ed2f44265e3f5561a177527c10f6b0",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: registro corrigido publicado com bytes no repositorio; substitui compromissos 2e51e3d8, 6bfc8a88 e 541abb7e (arquivos nunca entregues); conteudo medido por tpl_torre_malha.py"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "REGISTRO_PR33_disparo_juiz.md",
+   "sha256": "4220416a0525db299c6ba3727ec214f09665866a97110c1cdecf99b7c0b3645c",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: registro acrescentado no commit 7bf9146 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada sem alterar o arquivo"
   }
  ],
  "pendentes": [
@@ -504,6 +536,19 @@
    "motivo": "só o autor (Claude) executou"
   }
  ],
+ "registro_malha256_torre": {
+  "nota": "Registro original do workflow antes da renomeacao, preservado sem alteracao.",
+  "entradas": [
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha256.yml",
+    "sha256": "fbe462c12c34d47d90d2ca4c4ff423c2fc29ceba03bbf9eff7ab0ef6fef09f0e",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "01/11/2026: malha dobrada, 16 interpretadores x 16 plataformas; aguarda execucao"
+   }
+  ]
+ },
  "registro_pr31": {
   "nota": "Registros originais do PR #31 (indices 46-65), preservados sem alteracao. Usavam estados fora da lista canonica; os estados conferidos por codigo estao em artefatos.",
   "entradas": [
