@@ -23,6 +23,6 @@ jobs:
       - name: Verify P3/P4 SHA-256 manifest
         run: sha256sum --check TPL_5F_P3_P4_SHA256SUMS.txt
       - name: Run P3 tests
-        run: python -I -X utf8 test_tpl_5f_p3.py
+        run: python -I -X utf8 -c "import runpy,sys; sys.path.insert(0,'.'); runpy.run_path('test_tpl_5f_p3.py',run_name='__main__')"
       - name: Run P4 tests
-        run: python -I -X utf8 test_tpl_5f_p4_neutron_constraint.py
+        run: python -I -X utf8 -c "import runpy,sys; sys.path.insert(0,'.'); runpy.run_path('test_tpl_5f_p4_neutron_constraint.py',run_name='__main__')"
