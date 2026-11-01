@@ -514,6 +514,14 @@
    "estado": "SHA256_CORRIGIDO",
    "executor": "ChatGPT (GPT-6), verificação local Python hashlib sobre o conteúdo remoto recuperado",
    "evidencia": "Correção aditiva: o hash anteriormente registrado (59b5...) foi calculado por uma implementação SHA-256 defeituosa e fica preservado como histórico, mas é substituído por 4f94... para os bytes exatos do manifesto remoto. O conteúdo do manifesto mantém sete hashes de artefatos P3/P4. Os arquivos locais correspondentes foram verificados separadamente por sha256sum -c."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/tpl-5f-p3-p4.yml",
+   "sha256": "f016b34dfd7639321fbcfa2cab3cf2db1440d24c1e256c0626056f799faf2ff9",
+   "estado": "CRIADO_CI_PENDENTE",
+   "executor": "ChatGPT (GPT-6), autoria técnica; GitHub Actions aguarda execução",
+   "evidencia": "Novo workflow dedicado para TPL-5F P3/P4: confere TPL_5F_P3_P4_SHA256SUMS.txt e executa test_tpl_5f_p3.py e test_tpl_5f_p4_neutron_constraint.py em Python 3.11, 3.13 e 3.14. Run #2 do workflow tpl-5f-p3-p4 foi criado e estava QUEUED na última consulta; nenhum PASS/FAIL declarado."
   }
  ],
  "pendentes": [
