@@ -1,15 +1,7 @@
-name: Acompanhamento TPL a cada 3 horas
+name: Acompanhamento TPL manual (sem cron)
 
 on:
-  schedule:
-    - cron: "17 */3 * * *"
-      timezone: "America/Sao_Paulo"
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-    paths:
-      - ".github/scripts/tpl_monitor.py"
-      - ".github/workflows/tpl-monitor-3h.yml"
 
 permissions:
   contents: read
