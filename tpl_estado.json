@@ -386,6 +386,14 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "01/11/2026: renomeado de malha256.yml para nao colidir com o PR #25; mesmo conteudo, so nomes trocados; aguarda execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "registros/REGISTRO_CORRIGIDO_TORRE_FORA.txt",
+   "sha256": "f70c1aff23a9c4e73a4aa1f8a27f051f29ed2f44265e3f5561a177527c10f6b0",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: registro corrigido publicado com bytes no repositorio; substitui compromissos 2e51e3d8, 6bfc8a88 e 541abb7e (arquivos nunca entregues); conteudo medido por tpl_torre_malha.py"
   }
  ],
  "pendentes": [
