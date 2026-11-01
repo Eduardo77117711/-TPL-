@@ -1,0 +1,85 @@
+{
+  "record_id": "TPL-5F-P4-NEUTRON-STAR-COOLING-R1",
+  "date_local": "2026-10-31",
+  "project": "TPL / Plano Piloto",
+  "source": {
+    "authors": "Damiano F. G. Fiorillo, Alessandro Lella, Ciaran A. J. O’Hare, Edoardo Vitagliano",
+    "title": "Leading Bounds on Micrometer to Picometer Fifth Forces from Neutron Star Cooling",
+    "publication": "Physical Review Letters 135, 211003 (2025)",
+    "published_date": "2025-11-19",
+    "doi": "10.1103/tlqz-713s",
+    "arxiv": "2506.19906",
+    "source_urls": [
+      "https://arxiv.org/abs/2506.19906",
+      "https://doi.org/10.1103/tlqz-713s"
+    ],
+    "approximate_mass_domain_eV": [
+      1,
+      1000000
+    ],
+    "results": {
+      "scalar_nucleon_coupling": "g_N <= 5e-14 in the strongest part of the mass range; explicitly quoted for m_phi <= 100 eV",
+      "higgs_portal_translation": "sin(theta) <= 6e-11",
+      "neutron_star_bound_dominates_previous_astrophysical_limits_for_mass": "m_phi <= 700 keV",
+      "confidence": "95% CL; Fig. 1 is a mass-dependent limit curve"
+    },
+    "mechanism": "Scalar emission by nucleons in old isolated neutron stars accelerates cooling; observed luminosities and ages are compared with modeled cooling curves.",
+    "source_higgs_portal_mapping": "g_N ~= 8e-4 * sin(theta)",
+    "mass_dependent_curve_digitized": false
+  },
+  "mapping_to_tpl": {
+    "P3_formula": "Q_N = sin(theta) * f_N * m_N / v",
+    "P3_default_f_N": 0.3,
+    "P3_coefficient_f_N_mN_over_v": 0.001144098773454634,
+    "source_coefficient_g_N_over_sin_theta": 0.0008,
+    "coefficient_ratio_P3_over_source": 1.4301234668182925,
+    "warning": "The P3 coefficient implied by f_N=0.30 is about 1.43 times the source paper's quoted Higgs-portal coefficient. Reconcile the hadronic form-factor convention and uncertainty before precision combination; do not silently equate the normalizations.",
+    "logic": "Use the source's headline mixing-angle translation as an approximate screen. The exact 95% CL g_N limit is mass-dependent in Fig. 1; this record does not digitize or interpolate the curve."
+  },
+  "reference_mixing": 0.000001,
+  "points": [
+    {
+      "mass_eV": 10,
+      "source_mass_domain": true,
+      "source_g_N_at_reference": 8e-10,
+      "explicit_source_limit_g_N_for_m_below_100_eV": 5e-14,
+      "ratio_to_explicit_low_mass_limit": 16000,
+      "headline_higgs_portal_sin_theta_limit": 6e-11,
+      "ratio_to_headline_sin_theta_limit": 16666.666666666668,
+      "status": "ABOVE_NEUTRON_STAR_COOLING_BOUND_AT_REFERENCE_MIXING",
+      "interpretation": "10 eV lies below 100 eV; the article explicitly states g_N <= 5e-14 in this low-mass region."
+    },
+    {
+      "mass_eV": 10000,
+      "source_mass_domain": true,
+      "headline_higgs_portal_sin_theta_limit": 6e-11,
+      "ratio_to_headline_sin_theta_limit": 16666.666666666668,
+      "status": "ABOVE_HEADLINE_HIGGS_PORTAL_SUMMARY_BOUND_AT_REFERENCE_MIXING",
+      "interpretation": "10 keV lies in the eV-to-MeV mass domain and below 700 keV, where the article says neutron-star cooling bounds dominate prior astrophysical limits. The precise limit at this mass is on Fig. 1 and is not digitized here."
+    },
+    {
+      "mass_eV": 10000000,
+      "source_mass_domain": false,
+      "status": "OUTSIDE_SOURCE_MASS_DOMAIN",
+      "interpretation": "10 MeV exceeds the paper's approximate eV-to-MeV domain; no inference from this source."
+    }
+  ],
+  "parameter_logic": "The input sin(theta) <= 1e-6 is only an upper cap, not a measured value. At the reference test point sin(theta)=1e-6, 10 eV and 10 keV exceed the published Higgs-portal summary bound. The paper's summary tightens the allowed upper range to about 6e-11 in the covered light-mass region; smaller actual mixing values are not automatically excluded. 10 MeV is outside this source's range.",
+  "caveats": [
+    "Neutron-star cooling constraints depend on neutron-star equation of state, superfluidity, envelope composition, nuclear interaction model and heating assumptions.",
+    "The authors estimate a factor 2-3 uncertainty on final coupling constraints from nuclear emissivity uncertainties.",
+    "The source Higgs-portal normalization differs from P3's f_N=0.30 default and requires reconciliation before a precision combined fit.",
+    "No global combination with laboratory neutron scattering or other astrophysical probes was performed.",
+    "The precise 10 keV limit was not digitized from Fig. 1; the helper applies the headline mixing-angle translation as a screening bound."
+  ],
+  "other_sources": {
+    "calcium_isotope": "NOT_ADMITTED_PENDING_PRIMARY_SOURCE_AND_EXACT_INTERPRETATION",
+    "JUNO": "NOT_ADMITTED_PENDING_PRIMARY_SOURCE_AND_EXACT_INTERPRETATION"
+  },
+  "execution": {
+    "P3_tests": "23/23 PASS",
+    "P4_tests": "12/12 PASS",
+    "combined_tests": "35/35 PASS",
+    "status": "TESTED_IN_SCOPE; NO_FIFTH_FORCE_DETECTION_CLAIM"
+  }
+}
