@@ -2,6 +2,7 @@ import math
 import unittest
 
 from tpl_5f_p3 import (
+    nucleon_scalar_charge,
     abs_sin_theta_from_p2_higgs_fraction,
     fermion_scalar_coupling,
     mass_window_table,
@@ -80,6 +81,24 @@ class TestTPL5FP3(unittest.TestCase):
         self.assertEqual(len(table["low_mass_exploratory_band_10_eV_to_10_MeV"]), 2)
         self.assertGreater(table["low_mass_exploratory_band_10_eV_to_10_MeV"][0]["range_m"],
                            table["collider_band_30_to_500_GeV"][0]["range_m"])
+
+    def test_nucleon_charge_uses_higgs_nucleon_form_factor(self):
+        expected = 1e-6 * 0.30 * 0.939 / 246.22
+        self.assertAlmostEqual(nucleon_scalar_charge(1e-6), expected, places=24)
+
+    def test_nucleon_charge_zero_when_mixing_zero(self):
+        self.assertEqual(nucleon_scalar_charge(0.0), 0.0)
+
+    def test_nucleon_charge_zero_when_form_factor_zero(self):
+        self.assertEqual(nucleon_scalar_charge(1e-6, f_N=0.0), 0.0)
+
+    def test_nucleon_charge_rejects_form_factor_outside_unit_interval(self):
+        with self.assertRaises(ValueError):
+            nucleon_scalar_charge(1e-6, f_N=1.01)
+
+    def test_nucleon_charge_rejects_invalid_mixing(self):
+        with self.assertRaises(ValueError):
+            nucleon_scalar_charge(1.01)
 
 
 if __name__ == "__main__":
