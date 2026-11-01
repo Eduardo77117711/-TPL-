@@ -1,6 +1,8 @@
 import unittest
 
-from tpl_5f_p4_neutron_constraint import evaluate_neutron_bound, reference_points
+from tpl_5f_p4_neutron_constraint import (
+    evaluate_neutron_bound, evaluate_neutron_star_cooling_bound, reference_points,
+)
 
 
 class TestTPL5FP4Neutron(unittest.TestCase):
@@ -36,6 +38,34 @@ class TestTPL5FP4Neutron(unittest.TestCase):
     def test_bool_mass_rejected(self):
         with self.assertRaises(TypeError):
             evaluate_neutron_bound(True)
+
+    def test_10ev_above_2025_neutron_star_summary_bound_at_reference_mixing(self):
+        r = evaluate_neutron_star_cooling_bound(10.0, sin_theta=1.0e-6)
+        self.assertTrue(r["within_source_mass_domain"])
+        self.assertTrue(r["excluded_by_this_summary_bound"])
+        self.assertGreater(r["fraction_of_higgs_portal_mixing_limit"], 1.0)
+        self.assertAlmostEqual(r["fraction_of_explicit_low_mass_g_N_limit"], 16000.0)
+
+    def test_10kev_above_2025_neutron_star_summary_bound_at_reference_mixing(self):
+        r = evaluate_neutron_star_cooling_bound(1.0e4, sin_theta=1.0e-6)
+        self.assertTrue(r["within_source_mass_domain"])
+        self.assertTrue(r["excluded_by_this_summary_bound"])
+        self.assertEqual(r["source_g_N_limit_below_100_eV"], None)
+
+    def test_10mev_outside_2025_neutron_star_mass_domain(self):
+        r = evaluate_neutron_star_cooling_bound(1.0e7, sin_theta=1.0e-6)
+        self.assertFalse(r["within_source_mass_domain"])
+        self.assertFalse(r["excluded_by_this_summary_bound"])
+        self.assertEqual(r["status"], "OUTSIDE_SOURCE_MASS_DOMAIN")
+
+    def test_mixing_below_headline_ns_bound_not_excluded_by_it(self):
+        r = evaluate_neutron_star_cooling_bound(1.0e4, sin_theta=5.0e-11)
+        self.assertFalse(r["excluded_by_this_summary_bound"])
+        self.assertEqual(r["status"], "NOT_EXCLUDED_BY_THIS_SUMMARY_BOUND")
+
+    def test_invalid_neutron_star_mixing_rejected(self):
+        with self.assertRaises(ValueError):
+            evaluate_neutron_star_cooling_bound(1.0e4, sin_theta=1.01)
 
 
 if __name__ == "__main__":
