@@ -394,6 +394,14 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "01/11/2026: registro corrigido publicado com bytes no repositorio; substitui compromissos 2e51e3d8, 6bfc8a88 e 541abb7e (arquivos nunca entregues); conteudo medido por tpl_torre_malha.py"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "REGISTRO_PR33_disparo_juiz.md",
+   "sha256": "4220416a0525db299c6ba3727ec214f09665866a97110c1cdecf99b7c0b3645c",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "01/11/2026: registro acrescentado no commit 7bf9146 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada sem alterar o arquivo"
   }
  ],
  "pendentes": [
