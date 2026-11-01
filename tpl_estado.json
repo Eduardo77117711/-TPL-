@@ -522,6 +522,14 @@
    "estado": "CRIADO_CI_PENDENTE",
    "executor": "ChatGPT (GPT-6), autoria técnica; GitHub Actions aguarda execução",
    "evidencia": "Novo workflow dedicado para TPL-5F P3/P4: confere TPL_5F_P3_P4_SHA256SUMS.txt e executa test_tpl_5f_p3.py e test_tpl_5f_p4_neutron_constraint.py em Python 3.11, 3.13 e 3.14. Run #2 do workflow tpl-5f-p3-p4 foi criado e estava QUEUED na última consulta; nenhum PASS/FAIL declarado."
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/tpl-5f-p3-p4.yml",
+   "sha256": "2c637126737286ded4d55c3966125c178b8f208af2bef93b98a2cc53b43df1cf",
+   "estado": "CORRIGIDO_CI_PENDENTE",
+   "executor": "ChatGPT (GPT-6), execução local das duas suítes com python -I",
+   "evidencia": "A primeira versão do workflow usava python -I diretamente no script e falhava ao importar módulos irmãos. A correção mantém o modo isolado e insere explicitamente o diretório do projeto via sys.path antes de runpy.run_path. Reprodução local: P3 23/23 PASS e P4 12/12 PASS. Nova execução GitHub Actions ainda pendente; o registro anterior do workflow foi preservado."
   }
  ],
  "pendentes": [
