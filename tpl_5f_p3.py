@@ -81,6 +81,29 @@ def fermion_scalar_coupling(
     return st * mf / vev
 
 
+def nucleon_scalar_charge(
+    sin_theta: float,
+    f_N: float = 0.30,
+    nucleon_mass_gev: float = 0.939,
+    vev_gev: float = V_HIGGS_GEV,
+) -> float:
+    """Higgs-mixed scalar charge of a nucleon: Q_N = sin(theta)*f_N*m_N/v.
+
+    This is a nucleon-level effective coupling. It does not by itself provide
+    the full scalar charge of a macroscopic body; nuclear binding, proton/neutron
+    composition and isotope-dependent matrix elements may also be required.
+    """
+    st = _finite(sin_theta, "sin_theta")
+    if abs(st) > 1.0:
+        raise ValueError("sin_theta must lie in [-1, 1]")
+    fn = _finite(f_N, "f_N")
+    if not 0.0 <= fn <= 1.0:
+        raise ValueError("f_N must lie in [0, 1]")
+    mn = _positive(nucleon_mass_gev, "nucleon_mass_gev")
+    vev = _positive(vev_gev, "vev_gev")
+    return st * fn * mn / vev
+
+
 def yukawa_potential_j(
     distance_m: float,
     scalar_mass_eV: float,
