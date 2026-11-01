@@ -154,13 +154,13 @@ def yukawa_alpha_relative(
 def mass_window_table() -> dict[str, list[dict[str, float]]]:
     """Reference Compton ranges for the two proposed mass windows."""
     collider_gev = (30.0, 50.0, 200.0, 500.0)
-    low_mass_eV = (10.0, 1.0e7)  # 10 eV to 10 MeV; exploratory band, not a limit.
+    lab_eV = (10.0, 1.0e7)  # 10 eV to 10 MeV; exploratory band, not a limit.
     return {
         "collider_band_30_to_500_GeV": [
             {"mass_GeV": m, "range_m": yukawa_range_m(scalar_mass_gev_to_ev(m))}
             for m in collider_gev
         ],
         "low_mass_exploratory_band_10_eV_to_10_MeV": [
-            {"mass_eV": m, "range_m": yukawa_range_m(m)} for m in low_mass_eV
+            {"mass_eV": m, "range_m": yukawa_range_m(m)} for m in lab_eV
         ],
     }
