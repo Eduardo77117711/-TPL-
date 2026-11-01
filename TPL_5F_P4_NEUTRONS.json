@@ -1,0 +1,142 @@
+{
+
+  "record_id": "TPL-5F-01-P4-NEUTRONS-R1",
+  "date_local": "2026-10-31",
+  "project": "TPL / Plano Piloto",
+  "stage_transition": {
+    "P1": "PRESERVED_EXISTING — potential and mass matrix remain in tpl_phi_omega_portal.py",
+    "P2": "PRESERVED_EXISTING — diagonalization and Higgs fractions remain in tpl_phi_omega_portal.py",
+    "P3": "EXTENDED — nucleon scalar charge added; prior P3 functions retained",
+    "P4": "STARTED — source-grounded neutron-scattering comparison implemented"
+  },
+  "review_provenance": {
+    "Arbitro_2_review": "DECLARADO PELO USUARIO — P3 formulas, force sign, alpha_5 and PR #31 reviewed by Claude / Arbiter 2; raw independent report was not fetched in this operation.",
+    "prior_record_name": "REGISTRO_Claude_20261031_TPL5F01_P4_neutrons.txt",
+    "prior_record_name_status": "DECLARADO PELO USUARIO; conteúdo bruto não anexado nem inspecionado nesta sessão",
+    "P3_formula_review_adopted": "P3 formula and force-sign review accepted as independent review declaration; original P3 functions were not modified in this addition."
+  },
+  "P3_addition": {
+    "function": "nucleon_scalar_charge(sin_theta, f_N=0.30, nucleon_mass_gev=0.939, vev_gev=246.22)",
+    "formula": "Q_N = sin(theta) * f_N * m_N / v",
+    "nominal_f_N": 0.3,
+    "f_N_note": "0.30 is a conventional nominal effective Higgs-nucleon form factor, not exact; literature quotes values around 0.30 with uncertainties, e.g. f_N=0.308(18).",
+    "implementation_sha256": "eebd59b0ebf14fb59e8e3814aaf501118f604eec1a2771f4cadd65e7e0c15b42",
+    "tests_sha256": "37b33d5418e10c3fd1bfed88ed7320f0a9853f8d262e565ff81dcb9820d94d08",
+    "tests_passed": 23,
+    "tests_run": 23,
+    "status": "TESTED_IN_SCOPE"
+  },
+  "P4_primary_source": {
+    "authors": "V. V. Nesvizhevsky, G. Pignol, K. V. Protasov",
+    "title": "Neutron scattering and extra-short-range interactions",
+    "arxiv": "0711.2298",
+    "publication": "Phys. Rev. D 77, 034020 (2008)",
+    "doi": "10.1103/PhysRevD.77.034020",
+    "constraint_equation": "g^2 * lambda^2 <= 0.016 fm^2 at 95% CL",
+    "constraint_range_m": [1e-12, 1e-10],
+    "equation": "13",
+    "mapping_to_tpl": "In the source convention the neutron has unit charge and a nucleus has approximately A nucleon charges. For the Higgs-mixed scalar, the neutron charge is Q_N and a nucleus is approximated as A*Q_N, so the paper's g^2 maps to Q_N^2 at nucleon level.",
+    "mapping_assumption": "Additive nucleon charge; nuclear binding/composition corrections and screening are not included.",
+    "source_url": "https://arxiv.org/abs/0711.2298",
+    "published_url": "https://doi.org/10.1103/PhysRevD.77.034020"
+  },
+  "preliminary_source_note": {
+    "arxiv": "0705.4478v1",
+    "url": "https://arxiv.org/abs/0705.4478",
+    "finding": "The preliminary preprint calls its result an upper limit, but the inequality sign as rendered in Eq. (6) PDF appears as >. This conflicts with the prose 'upper limit' and the excluded-region plot. Do not silently normalize the printed sign; use the later published 2008 analysis and its explicit <= bound as the primary P4 numeric constraint.",
+    "source_pdf_page_index": 3,
+    "state": "PROVENIENCE_AND_TRANSCRIPTION_DISCREPANCY_RECORDED"
+  },
+  "model_parameters": {
+    "sin_theta_used_as_conservative_reference": 1e-06,
+    "interpretation": "The user's stated bound is sin(theta) <= 1e-6. Since the predicted g^2 lambda^2 scales as sin(theta)^2, values computed at 1e-6 are the largest within this interval for fixed f_N and m_S.",
+    "f_N": 0.3,
+    "nucleon_mass_gev": 0.939,
+    "vev_gev": 246.22,
+    "Q_N_at_reference_point": 1.1440987734546341e-09,
+    "limit_g2_lambda2_fm2": 0.016,
+    "confidence_level": 0.95
+  },
+  "calculated_points": [
+    {
+      "scalar_mass_eV": 10.0,
+      "sin_theta": 1e-06,
+      "f_N": 0.3,
+      "Q_N": 1.1440987734546341e-09,
+      "lambda_m": 1.9732698033839646e-08,
+      "lambda_fm": 19732698.033839647,
+      "g2_lambda2_fm2": 0.0005096828024640692,
+      "limit_g2_lambda2_fm2": 0.016,
+      "fraction_of_limit": 0.03185517515400432,
+      "source_range_min_m": 1e-12,
+      "source_range_max_m": 1e-10,
+      "within_source_range": false,
+      "excluded_by_this_bound": false,
+      "status": "OUTSIDE_SOURCE_VALIDITY_RANGE",
+      "confidence_level": 0.95
+    },
+    {
+      "scalar_mass_eV": 10000.0,
+      "sin_theta": 1e-06,
+      "f_N": 0.3,
+      "Q_N": 1.1440987734546341e-09,
+      "lambda_m": 1.9732698033839645e-11,
+      "lambda_fm": 19732.698033839646,
+      "g2_lambda2_fm2": 5.096828024640692e-10,
+      "limit_g2_lambda2_fm2": 0.016,
+      "fraction_of_limit": 3.1855175154004324e-08,
+      "source_range_min_m": 1e-12,
+      "source_range_max_m": 1e-10,
+      "within_source_range": true,
+      "excluded_by_this_bound": false,
+      "status": "NOT_EXCLUDED_BY_THIS_NEUTRON_BOUND",
+      "confidence_level": 0.95
+    },
+    {
+      "scalar_mass_eV": 10000000.0,
+      "sin_theta": 1e-06,
+      "f_N": 0.3,
+      "Q_N": 1.1440987734546341e-09,
+      "lambda_m": 1.9732698033839645e-14,
+      "lambda_fm": 19.732698033839643,
+      "g2_lambda2_fm2": 5.09682802464069e-16,
+      "limit_g2_lambda2_fm2": 0.016,
+      "fraction_of_limit": 3.185517515400431e-14,
+      "source_range_min_m": 1e-12,
+      "source_range_max_m": 1e-10,
+      "within_source_range": false,
+      "excluded_by_this_bound": false,
+      "status": "OUTSIDE_SOURCE_VALIDITY_RANGE",
+      "confidence_level": 0.95
+    }
+  ],
+  "interpretation": {
+    "10_eV": "lambda approximately 19.73 nm, above this paper's 0.1 nm upper endpoint. OUTSIDE_SOURCE_VALIDITY_RANGE; this neutron limit alone cannot classify it as excluded or not excluded.",
+    "10_keV": "lambda approximately 19.73 pm, inside 1 pm–0.1 nm. Predicted Q_N^2 lambda^2 is approximately 5.10e-10 fm^2, about 3.19e-8 of the 0.016 fm^2 upper limit. NOT_EXCLUDED_BY_THIS_NEUTRON_BOUND at sin(theta)=1e-6; smaller mixing weakens it further.",
+    "10_MeV": "lambda approximately 0.0197 pm, below this paper's 1 pm lower endpoint. OUTSIDE_SOURCE_VALIDITY_RANGE; no inference from this neutron bound."
+  },
+  "excluded_pending_sources": {
+    "calcium_isotope_fifth_force_claim": "NOT_ADMITTED — primary source and exact interpretation pending",
+    "JUNO_fifth_force_claim": "NOT_ADMITTED — primary source and exact interpretation pending",
+    "astrophysical_stellar_cooling": "PENDING — primary source and mapping to Phi_Omega coupling required"
+  },
+  "execution": {
+    "executor": "ChatGPT (GPT-6), local container Python",
+    "python_version": "3.13.5",
+    "P3_tests": "23/23 PASS",
+    "P4_tests": "7/7 PASS",
+    "combined_tests": "30/30 PASS",
+    "P4_script_sha256": "94969c1fc4d05ad46978359b044dc5d010eefd8c8b9864784a9619ef315be88c",
+    "P4_test_sha256": "859b76b0479444fae4f84fcd5607d784ec814e1480505f4799307a5e3379b034",
+    "status": "P3_NUCLEON_CHARGE_TESTED_IN_SCOPE; P4_NEUTRON_BOUND_TESTED_IN_SCOPE; NO_FIFTH_FORCE_DETECTION_CLAIM"
+  },
+  "limitations": [
+    "The neutron bound uses an additive nucleon-charge approximation; composite nuclear scalar charges require nuclear-structure and binding corrections for precision work.",
+    "The bound applies only in the source's stated 1e-12 to 1e-10 m range for Eq. (13).",
+    "The quoted 95% CL limit is one experiment/data-analysis constraint, not a global exclusion envelope.",
+    "No astrophysical limits or screening model have been included.",
+    "The 10 eV and 10 MeV points are outside the Eq. (13) range; OUTSIDE_RANGE is not equivalent to experimentally allowed.",
+    "No fifth-force detection is claimed."
+  ]
+
+}
