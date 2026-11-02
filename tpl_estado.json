@@ -530,6 +530,30 @@
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/tpl-monitor-3h.yml",
+   "sha256": "04ce4c116030d7a37c54323cea2913ec95583841a19487b5f3a02a1bf395b852",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: o merge do PR #19 (commit 261f53b, feito pela vigia automatica Claude/Arbitro 2 com checks juiz e comparar verdes de 30/10, anteriores ao pin) mudou 1 linha deste workflow; o pin anterior (4fa832f7..., VERIFICADO pela run 41399182558) deixou de conferir e a main passou a P0 FALHA (pin_errado 1). Entrada nova acrescentada sem mudar a anterior; o P0 usa a ultima entrada do arquivo. sha256 recalculado dos bytes da main 427517e. A versao nova nao tem executor independente vinculado: MENCIONADO"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "MAPA_OPERACIONAL_TPL.md",
+   "sha256": "0e63eaf66f6155c9fa1bbcc4747df1a503e0b3a5a806a434be183952fdb251c4",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: documento entrou na main pelo merge do PR #17 (commit 427517e, feito pela vigia automatica Claude/Arbitro 2 com checks verdes de 30/10, anteriores a regra P0 atual) sem entrada no estado (P0 fora_do_estado 1). Entrada acrescentada sem alterar o arquivo; sha256 recalculado dos bytes da main 427517e. Texto; conteudo e declaracao, nao verificacao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/scripts/tpl_monitor_atualizado.py",
+   "sha256": "5f599347b1cf21714d23dcaaf424ceef211f5fae2db30a815aaa403a1122c33a",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: script entrou na main pelo merge do PR #19 (commit 261f53b, feito pela vigia automatica Claude/Arbitro 2 com checks verdes de 30/10, anteriores a regra P0 atual) sem entrada no estado (P0 fora_do_estado 1). Entrada acrescentada sem alterar o arquivo; sha256 recalculado dos bytes da main 427517e. Sem executor independente vinculado a esta versao"
   }
  ],
  "pendentes": [
