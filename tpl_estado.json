@@ -103,57 +103,57 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/scripts/tpl_monitor.py",
    "sha256": "838babe914200d023d8171cc2c3cec3049216ebb0f6f5ebe9282c8c5d321e63b",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41399182558 (Acompanhamento TPL a cada 3 horas, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: executado pelo workflow. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/juiz-auto.yml",
    "sha256": "8bb5d7904799adab4fbad5b47edbe1351ca40dbdaa8f9a7d07a27c8b919b836c",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021299 (juiz-auto, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha32.yml",
    "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418081 (malha32, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha64.yml",
    "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418057 (malha64, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl-monitor-3h.yml",
    "sha256": "4fa832f773a20aadd721839f777e9c822f5134ab8787951f1cbc9e133f82d66c",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41399182558 (Acompanhamento TPL a cada 3 horas, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl.yml",
    "sha256": "28760dc869b1bb12101b11f65d4c2c1c77637157476fe06587d3ca534c80cdd5",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021294 (TPL medir+comparar, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/verificar.yml",
    "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
@@ -175,129 +175,129 @@
    "repositorio": "-TPL-",
    "arquivo": "acervo/acervo_tpl.py",
    "sha256": "78e77a342470a1626d7fef3edda8c411819a026c7eda31416c3d93d32f101632",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: PROVADO (10/10). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/checar_base.py",
    "sha256": "b0472bfbe7b257d2cecb5346efb61a80df72a129ac87e8600458279cb950f277",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: BASE LIGADA AO ACERVO (8/8). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/indice_publico.txt",
    "sha256": "945f55acc2e9e3ddcfa41849bafa0aaf5db67d69b8113333c51790d447f2a854",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + lido por checar_base (8/8). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "bateria3.py",
    "sha256": "205b0cae54fe408d3d99083be47da79a78d39ff0d13e41917a87ef011a557bff",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + 3 linhas seladas conferidas. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "harness_redis_nx_v3.py",
    "sha256": "cef9b2ff11bcb9bd487b2c3bd92419a5ae26bdd1f1a6ebad2cba252c0e4f4012",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: PROVADO com Redis real (8/8). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "requirements-redis.txt",
    "sha256": "2a97b9670a8d5bc96a9dea295ca5936e62911a4b101639ec5b1a7de388e09c2d",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: instalado com --require-hashes no passo do Redis real. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_arbitro_v3_2.py",
    "sha256": "fe98022a4c1e75dcea27ae5cbb7a3347cd771993dc97d716784e0643be1a717c",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418057 (malha64, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + autoteste. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_fala.py",
    "sha256": "cbf14125050b04893c83abba3e94ed1501df8df7d023071b91df0fec34791c21",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: PROVADO (10/10). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_juiz_auto.py",
    "sha256": "cc1c9f7424a10605ce3854bd2a9b9f5a53c0414530dbcd82cdfb29a90cdf4f34",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021299 (juiz-auto, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: autoteste do juiz + veredito. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas.py",
    "sha256": "8aacd51914c6261c8b84064a703d7874f5f58558cc40f1a0ce876f4dda3a2343",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: PROVADO (6/6). Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_2.py",
    "sha256": "6a2a0aee0ebaf4b4009d4c6053a8adb015585fc1ca118e9b0729696ff255a656",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418057 (malha64, commit dc5f7bc)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + autoteste. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_malha_v0_4.py",
    "sha256": "29c53a07680b0c02c57bc1e9f9cc47685aa6fb97d1f66969c9230bc69805e0b8",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + AUTOTESTE_TPL_MALHA_V0_4: 22 / 22. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_p0_v2.py",
    "sha256": "230fcc35e595f5f670c15fad232558579b4a3b02ce8fef9e63bd50715c71e673",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021299 (juiz-auto, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: portao P0 executado pelo juiz. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_phi_omega_mapa_v2.py",
    "sha256": "1d62876c4fc0dfdc334fb5ef1c67a3042f10ffb2f03dd90ae30ce59fedc3c8e8",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + sha256_mapa_v2 selado conferido. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_phi_omega_portal.py",
    "sha256": "4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + sha256_tabela selado conferido. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_sintaxe.py",
    "sha256": "8d5b8de4550e3b8e45aa8fb663d50a145de50efacbdcebbbc87c96337cccac41",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: autoteste 10/10 + estado canonico. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
@@ -311,17 +311,17 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_arbitro_v3_3.py",
    "sha256": "949d347f914863b7531840ef00604d4906b53e5ab318c4c3b578b154a668efa4",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + autoteste no passo do arbitro. Registro anterior: v3.3 = v3.2 + SYSTEMROOT no ambiente minimo do Windows (31/10/2026); autoteste do autor passou em 3.10 e 3.13 Linux; Windows a medir na malha128 v2"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha128.yml",
    "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
   },
   {
    "repositorio": "-TPL-",
@@ -351,25 +351,25 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_4.py",
    "sha256": "11df0142bf9ae5fc53e044aa1a18e1e23f5b957e06a6cc45af9cadb8e0f6d2b9",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: pin + ESTADO: PROVADO (6/6). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_sintaxe_v3.py",
    "sha256": "30682350b0e525e7272b993ae39a974e9e7493f9c4380a9a94ce54cb45692527",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: autoteste + estado. Registro anterior: 31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/acervo_tpl_v0_3.py",
    "sha256": "4b83eed8a4e4aa9dd981f88536d820651ff1bba657a378d93803114e14ea2b6e",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: ESTADO: PROVADO (10/10). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha tambem os arquivos que le (Windows + PyPy); detector ResourceWarning do autor: 0 nao fechados"
   },
   {
    "repositorio": "-TPL-",
