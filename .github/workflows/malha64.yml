@@ -5,7 +5,16 @@ name: malha64
 # macOS 14 saiu: imagem em desativacao pelo GitHub (brownout; aposentada em 02/11/2026).
 # Todo Python roda com -I -X utf8: o -I ignora PYTHONUTF8, e sem utf8 o Windows imprime em cp1252.
 # Mede o nucleo portavel (tudo menos o harness Redis, que exige Linux). O verificar.yml de 16 nos continua intacto.
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+# Uma rodada por commit: em PR roda so pelo evento pull_request (antes rodava duas vezes, push + pull_request).
+# Commit novo no mesmo PR cancela a rodada antiga ainda na fila; no main nada e cancelado.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 permissions: {contents: read}
 jobs:
   nos:
