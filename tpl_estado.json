@@ -327,25 +327,25 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_3.py",
    "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PROVADO (6/6). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_sintaxe_v2.py",
    "sha256": "f7445f82bc0be9519af41a74511bf59a54c036d68a06735b29703826d47aa554",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PASSOU (10/10). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/acervo_tpl_v0_2.py",
    "sha256": "9a28a24bca50542fc466cbfaa68e20988d6563f3113081dfae9855a8a897f5dc",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PROVADO (10/10). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
@@ -527,9 +527,9 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/legado.yml",
    "sha256": "078eca59317dc8efe3630aad76fcb05b3f961beec1900f8a72c8ee3be7342ba7",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): workflow executado com sucesso nos 6 nos. Registro anterior: 02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
   }
  ],
  "pendentes": [
