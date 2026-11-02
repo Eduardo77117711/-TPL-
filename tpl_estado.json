@@ -134,10 +134,10 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl-monitor-3h.yml",
-   "sha256": "4fa832f773a20aadd721839f777e9c822f5134ab8787951f1cbc9e133f82d66c",
-   "estado": "VERIFICADO",
-   "executor": "GitHub Actions run 41399182558 (Acompanhamento TPL a cada 3 horas, commit dc5f7bc)",
-   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   "sha256": "04ce4c116030d7a37c54323cea2913ec95583841a19487b5f3a02a1bf395b852",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: o merge do PR #19 (commit 261f53b) mudou 1 linha deste workflow; sha256 atualizado para os bytes da main (884e3b3), recalculado pelo Claude (Arbitro 2). A versao nova nao tem executor independente vinculado: MENCIONADO. Registro anterior: sha256 4fa832f773a20aadd721839f777e9c822f5134ab8787951f1cbc9e133f82d66c, VERIFICADO pela GitHub Actions run 41399182558 (commit dc5f7bc). 02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
    "repositorio": "-TPL-",
@@ -327,25 +327,25 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_3.py",
    "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PROVADO (6/6). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "tpl_sintaxe_v2.py",
    "sha256": "f7445f82bc0be9519af41a74511bf59a54c036d68a06735b29703826d47aa554",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PASSOU (10/10). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": "acervo/acervo_tpl_v0_2.py",
    "sha256": "9a28a24bca50542fc466cbfaa68e20988d6563f3113081dfae9855a8a897f5dc",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PROVADO (10/10). Registro anterior: 31/10/2026: versao nova cujo autoteste fecha os arquivos que grava (portabilidade PyPy); a versao anterior segue selada"
   },
   {
    "repositorio": "-TPL-",
@@ -527,9 +527,25 @@
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/legado.yml",
    "sha256": "078eca59317dc8efe3630aad76fcb05b3f961beec1900f8a72c8ee3be7342ba7",
-   "estado": "NAO EXECUTADO",
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41435418003 (legado, pull_request, commit 45bc548: Python 3.11/3.13 x Ubuntu/Windows/macOS; arquivos identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): workflow executado com sucesso nos 6 nos. Registro anterior: 02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "MAPA_OPERACIONAL_TPL.md",
+   "sha256": "0e63eaf66f6155c9fa1bbcc4747df1a503e0b3a5a806a434be183952fdb251c4",
+   "estado": "MENCIONADO",
    "executor": "",
-   "evidencia": "02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
+   "evidencia": "02/11/2026: documento entrou na main pelo merge do PR #17 (commit 427517e, feito pela vigia automatica Claude/Arbitro 2 com checks verdes de 30/10, anteriores a regra P0 atual) sem entrada no estado (P0 fora_do_estado 1). Entrada acrescentada sem alterar o arquivo; sha256 recalculado dos bytes da main 427517e. Texto; conteudo e declaracao, nao verificacao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/scripts/tpl_monitor_atualizado.py",
+   "sha256": "5f599347b1cf21714d23dcaaf424ceef211f5fae2db30a815aaa403a1122c33a",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: script entrou na main pelo merge do PR #19 (commit 261f53b, feito pela vigia automatica Claude/Arbitro 2 com checks verdes de 30/10, anteriores a regra P0 atual) sem entrada no estado (P0 fora_do_estado 1). Entrada acrescentada sem alterar o arquivo; sha256 recalculado dos bytes da main 427517e. Sem executor independente vinculado a esta versao"
   }
  ],
  "pendentes": [
