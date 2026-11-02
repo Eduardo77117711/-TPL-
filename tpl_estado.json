@@ -522,6 +522,14 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "02/11/2026: documento de continuidade v15 criado pelo ChatGPT no PR #36 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada por Claude (Arbitro 2) sem alterar o arquivo. O pin v15 citado (5c9e0e68...) foi recalculado por Claude em 2 maquinas (registro no Drive), sem executor independente ainda"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/legado.yml",
+   "sha256": "078eca59317dc8efe3630aad76fcb05b3f961beec1900f8a72c8ee3be7342ba7",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "02/11/2026: workflow novo (Claude, Arbitro 2) que executa tpl_lacunas_v0_3, tpl_sintaxe_v2 e acervo_tpl_v0_2 com pin; aguarda a primeira execucao"
   }
  ],
  "pendentes": [
