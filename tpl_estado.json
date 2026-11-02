@@ -487,17 +487,17 @@
    "repositorio": "-TPL-",
    "arquivo": "tpl_torre_malha.py",
    "sha256": "a0dd706b0a9479e5b70b346833d83a8fb9599368de63cee1d7a1e17bfe68823d",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "01/11/2026: torre fora do dominio coprimo; 42/42 conferencias no autor (Python 3.13.18), sha256_resumo=a9d70359ab59bdb130dcc5c7b4c004327b1c100ae1ba1e49d36109c128d8fe86; verificacao independente = malha256"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418082 (torre256, tentativa 3, commit dc5f7bc; tpl_torre_malha.py e torre256.yml identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): pin + ESTADO: PROVADO (42/42) em todos os nos com interpretador; juiz-torre256 verde. Registro anterior: 01/11/2026: torre fora do dominio coprimo; 42/42 conferencias no autor (Python 3.13.18), sha256_resumo=a9d70359ab59bdb130dcc5c7b4c004327b1c100ae1ba1e49d36109c128d8fe86; verificacao independente = malha256"
   },
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/torre256.yml",
    "sha256": "01d1bdb65ea57752e210e00ff1cbe117618839c9a0869f0a3d6df49c24185f32",
-   "estado": "NAO EXECUTADO",
-   "executor": "",
-   "evidencia": "01/11/2026: renomeado de malha256.yml para nao colidir com o PR #25; mesmo conteudo, so nomes trocados; aguarda execucao"
+   "estado": "VERIFICADO",
+   "executor": "GitHub Actions run 41349418082 (torre256, tentativa 3, commit dc5f7bc; tpl_torre_malha.py e torre256.yml identicos aos de main)",
+   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2): workflow executado com sucesso (tentativa 3; a falha anterior foi timeout de upload de artefato no no 3.15 macos-15-intel). Registro anterior: 01/11/2026: renomeado de malha256.yml para nao colidir com o PR #25; mesmo conteudo, so nomes trocados; aguarda execucao"
   },
   {
    "repositorio": "-TPL-",
