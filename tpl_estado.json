@@ -514,6 +514,14 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "01/11/2026: registro acrescentado no commit 7bf9146 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada sem alterar o arquivo"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_CONTINUIDADE_V15.md",
+   "sha256": "294f00d5497ca1a9649eec8a6e52cc046c8a1a4704189c40be5ef0feeb7e0e2f",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: documento de continuidade v15 criado pelo ChatGPT no PR #36 sem entrada no estado (P0: FALHA, fora_do_estado 1); entrada acrescentada por Claude (Arbitro 2) sem alterar o arquivo. O pin v15 citado (5c9e0e68...) foi recalculado por Claude em 2 maquinas (registro no Drive), sem executor independente ainda"
   }
  ],
  "pendentes": [
