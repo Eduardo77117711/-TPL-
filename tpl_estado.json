@@ -546,6 +546,22 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "02/11/2026: script entrou na main pelo merge do PR #19 (commit 261f53b, feito pela vigia automatica Claude/Arbitro 2 com checks verdes de 30/10, anteriores a regra P0 atual) sem entrada no estado (P0 fora_do_estado 1). Entrada acrescentada sem alterar o arquivo; sha256 recalculado dos bytes da main 427517e. Sem executor independente vinculado a esta versao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "ghz8_mermin.py",
+   "sha256": "5300c851f8ff18542e2dc5babe1f037ec5424702fac6150ca0e10044c5aa5c1e",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: simulacao GHZ-8/Mermin publicada pelo ChatGPT no PR #29 sem entrada no estado (juiz-auto: P0 FALHA, fora_do_estado 2). Entrada acrescentada pela vigia automatica (Claude, Arbitro 2) sem alterar o arquivo. sha256 recalculado dos bytes da branch = 5300c851f8ff18542e2dc5babe1f037ec5424702fac6150ca0e10044c5aa5c1e. Confere com o hash do registro (...ca0e1...); o corpo do PR traz ...cae0e1... (digito a mais), que nao confere. Execucao do autor (128 termos, 128.0 vs limite 16) e declaracao, nao verificacao independente; simulacao matematica, nao hardware quantico"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "experimentos/ghz8/registro_2026-10-31.md",
+   "sha256": "e4204e340d90c4e7306c5e2ee000fcae1aeadacb4c8bd3a7204d168f7125483e",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "02/11/2026: registro textual do GHZ-8 (ChatGPT, PR #29) sem entrada no estado (P0 fora_do_estado). Entrada acrescentada pela vigia automatica (Claude, Arbitro 2) sem alterar o arquivo. Texto; o resultado experimental original do usuario permanece declaracao"
   }
  ],
  "pendentes": [
