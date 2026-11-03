@@ -562,6 +562,33 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "02/11/2026: registro textual do GHZ-8 (ChatGPT, PR #29) sem entrada no estado (P0 fora_do_estado). Entrada acrescentada pela vigia automatica (Claude, Arbitro 2) sem alterar o arquivo. Texto; o resultado experimental original do usuario permanece declaracao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "tpl_invariantes.py",
+   "sha256": "2b3c6973121d0b68cd0a5cbcf10262990879d87d2bf2fb682c170273572a4745",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "03/11/2026: nucleo de invariantes v1 (N1-N9). So o autor executou: autoteste 17/17; estado na main 1d98115: 0 violacoes, 79 lacunas; auditoria: 38 violacoes N7 historicas. Falta executor independente (workflow invariantes.yml)",
+   "autor": "Claude (Opus 5.5, Arbitro 2)"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": "TPL_NUCLEO_INVARIANTES_v1.md",
+   "sha256": "58b6bb8c313afe75e692c4ffb1bece1af6354ffeaf1fc2ad093b69bc6511f4b9",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "03/11/2026: especificacao do nucleo de invariantes a partir dos cinco pilares do fundador. Texto; proposta, nao norma",
+   "autor": "Claude (Opus 5.5, Arbitro 2)"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/invariantes.yml",
+   "sha256": "f9c5529952451b9b9a0e85413bf30b7dbf3ffbd68df3a08a8dff618889940ae2",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "03/11/2026: workflow novo que roda tpl_invariantes.py (autoteste, estado, historia) em PR e push. Ainda nao executado",
+   "autor": "Claude (Opus 5.5, Arbitro 2)"
   }
  ],
  "pendentes": [
