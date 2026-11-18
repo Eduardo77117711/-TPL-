@@ -136,7 +136,8 @@ jobs:
   juiz:
     name: juiz128
     needs: nos
-    if: always()
+    # !cancelled(): roda se algum no falhar (acusa malha incompleta), mas nao quando a rodada foi cancelada por commit novo (concurrency)
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4

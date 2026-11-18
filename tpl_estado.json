@@ -454,7 +454,7 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha32.yml",
-   "sha256": "ad4061c668bbcd8e2699695b63245299b3d8d16b47a4e8f7d6901d02533992d9",
+   "sha256": "db45c48f481215c38604683cfa5ace145e692c45013dbd063b627d8236a00a1e",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
@@ -462,7 +462,7 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha64.yml",
-   "sha256": "b33bc9e7131ec7b0e72ddbac2c2dd88e71e8206a492d8387e63fc5ea82d43f1a",
+   "sha256": "fff4d03f415bc64c83a8978098805b647f344f008f58f70a921bbef9fad3d834",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
@@ -478,7 +478,7 @@
   {
    "repositorio": "-TPL-",
    "arquivo": ".github/workflows/malha128.yml",
-   "sha256": "ade3d90236f13cbe2ae6d61f9dce1a30bb801cf0c9d3ccc37913486f385e479c",
+   "sha256": "b586f6627abd722b32c5be7eb7844d45768fd63e8fdcd87dfd1a2c72fabb3fe0",
    "estado": "NAO EXECUTADO",
    "executor": "",
    "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
