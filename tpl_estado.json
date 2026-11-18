@@ -562,6 +562,14 @@
    "estado": "MENCIONADO",
    "executor": "",
    "evidencia": "02/11/2026: registro textual do GHZ-8 (ChatGPT, PR #29) sem entrada no estado (P0 fora_do_estado). Entrada acrescentada pela vigia automatica (Claude, Arbitro 2) sem alterar o arquivo. Texto; o resultado experimental original do usuario permanece declaracao"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/copilot-instructions.md",
+   "sha256": "aa9ad93a14598c8c22b7a59178eaef4b4177e1bba919d5b642871347c3e881e6",
+   "estado": "MENCIONADO",
+   "executor": "",
+   "evidencia": "18/11/2026: instrucoes de onboarding do GitHub Copilot publicadas no PR #35 (commit d73bec9) sem entrada no estado (juiz-auto run 41366648958: P0 FALHA, fora_do_estado 1). Entrada acrescentada pela vigia automatica (Claude, Arbitro 2) sem alterar o arquivo; main mesclada na branch antes (sem conflito). sha256 recalculado dos bytes da branch. Documento de instrucoes; nada executado; sem executor independente"
   }
  ],
  "pendentes": [
