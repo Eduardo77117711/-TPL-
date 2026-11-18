@@ -1,0 +1,124 @@
+{
+  "date_local": "2026-10-31",
+  "e1": {
+    "algorithm": "SHA-256",
+    "external_anchor_intended": "GitHub commit containing this payload and its detached checksum sidecar.",
+    "scope": "Exact UTF-8 bytes of this JSON payload, canonicalized as sorted keys, 2-space indentation, UTF-8, no ASCII escaping, one trailing newline."
+  },
+  "evidence_classification": {
+    "declared_by_user": [
+      "The earlier tower-height results through k=512 were reported as measured/derived in the user's record.",
+      "The requested research baseline couples the T_0 record with the H_0 null-model record."
+    ],
+    "mathematically_established": [
+      "512^0=1 for nonzero base 512.",
+      "T_0=1, T_1=512, and symbolic T_2=512^512 under the declared tower convention.",
+      "The five k=512 minimum heights are obtained by the stated master formula and recorded valuation parameters."
+    ],
+    "not_established": [
+      "No fifth-force detection.",
+      "No independent experimental confirmation of Phi_Omega.",
+      "No computational evaluation of a 512-level tower."
+    ]
+  },
+  "fifth_interaction_null_model": {
+    "hypothesis": "alpha_5 = 0",
+    "interpretation": "This is the null/reference model with no Yukawa correction in the stated parameterization.",
+    "label": "H0",
+    "logical_separation": "T_0=1 is an arithmetic tower initial condition. H_0 is a physical-model null hypothesis. They are recorded together for audit continuity but no mathematical implication from T_0 to H_0 is asserted.",
+    "potential_model": "V(r)=-(G*m1*m2/r)*(1+alpha_5*exp(-r/lambda_5))",
+    "reduced_potential": "V_0(r)=-G*m1*m2/r"
+  },
+  "lte_scope": {
+    "base_512_exclusion": "b=512 is even and is outside that LTE domain. The identity 512^0=1 and the tower base-case definition remain valid independently of LTE.",
+    "definitions": {
+      "alpha": "v_5(d(1))",
+      "beta": "v_2(d(1))",
+      "c2": "v_2(b^2-1)-1",
+      "c5": "v_5(b^4-1)"
+    },
+    "domain": "The stated LTE derivation applies to odd b with 5 not dividing b.",
+    "formula": "h_min(k)=1+max(0,ceil((k-alpha)/c5),ceil((k-beta)/c2))",
+    "k_zero_boundary": {
+      "important_correction": "The earlier shorthand forms max(2,k) for base 9, max(2,k-1) for base 11, and max(2,k) for base 13 must not be extrapolated to k=0; the master formula governs the boundary. This does not change any listed k=512 result.",
+      "reason": "For nonnegative valuations alpha and beta and positive c5,c2, both ceiling terms are <= 0 at k=0, so the maximum is 0.",
+      "result_from_master_formula": 1
+    },
+    "precision_target_k": 512,
+    "results_by_odd_base": [
+      {
+        "alpha": 0,
+        "base": 3,
+        "beta": 3,
+        "c2": 2,
+        "c5": 1,
+        "h_min_k512": 513
+      },
+      {
+        "alpha": 0,
+        "base": 7,
+        "beta": 4,
+        "c2": 3,
+        "c5": 2,
+        "h_min_k512": 257
+      },
+      {
+        "alpha": 1,
+        "base": 9,
+        "beta": 6,
+        "c2": 3,
+        "c5": 1,
+        "h_min_k512": 512
+      },
+      {
+        "alpha": 2,
+        "base": 11,
+        "beta": 3,
+        "c2": 2,
+        "c5": 1,
+        "h_min_k512": 511
+      },
+      {
+        "alpha": 1,
+        "base": 13,
+        "beta": 4,
+        "c2": 2,
+        "c5": 1,
+        "h_min_k512": 512
+      }
+    ]
+  },
+  "project": "TPL / Plano Piloto",
+  "provenance": {
+    "note": "A atribuição editorial não é assinatura criptográfica nem prova de identidade.",
+    "research_direction_and_user_declarations": "Usuário (Eduardo)",
+    "technical_organization_and_recording": "ChatGPT (GPT-6)"
+  },
+  "record_id": "TPL-5F-H0-512",
+  "schema": "TPL-5F-H0-512-E1-v1",
+  "scope": {
+    "not_a_claim": [
+      "Não demonstra a existência de uma quinta força.",
+      "Não demonstra a inexistência de uma quinta força.",
+      "Não executa uma torre de 512 andares.",
+      "Não aplica LTE à base 512."
+    ],
+    "purpose": "Fixar o caso-base aritmético da torre e registrar separadamente a hipótese nula da interação adicional no programa de investigação TPL-5F."
+  },
+  "status": "ARITHMETIC_BASE_CASE_RECORDED; PHYSICAL_HYPOTHESIS_NOT_CONFIRMED",
+  "tower_base_case": {
+    "base_b": 512,
+    "classification": "ARITHMETICALLY_ESTABLISHED; T_2 and d(1) retained symbolically, not expanded computationally.",
+    "exponent": 0,
+    "first_difference": "d(1) := T_2 - T_1 = 512^512 - 512",
+    "general_base_identity": "For b != 0: T_0=1, T_1=b, T_2=b^b, hence d(1)=b^b-b.",
+    "identity": "b^0 = 1",
+    "next_levels": {
+      "T_1": "512^T_0 = 512^1 = 512",
+      "T_2": "512^T_1 = 512^512"
+    },
+    "premise": "b != 0",
+    "tower_convention": "T_0 := 1",
+    "value": 1
+  }
+}

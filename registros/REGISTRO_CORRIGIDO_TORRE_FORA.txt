@@ -1,0 +1,42 @@
+REGISTRO CORRIGIDO — TORRE FORA DO DOMÍNIO COPRIMO
+Data: 01/11/2026. Gerado e publicado por Claude (Árbitro 2) no repositório -TPL-.
+Este arquivo substitui os compromissos 2e51e3d8…, 6bfc8a88… e 541abb7e…, cujos
+arquivos nunca foram entregues para conferência. O SHA-256 válido é o deste
+arquivo, calculável por qualquer um a partir dos bytes publicados.
+Código que mede tudo abaixo: tpl_torre_malha.py (42/42), malha torre256.
+
+1. LTE
+Para b ímpar e n par:
+  v2(b^n − 1) = v2(b^2 − 1) + v2(n) − 1
+  v2(b^n + 1) = 1   (pois b^n ≡ 1 mod 4, logo b^n + 1 ≡ 2 mod 4)
+Os V medidos vêm de: lado 5 vivo → v5 de (b−1), (b+1) ou (b²+1);
+lado 2 vivo → v2(b² − 1) − 1.
+
+2. Múltiplos de 10
+c0 = min(v2(b), v5(b)), T(0) = 1:
+  H(b,k) = min{ h : c0 · T(h−1) ≥ k }
+  k ≤ c0             → H = 1
+  c0 < k ≤ c0·b      → H = 2
+  c0·b < k ≤ c0·b^b  → H = 3
+Ex.: b=80 → k=1: H=1; k=30: H=2; k=10^100: H=3.
+     b=50 → k=1: H=1; k=2..50: H=2; k=51: H=3.
+
+3. Overflow
+"h ≥ 5 garante overflow" vale só para k pequeno (medido até k=160).
+Para k geral, o overflow exige T(h−1) ≥ φ(5^k) = 4·5^(k−1);
+com k = 6·10^21, na base 2, isso só ocorre perto de h = 7.
+O valor de H não muda.
+
+4. Retas s(h) = V·h + c (conferidas até k=160)
+  182 (4,−8) desde h=2    624 (4,−4) desde h=1    4374 (4,−4) desde h=1
+  3126 (5,5) desde h=2    65535 (16,1) desde h=2  255 (8,1) desde h=2
+  1024 (2,−2) desde h=1   1048576 (2,2) desde h=1 9765625 (3,3) desde h=1
+  18 (2,−4) desde h=2     15 (4,1) desde h=2      25 (3,3) desde h=2
+  2 (1,−2) desde h=2      5 (2,2) desde h=3
+  H(b,k) = ⌈(k − c)/V⌉, válido a partir do início da reta.
+
+5. 20480
+  20480^(10^100): exatamente 10^100 zeros finais;
+  primeiros 12 algarismos 298739390818.
+  Tetração: H(20480, 10^100) = 3
+  (T(2) tem 20480 zeros; T(3) tem T(2) ≈ 10^88296 zeros).
