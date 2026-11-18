@@ -1,4 +1,21 @@
-Copyright (C) 2026 Carlos Eduardo Acevedo Rodrigues
+# Carlos Eduardo Acevedo Rodriguez
+
+Pesquisa independente em verificação auditável de respostas de inteligência artificial.
+
+## TPL
+Protocolo em que várias IAs independentes executam o mesmo verificador, e a verdade
+é o que permanece igual entre elas — conferida por código executado e selada com SHA-256,
+não pela palavra de ninguém.
+
+- Gabaritos selados antes das respostas (SHA-256 com nonce)
+- Execuções reproduzíveis em várias linguagens e modelos
+- Registro de proveniência de cada resultado
+
+Em desenvolvimento. O código será aberto quando estiver pronto para auditoria pública.
+
+Licença prevista: AGPL-3.0.
+
+> O que permanece quando tudo muda.Copyright (C) 2026 Carlos Eduardo Acevedo Rodrigues
 
 # TPL
 
