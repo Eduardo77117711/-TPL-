@@ -1,0 +1,19 @@
+name: linguagens
+# v1 (31/10/2026): o tpl_curto em 9 linguagens (Python, C, C++, Rust, Go, JavaScript, Java, PHP, Ruby).
+# Cada linguagem calcula a medida e o SHA-256 sozinha; o juiz so fica verde se todas reproduzirem
+# resultado_sha256: f68601e2c3d8920f49fffff21d871939aad6094c335aabe217a873d78b272260.
+# C e Rust usam uma implementacao propria de SHA-256 (sem biblioteca), testada contra o sha256sum.
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  juiz-linguagens:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: versoes das ferramentas
+        run: |
+          python3 --version; gcc --version | head -1; g++ --version | head -1; rustc --version
+          go version; node --version; java -version 2>&1 | head -1; php --version | head -1; ruby --version
+      - name: tpl_curto em 9 linguagens
+        working-directory: linguagens
+        run: bash rodar.sh | tee -a "$GITHUB_STEP_SUMMARY"
