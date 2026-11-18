@@ -1,0 +1,26 @@
+name: invariantes
+# Nucleo de invariantes do TPL (TPL_NUCLEO_INVARIANTES_v1.md), medido por executor
+# diferente do autor (R2). N7: em PR compara a base com o novo; em push, o antes com o depois.
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions: {contents: read}
+jobs:
+  invariantes:
+    runs-on: ubuntu-24.04
+    env: {PYTHONUTF8: "1"}
+    steps:
+      - uses: actions/checkout@v5
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.12"}
+      - name: N9 autoteste
+        run: python -I tpl_invariantes.py autoteste
+      - name: N1-N6 estado
+        run: python -I tpl_invariantes.py estado . | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: N7 historia
+        run: |
+          set -o pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then B="${{ github.event.pull_request.base.sha }}"; else B="${{ github.event.before }}"; fi
+          python -I tpl_invariantes.py historia . "$B" "$(git rev-parse HEAD)" | tee -a "$GITHUB_STEP_SUMMARY"
