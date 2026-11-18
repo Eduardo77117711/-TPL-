@@ -1,5 +1,14 @@
 name: verificar
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+# Uma rodada por commit: em PR roda so pelo evento pull_request (antes rodava duas vezes, push + pull_request).
+# Commit novo no mesmo PR cancela a rodada antiga ainda na fila; no main nada e cancelado.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   nos:
     name: no (${{ matrix.python }}, ${{ matrix.arch }}, ${{ matrix.os }})

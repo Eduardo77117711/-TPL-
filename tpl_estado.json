@@ -117,22 +117,6 @@
   },
   {
    "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha32.yml",
-   "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
-   "estado": "VERIFICADO",
-   "executor": "GitHub Actions run 41349418081 (malha32, commit dc5f7bc)",
-   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha64.yml",
-   "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
-   "estado": "VERIFICADO",
-   "executor": "GitHub Actions run 41349418057 (malha64, commit dc5f7bc)",
-   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
    "arquivo": ".github/workflows/tpl-monitor-3h.yml",
    "sha256": "04ce4c116030d7a37c54323cea2913ec95583841a19487b5f3a02a1bf395b852",
    "estado": "MENCIONADO",
@@ -145,14 +129,6 @@
    "sha256": "28760dc869b1bb12101b11f65d4c2c1c77637157476fe06587d3ca534c80cdd5",
    "estado": "VERIFICADO",
    "executor": "GitHub Actions run 41427021294 (TPL medir+comparar, commit b390026)",
-   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
-  },
-  {
-   "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/verificar.yml",
-   "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
-   "estado": "VERIFICADO",
-   "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
    "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
   },
   {
@@ -317,14 +293,6 @@
   },
   {
    "repositorio": "-TPL-",
-   "arquivo": ".github/workflows/malha128.yml",
-   "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
-   "estado": "VERIFICADO",
-   "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
-   "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
-  },
-  {
-   "repositorio": "-TPL-",
    "arquivo": "tpl_lacunas_v0_3.py",
    "sha256": "dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf",
    "estado": "VERIFICADO",
@@ -482,6 +450,38 @@
    "estado": "VERIFICADO",
    "executor": "Claude (Opus 5.5), reproducao local Python 3.13.18",
    "evidencia": "01/11/2026: saida sha256_tabela=a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9 confere com o valor selado na malha (sympy 1.14.0)"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha32.yml",
+   "sha256": "db45c48f481215c38604683cfa5ace145e692c45013dbd063b627d8236a00a1e",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha64.yml",
+   "sha256": "fff4d03f415bc64c83a8978098805b647f344f008f58f70a921bbef9fad3d834",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/verificar.yml",
+   "sha256": "e103d5eb045f325cb71df45db96f33a1a3b19177187f9c00e6f8febb867b5acb",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
+  },
+  {
+   "repositorio": "-TPL-",
+   "arquivo": ".github/workflows/malha128.yml",
+   "sha256": "b586f6627abd722b32c5be7eb7844d45768fd63e8fdcd87dfd1a2c72fabb3fe0",
+   "estado": "NAO EXECUTADO",
+   "executor": "",
+   "evidencia": "01/11/2026: novo pin apos PR #34 (gatilhos: push so no main, pull_request, workflow_dispatch, concurrency); registro anterior preservado em registro_pr34"
   },
   {
    "repositorio": "-TPL-",
@@ -759,6 +759,78 @@
     "estado": "CORRIGIDO_CI_PENDENTE",
     "executor": "ChatGPT (GPT-6), execução local das duas suítes com python -I",
     "evidencia": "A primeira versão do workflow usava python -I diretamente no script e falhava ao importar módulos irmãos. A correção mantém o modo isolado e insere explicitamente o diretório do projeto via sys.path antes de runpy.run_path. Reprodução local: P3 23/23 PASS e P4 12/12 PASS. Nova execução GitHub Actions ainda pendente; o registro anterior do workflow foi preservado."
+   }
+  ]
+ },
+ "registro_pr34": {
+  "nota": "Registros anteriores ao PR #34, preservados sem alteracao (os arquivos mudaram de gatilho).",
+  "entradas": [
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha32.yml",
+    "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha64.yml",
+    "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/verificar.yml",
+    "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha128.yml",
+    "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
+    "estado": "NAO EXECUTADO",
+    "executor": "",
+    "evidencia": "malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
+   }
+  ],
+  "nota_merge_main_20261118": "Entradas do main (promovidas a VERIFICADO em 02/11/2026) referentes aos arquivos anteriores ao PR #34; preservadas sem alteracao. O pin atual de cada arquivo fica em artefatos.",
+  "entradas_promovidas_no_main": [
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha32.yml",
+    "sha256": "c92887cd99578e715b79c36cc1873ba8e1bb8c70a9da95f614439d13cb8bf8a4",
+    "estado": "VERIFICADO",
+    "executor": "GitHub Actions run 41349418081 (malha32, commit dc5f7bc)",
+    "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha64.yml",
+    "sha256": "e13999ea6561f8ca5ff14ff664119c532aff0f80b722bd2cd65d21ebe67e88d7",
+    "estado": "VERIFICADO",
+    "executor": "GitHub Actions run 41349418057 (malha64, commit dc5f7bc)",
+    "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/verificar.yml",
+    "sha256": "98611763ab2be4ff8b9ce1c1aa7ce1fd961924c672ea7a1e760e628b7b8178bd",
+    "estado": "VERIFICADO",
+    "executor": "GitHub Actions run 41427021282 (verificar, 16 nos, commit b390026)",
+    "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: registrado para o P0 em 31/10/2026 (identidade por sha256); verificacao por executor independente ainda nao vinculada a este registro"
+   },
+   {
+    "repositorio": "-TPL-",
+    "arquivo": ".github/workflows/malha128.yml",
+    "sha256": "cb09e19674bc69030a4b9b2a892eecedf12cc33c7ff77b019bbb13b1292dbe82",
+    "estado": "VERIFICADO",
+    "executor": "GitHub Actions run 41349418176 (malha128, 124 nos, commit dc5f7bc; arquivos identicos aos de main b390026)",
+    "evidencia": "02/11/2026: promovido de NAO EXECUTADO a VERIFICADO pelo Claude (Arbitro 2) ao vincular execucao independente ja existente: workflow executado com sucesso. Registro anterior: malha128 v4 (31/10/2026): 124 nos; gabarito v4 selado no Drive antes da execucao"
    }
   ]
  }
