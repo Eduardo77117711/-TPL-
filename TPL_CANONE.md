@@ -32,6 +32,7 @@ Dois conjuntos, porque medem objetos diferentes. Nenhum outro estado é válido.
 - R4. Nenhuma versão herda o estado da anterior.
 - R5. Erro de qualquer participante (fundador, modelo, Árbitro) é registrado e corrigido, não escondido.
 - R6. A verdade não julga e não pesa: é uma régua que mede o que passa.
+- R7. Um check verde comprova somente os checks efetivamente executados para o commit, o ambiente e o escopo identificados; não fecha automaticamente achados, riscos ou critérios que não foram testados. Um achado só pode ser declarado fechado quando seu critério de fechamento estiver explícito e uma execução reproduzível demonstrar seu atendimento. Para achados de código, registrar o caso de falha, a correção e o teste de regressão correspondente. Sem essa evidência, não declarar o fechamento.
 
 ## 3. Formato de resposta (todo modelo, toda sessão)
 
