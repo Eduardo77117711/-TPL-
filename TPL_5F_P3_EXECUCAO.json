@@ -1,0 +1,108 @@
+{
+  "E1": {
+    "claude_independent_reproduction": {
+      "raw_claude_artifact_inspected_in_this_session": false,
+      "sha256_tabela": "a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9",
+      "status": "DECLARADO PELO USUARIO"
+    },
+    "local_reproduction": {
+      "executor": "ChatGPT (GPT-6), current session container",
+      "python_version": "3.13.5",
+      "result": "MATCH — sha256_tabela reproduced exactly",
+      "scope": "One local execution of tpl_phi_omega_portal.py; not the 124-node malha128 run."
+    },
+    "malha128_124_nodes": {
+      "nodes": 124,
+      "raw_workflow_log_inspected_in_this_session": false,
+      "sha256_tabela": "a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9",
+      "status": "MEDIDO — DECLARADO PELO USUARIO"
+    },
+    "portal_output_label": "sha256_tabela",
+    "portal_output_sha256": "a534eb69febcbe2f1243c6ebea177dd2dbfc4b96c88b162ff83f39149e9dc8e9",
+    "portal_source_sha256": "4972d64d0187b9c2092b79ce9019332a5d517f4affdd3ba09c252ced0a51dd68",
+    "source_provenance": "Exact portal script content retrieved from repository main; local file SHA-256 matches the prior full SHA-256 in tpl_estado.json."
+  },
+  "P3_model": {
+    "consumed_from_P1_P2": "P2's new-state Higgs fraction is consumed as sin(theta)^2; P3 adapter returns |sin(theta)| without repeating P2 diagonalization.",
+    "execution_status": "18/18 PASS in current session",
+    "gravity_normalized_strength": "alpha_5 = hbar*c*Q_A*Q_B/(4*pi*G*m_A*m_B)",
+    "implementation": "tpl_5f_p3.py",
+    "implementation_sha256": "d74ef5ba60da20933211c6104bdec4e21b47739b6528c9caba13681ba90ebaec",
+    "interpretive_corrections": [
+      "At 30 GeV and 50 GeV the ranges are 6.58e-18 m and 3.95e-18 m, respectively; therefore the statement '<1e-18 m for all 30–500 GeV' is not correct. The 200 GeV and 500 GeV examples are below 1e-18 m.",
+      "All four collider-band ranges are far shorter than a proton's characteristic size, but range alone does not prove that only collider observables can constrain the model.",
+      "The 10 eV–10 MeV scan spans about 20 nm down to 20 fm. That full band must not be described as uniformly accessible to tabletop force experiments; sensitivity depends on coupling, source composition, geometry, backgrounds and other constraints."
+    ],
+    "potential_SI": "V_5(r) = -hbar*c*Q_A*Q_B/(4*pi*r)*exp(-r/lambda_5)",
+    "radial_force_SI": "F_r = -hbar*c*Q_A*Q_B/(4*pi)*exp(-r/lambda_5)*(1/r^2 + 1/(lambda_5*r)); negative is inward/attractive for Q_A*Q_B>0",
+    "range": "lambda_5 = hbar/(m_S*c)",
+    "reference_ranges": {
+      "collider_band_30_to_500_GeV": [
+        {
+          "mass_GeV": 30.0,
+          "range_m": 6.577566011279882e-18
+        },
+        {
+          "mass_GeV": 50.0,
+          "range_m": 3.946539606767929e-18
+        },
+        {
+          "mass_GeV": 200.0,
+          "range_m": 9.866349016919823e-19
+        },
+        {
+          "mass_GeV": 500.0,
+          "range_m": 3.946539606767929e-19
+        }
+      ],
+      "low_mass_exploratory_band_10_eV_to_10_MeV": [
+        {
+          "mass_eV": 10.0,
+          "range_m": 1.9732698033839646e-08
+        },
+        {
+          "mass_eV": 10000000.0,
+          "range_m": 1.9732698033839645e-14
+        }
+      ]
+    },
+    "scope_limits": [
+      "Pointlike tree-level fermion charges only.",
+      "Macroscopic composite charges require nucleon scalar matrix elements, nuclear binding/composition and electron contributions.",
+      "Screening/nonlinear environmental response is not implemented.",
+      "A parameter scan is not an experimental exclusion or discovery."
+    ],
+    "tests": "test_tpl_5f_p3.py",
+    "tests_failed": 0,
+    "tests_passed": 18,
+    "tests_run": 18,
+    "tests_sha256": "2b1df9d3556d00f22637f1865af0d7743b6b9e8210c375a1ded622bcb91906ad",
+    "tree_level_point_fermion_coupling": "g_Sf = sin(theta) * m_f / v"
+  },
+  "P4_source_policy": {
+    "JUNO_claim": "EXCLUDED_PENDING_PRIMARY_SOURCE_AND_EXACT_INTERPRETATION",
+    "calcium_isotope_claim": "EXCLUDED_PENDING_PRIMARY_SOURCE_AND_EXACT_INTERPRETATION",
+    "no_external_bounds_promoted": true
+  },
+  "date_local": "2026-10-31",
+  "preservation": {
+    "old_tpl_estado_entries_deleted": false,
+    "old_tpl_estado_portal_status": "NAO EXECUTADO (historical entry retained unchanged)",
+    "update_policy": "Append a dated execution event and new artifact entries; retain earlier entries verbatim."
+  },
+  "project": "TPL / Plano Piloto",
+  "provenance": {
+    "independent_Claude_run": "User-declared provenance; raw attestation not inspected in this session",
+    "local_portal_reproduction_and_P3_code": "ChatGPT (GPT-6)",
+    "research_direction_and_measurements_supplied": "User (Eduardo)"
+  },
+  "record_id": "TPL-5F-01-P3-20261031",
+  "stage_transition": {
+    "P1": "PRESERVED_EXISTING — potential and mass matrix already present in tpl_phi_omega_portal.py; not recomputed or modified",
+    "P2": "PRESERVED_EXISTING — diagonalization and Higgs fractions already present in tpl_phi_omega_portal.py; not recomputed or modified",
+    "P3": "IMPLEMENTED_AND_TESTED_IN_SCOPE",
+    "P4": "PENDING — no external exclusion envelope or experiment-specific likelihood included",
+    "start_at": "P3"
+  },
+  "status": "P3_IMPLEMENTED_TESTED_IN_SCOPE; P1_P2_PRESERVED; P4_PENDING; NO_FIFTH_FORCE_DETECTION_CLAIM"
+}

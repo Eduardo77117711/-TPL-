@@ -1,0 +1,78 @@
+name: torre256
+# Renomeado de malha256.yml (01/11/2026): o nome malha256 ja pertence ao PR #25 (248 nos, padrao e -X dev). Conteudo identico; so mudaram nomes de arquivo, workflow e juiz.
+# 01/11/2026 (Claude, Arbitro 2): malha dobrada de novo, 16 interpretadores x 16 plataformas = 256 combinacoes.
+# Mede so a torre fora do dominio coprimo (tpl_torre_malha.py, biblioteca padrao): os 18 casos da bateria cega
+# (compromisso ed66b166...7e8e), os 14 pares (V,c) ate k=160 e a regra dos multiplos de 10, incluindo
+# H(20480, 10^100) = 3. As malhas 32/64/128 continuam intactas.
+# Nao ha exclude: combinacao sem interpretador disponivel aparece como "sem interpretador" no juiz, separada de
+# divergencia. Roda so quando o script ou este arquivo mudam, ou por disparo manual.
+on:
+  push:
+    paths: [tpl_torre_malha.py, .github/workflows/torre256.yml]
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  nos:
+    name: no (${{ matrix.python }}, ${{ matrix.plat }})
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 256
+      matrix:
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14", "3.15", "3.13t", "3.14t", "3.15t", "pypy3.9", "pypy3.10", "pypy3.11", "graalpy-24.1", "graalpy-24.2", "graalpy-25.0"]
+        plat: [ubuntu-24.04, ubuntu-24.04-arm, ubuntu-22.04, ubuntu-22.04-arm, ubuntu-26.04, ubuntu-26.04-arm, ubuntu-slim, windows-2025, windows-2022, windows-11-arm, windows-11-vs2026-arm, macos-15, macos-15-intel, macos-26, macos-26-intel, windows-2025-vs2026]
+    runs-on: ${{ matrix.plat }}
+    env: {PYTHONUTF8: "1"}
+    defaults:
+      run: {shell: bash}
+    steps:
+      - name: sem conversao de fim de linha
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        id: py
+        continue-on-error: true
+        with:
+          python-version: ${{ matrix.python }}
+      - name: sem interpretador para esta combinacao
+        if: steps.py.outcome != 'success'
+        run: echo "SEM_INTERPRETADOR ${{ matrix.python }} ${{ matrix.plat }}" > sem_${{ matrix.python }}_${{ matrix.plat }}.txt
+      - name: pin sha256 do script
+        if: steps.py.outcome == 'success'
+        run: |
+          python -I -X utf8 -c "import hashlib,sys; h=hashlib.sha256(open('tpl_torre_malha.py','rb').read()).hexdigest(); print(h); sys.exit(h!='a0dd706b0a9479e5b70b346833d83a8fb9599368de63cee1d7a1e17bfe68823d')"
+      - name: torre fora do dominio coprimo (42 conferencias)
+        if: steps.py.outcome == 'success'
+        run: |
+          python -I -X utf8 tpl_torre_malha.py | tr -d '\r' | tee torre256_${{ matrix.python }}_${{ matrix.plat }}.txt
+          grep -x "ESTADO: PROVADO (42/42)" torre256_${{ matrix.python }}_${{ matrix.plat }}.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: "torre256-${{ matrix.python }}-${{ matrix.plat }}"
+          path: "*_${{ matrix.python }}_${{ matrix.plat }}.txt"
+          if-no-files-found: ignore
+  juiz:
+    name: juiz-torre256
+    needs: nos
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {merge-multiple: true}
+      - name: todos os nos com interpretador mediram a mesma coisa
+        run: |
+          ref=torre256_3.12_ubuntu-24.04.txt
+          n=$(ls torre256_*.txt 2>/dev/null | wc -l)
+          sem=$(ls sem_*.txt 2>/dev/null | wc -l)
+          echo "medicoes recebidas: $n / 256"
+          echo "sem interpretador:  $sem / 256"
+          cat sem_*.txt 2>/dev/null || true
+          falhou=0
+          [ -f "$ref" ] || { echo "SEM NO DE REFERENCIA"; exit 1; }
+          for f in torre256_*.txt; do diff -q "$ref" "$f" > /dev/null || { echo "DIVERGE: $f"; falhou=1; }; done
+          tail -1 "$ref"
+          faltam=$((256 - n - sem))
+          echo "sem medicao e sem motivo registrado: $faltam"
+          if [ "$falhou" -ne 0 ] || [ "$faltam" -ne 0 ]; then echo "TORRE256 DIVERGENTE OU INCOMPLETA"; exit 1; fi
+          echo "TORRE256: MESMA_MEDICAO em $n nos; $sem combinacoes sem interpretador disponivel"
