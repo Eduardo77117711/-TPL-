@@ -1,0 +1,49 @@
+name: legado
+# 02/11/2026 (Claude, Arbitro 2): executa as versoes anteriores ainda NAO EXECUTADO no tpl_estado.json,
+# para que o estado delas seja medido por executor independente (GitHub Actions), sem alterar os arquivos.
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  nos:
+    name: no (${{ matrix.python }}, ${{ matrix.plat }})
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+        plat: [ubuntu-24.04, windows-2025, macos-15]
+    runs-on: ${{ matrix.plat }}
+    env: {PYTHONUTF8: "1"}
+    defaults:
+      run: {shell: bash}
+    steps:
+      - name: sem conversao de fim de linha
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: pins
+        run: |
+          python -I -X utf8 -c "
+          import hashlib, sys
+          P = {'tpl_lacunas_v0_3.py': 'dbdb9e9e169ff41572ccf3b4149b5762ad154d74ee6c60e91e36ce84491c7aaf',
+               'tpl_sintaxe_v2.py': 'f7445f82bc0be9519af41a74511bf59a54c036d68a06735b29703826d47aa554',
+               'acervo/acervo_tpl_v0_2.py': '9a28a24bca50542fc466cbfaa68e20988d6563f3113081dfae9855a8a897f5dc'}
+          ok = True
+          for f, h in P.items():
+              m = hashlib.sha256(open(f, 'rb').read()).hexdigest()
+              print(('CONFERE ' if m == h else 'DIVERGE ') + f + ' ' + m)
+              ok = ok and m == h
+          sys.exit(0 if ok else 1)"
+      - name: tpl_lacunas_v0_3.py (6/6)
+        run: |
+          python -I -X utf8 tpl_lacunas_v0_3.py autoteste | tr -d '\r' | tee l3.txt
+          grep -x "ESTADO: PROVADO (6/6)" l3.txt
+      - name: tpl_sintaxe_v2.py (10/10)
+        run: |
+          python -I -X utf8 tpl_sintaxe_v2.py autoteste | tr -d '\r' | tee s2.txt
+          grep -F "ESTADO: PASSOU (10/10)" s2.txt
+      - name: acervo/acervo_tpl_v0_2.py (10/10)
+        run: |
+          python -I -X utf8 acervo/acervo_tpl_v0_2.py autoteste | tr -d '\r' | tee a2.txt
+          grep -x "ESTADO: PROVADO (10/10)" a2.txt
